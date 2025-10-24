@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vinh Danh Học Viên | TikTok A-Z by Kiantr</title>
-    <meta name="description" content="Nơi tôn vinh các thành tích nổi bật của học viên nội bộ TikTok A-Z by Kiantr.">
+    <title>Hall of Fame | TikTok A-Z by Kiantr</title>
+    <meta name="description" content="Không gian tôn vinh những học viên TikTok A-Z by Kiantr đã bứt phá thành tích.">
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
@@ -14,142 +14,253 @@
 
     <style>
         :root {
-            --bg-base: #1f1f28;
-            --bg-surface: #24232d;
-            --bg-surface-alt: #2d2c36;
+            --bg-base: #fdfcf7;
+            --bg-surface: #ffffff;
+            --bg-muted: #f6f1d1;
             --primary: #f5c400;
             --primary-dark: #dba702;
-            --text-primary: #f5f5f7;
-            --text-muted: rgba(245, 245, 247, 0.68);
-            --border: rgba(255, 255, 255, 0.08);
-            --shadow-md: 0 18px 40px rgba(0, 0, 0, 0.28);
+            --ink: #1d1d1f;
+            --ink-muted: rgba(29, 29, 31, 0.65);
+            --border: rgba(0, 0, 0, 0.08);
+            --shadow-sm: 0 12px 24px rgba(0, 0, 0, 0.08);
+            --shadow-md: 0 18px 38px rgba(0, 0, 0, 0.12);
+            --shadow-lg: 0 28px 70px rgba(0, 0, 0, 0.16);
         }
 
         body {
-            background: var(--bg-base);
-            color: var(--text-primary);
+            background: radial-gradient(circle at top, #fff6c7 0%, #fefefc 60%, #fdfcf7 100%);
+            color: var(--ink);
             font-family: 'Inter', 'Roboto', sans-serif;
             line-height: 1.6;
         }
 
-        a {
-            color: var(--primary);
-        }
-
-        a:hover,
-        a:focus {
-            color: var(--primary-dark);
-        }
-
         .navbar {
-            background: var(--bg-surface) !important;
+            background: rgba(255, 255, 255, 0.92) !important;
             border-bottom: 1px solid var(--border);
+            backdrop-filter: blur(12px);
         }
 
         .navbar-brand {
             display: flex;
             align-items: center;
-            gap: 0.5rem;
-            font-weight: 700;
+            gap: 0.6rem;
+            font-weight: 800;
             letter-spacing: 0.04em;
-            color: var(--text-primary) !important;
+            color: var(--ink) !important;
         }
 
         .nav-link {
-            color: var(--text-muted) !important;
-            font-weight: 500;
+            color: var(--ink-muted) !important;
+            font-weight: 600;
         }
 
+        .nav-link.active-page,
         .nav-link:hover,
-        .nav-link:focus,
-        .nav-link.active-page {
-            color: var(--primary) !important;
+        .nav-link:focus {
+            color: var(--primary-dark) !important;
         }
 
-        .main-title {
+        .hero {
+            text-align: center;
+            padding: 4.5rem 0 3.5rem;
+        }
+
+        .hero-badge {
             display: inline-flex;
             align-items: center;
-            gap: 0.6rem;
-            font-size: clamp(1.75rem, 3vw, 2.4rem);
-            font-weight: 800;
-            text-transform: uppercase;
-            color: var(--primary);
-            border-bottom: 3px solid var(--primary-dark);
-            padding-bottom: 0.4rem;
+            gap: 0.4rem;
+            background: rgba(29, 29, 31, 0.08);
+            border-radius: 999px;
+            padding: 0.4rem 1rem;
+            font-weight: 600;
         }
 
-        .lead {
-            color: var(--text-muted);
+        .hero h1 {
+            font-size: clamp(2.4rem, 5vw, 3.6rem);
+            font-weight: 800;
+            margin: 1rem 0 0.75rem;
+            color: var(--ink);
+        }
+
+        .hero p {
+            max-width: 680px;
+            margin: 0 auto;
+            color: var(--ink-muted);
+        }
+
+        .trophy-ring {
+            width: 92px;
+            height: 92px;
+            margin: 1.5rem auto 0;
+            border-radius: 50%;
+            background: linear-gradient(140deg, rgba(245, 196, 0, 0.25), rgba(29, 29, 31, 0.1));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            color: var(--primary);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .honor-grid {
+            display: grid;
+            gap: 1.8rem;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
         }
 
         .honor-card {
-            background: var(--bg-surface);
-            border: 1px solid var(--border);
-            border-radius: 20px;
+            position: relative;
+            padding: 2.1rem 1.8rem;
+            border-radius: 26px;
+            background: linear-gradient(160deg, rgba(255, 255, 255, 0.96), rgba(255, 250, 213, 0.92));
+            border: 1px solid rgba(245, 196, 0, 0.35);
             box-shadow: var(--shadow-md);
             overflow: hidden;
         }
 
-        .honor-card .card-header {
-            background: rgba(245, 196, 0, 0.15);
-            color: var(--primary);
-            font-weight: 700;
-            font-size: 1.05rem;
+        .honor-card::before {
+            content: '';
+            position: absolute;
+            inset: -40% 30% auto -40%;
+            height: 160%;
+            background: radial-gradient(circle, rgba(245, 196, 0, 0.4), transparent 65%);
+            z-index: 0;
+        }
+
+        .honor-card-header {
+            position: relative;
+            z-index: 1;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1rem;
+            margin-bottom: 1.2rem;
+        }
+
+        .honor-card h3 {
+            font-size: 1.15rem;
+            font-weight: 800;
             text-transform: uppercase;
-            border-bottom: 1px solid rgba(245, 196, 0, 0.25);
+            color: var(--ink);
+            margin-bottom: 0.3rem;
         }
 
-        .trophy-icon {
-            color: var(--primary);
-            font-size: 1.6rem;
-            margin-right: 0.35rem;
+        .honor-handle {
+            color: var(--ink-muted);
+            font-weight: 600;
         }
 
-        .honor-card .card-body {
-            background: var(--bg-surface-alt);
+        .honor-highlight {
+            position: relative;
+            z-index: 1;
+            margin: 1rem 0;
+            padding: 1.1rem 1.2rem;
+            border-radius: 18px;
+            background: rgba(29, 29, 31, 0.08);
+            color: var(--ink);
+            font-style: italic;
         }
 
-        .honor-card .card-text {
-            color: var(--text-muted);
+        .honor-body {
+            position: relative;
+            z-index: 1;
+            color: var(--ink-muted);
         }
 
-        .honor-card .card-footer {
-            background: rgba(245, 196, 0, 0.12);
-            border-top: 1px solid rgba(245, 196, 0, 0.25);
-            color: var(--text-primary);
+        .honor-meta {
+            margin-top: 1.3rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 0.8rem;
+        }
+
+        .honor-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            border-radius: 999px;
+            padding: 0.45rem 1rem;
+            background: rgba(29, 29, 31, 0.08);
+            font-weight: 600;
+            font-size: 0.85rem;
+            color: var(--ink);
+        }
+
+        .honor-stats {
+            font-weight: 700;
+            color: var(--primary-dark);
         }
 
         .spinner-border {
-            color: var(--primary);
+            color: var(--ink);
         }
 
         .alert {
-            background: rgba(245, 196, 0, 0.12);
+            background: rgba(245, 196, 0, 0.18);
             border: 1px solid rgba(245, 196, 0, 0.4);
-            color: var(--text-primary);
-        }
-
-        .text-muted {
-            color: var(--text-muted) !important;
+            color: var(--ink);
         }
 
         footer {
-            background: var(--bg-surface);
-            border-top: 1px solid var(--border);
-            color: var(--text-muted);
-            padding: 30px 0;
-            margin-top: 40px;
+            background: var(--ink);
+            color: rgba(255, 255, 255, 0.72);
+            padding: 32px 0 90px;
+            margin-top: 50px;
         }
 
         footer .footer-highlight {
             color: var(--primary);
+            font-weight: 700;
+        }
+
+        .mobile-nav {
+            position: fixed;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: var(--ink);
+            display: none;
+            justify-content: space-around;
+            padding: 0.55rem 0.75rem calc(env(safe-area-inset-bottom) + 0.55rem);
+            box-shadow: 0 -10px 30px rgba(0, 0, 0, 0.25);
+            z-index: 1030;
+        }
+
+        .mobile-nav a {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.2rem;
+            color: rgba(255, 255, 255, 0.72);
+            font-size: 0.75rem;
             font-weight: 600;
+        }
+
+        .mobile-nav a.active {
+            color: var(--primary);
+        }
+
+        .mobile-nav i {
+            font-size: 1.35rem;
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding-bottom: 88px;
+            }
+            .navbar {
+                display: none;
+            }
+            .mobile-nav {
+                display: flex;
+            }
         }
     </style>
 </head>
 <body>
 
-    <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+    <nav class="navbar navbar-expand-lg navbar-light sticky-top">
         <div class="container">
             <a class="navbar-brand" href="index.html">
                 <i class="bi bi-tiktok"></i> TikTok A-Z by Kiantr
@@ -157,34 +268,40 @@
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <ul class="navbar-nav">
                     <li class="nav-item"><a class="nav-link" href="index.html#lo-trinh">Lộ Trình</a></li>
                     <li class="nav-item"><a class="nav-link" href="index.html#quiz">Kiểm Tra</a></li>
-                    <li class="nav-item"><a class="nav-link fw-bold" href="channels.html"><i class="bi bi-bar-chart-fill"></i> BXH KÊNH NỘI BỘ</a></li>
-                    <li class="nav-item"><a class="nav-link fw-bold active-page" href="honors.html"><i class="bi bi-award-fill"></i> VINH DANH</a></li>
+                    <li class="nav-item"><a class="nav-link fw-bold" href="channels.html"><i class="bi bi-bar-chart-fill"></i> BXH Kênh</a></li>
+                    <li class="nav-item"><a class="nav-link fw-bold active-page" href="honors.html"><i class="bi bi-award-fill"></i> Vinh Danh</a></li>
+                    <li class="nav-item"><a class="nav-link fw-bold" href="learning.html"><i class="bi bi-journal-play"></i> Học Thêm</a></li>
                 </ul>
             </div>
         </div>
     </nav>
 
-    <main class="container my-5">
-        <section id="honor-roll-header" class="text-center mb-5">
-            <h1 class="main-title">VINH DANH HỌC VIÊN XUẤT SẮC</h1>
-            <p class="lead mt-3">Những cột mốc đáng tự hào của cộng đồng nội bộ TikTok A-Z by Kiantr. Bạn hoàn toàn có thể là người tiếp theo!</p>
-        </section>
-        
-        <div class="row g-4 justify-content-center" id="honors-container">
-            <div class="col-12 text-center" id="loading-status">
-                <div class="spinner-border" role="status">
-                    <span class="visually-hidden">Đang tải...</span>
-                </div>
-                <p class="mt-2">Đang tải danh sách Vinh Danh từ Google Sheets...</p>
-                <div class="alert alert-warning mt-3" id="instruction-alert">
-                    <i class="bi bi-exclamation-triangle-fill me-2"></i><strong>Lưu ý:</strong> Tab Google Sheet phải được đặt tên <strong>Honors</strong> và chia sẻ ở chế độ <strong>Bất kỳ ai có đường liên kết</strong>.
-                </div>
-            </div>
+    <section class="hero container">
+        <div class="hero-badge">
+            <i class="bi bi-trophy-fill text-warning"></i> Hall of Fame
         </div>
+        <h1>VINH DANH NHỮNG NGƯỜI BỨT PHÁ</h1>
+        <p>Mỗi tên gọi nơi đây là minh chứng cho tinh thần chiến binh, dám làm – dám dẫn đầu. Hãy để thành tích của họ tiếp thêm động lực cho bạn.</p>
+        <div class="trophy-ring">
+            <i class="bi bi-stars"></i>
+        </div>
+    </section>
+
+    <main class="container pb-5">
+        <div id="honors-loading" class="text-center py-5">
+            <div class="spinner-border" role="status"><span class="visually-hidden">Đang tải...</span></div>
+            <p class="mt-3 text-muted">Đang kết nối bảng vinh danh từ Google Sheets...</p>
+        </div>
+
+        <div id="honors-alert" class="alert d-none">
+            Không tải được dữ liệu vinh danh. Vui lòng kiểm tra tab <strong>Honors</strong> trong Google Sheet và đảm bảo chế độ chia sẻ công khai.
+        </div>
+
+        <div id="honors-grid" class="honor-grid"></div>
     </main>
 
     <footer class="text-center">
@@ -194,6 +311,25 @@
         </div>
     </footer>
 
+    <nav class="mobile-nav" data-page="honors">
+        <a href="channels.html">
+            <i class="bi bi-bar-chart-fill"></i>
+            <span>BXH</span>
+        </a>
+        <a href="index.html#lo-trinh">
+            <i class="bi bi-map"></i>
+            <span>Lộ trình</span>
+        </a>
+        <a href="honors.html" class="active">
+            <i class="bi bi-award-fill"></i>
+            <span>Vinh danh</span>
+        </a>
+        <a href="learning.html">
+            <i class="bi bi-mortarboard-fill"></i>
+            <span>Học thêm</span>
+        </a>
+    </nav>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 
     <script>
@@ -201,8 +337,9 @@
         const SHEET_NAME = 'Honors';
         const HONORS_URL = `https://opensheet.elk.sh/${SHEET_ID}/${SHEET_NAME}`;
 
-        const honorsContainer = document.getElementById('honors-container');
-        const loadingStatus = document.getElementById('loading-status');
+        const honorsGrid = document.getElementById('honors-grid');
+        const honorsLoading = document.getElementById('honors-loading');
+        const honorsAlert = document.getElementById('honors-alert');
 
         function normalizeHeader(header) {
             return (header || '')
@@ -226,86 +363,68 @@
 
         function pickHonorIcon(type = '') {
             const normalized = type.toLowerCase();
-            if (normalized.includes('viral')) {
-                return 'bi-rocket-takeoff-fill';
-            }
-            if (normalized.includes('bền') || normalized.includes('growth')) {
-                return 'bi-graph-up-arrow';
-            }
-            if (normalized.includes('chuyển đổi') || normalized.includes('sales')) {
-                return 'bi-currency-dollar';
-            }
-            if (normalized.includes('team')) {
-                return 'bi-people-fill';
-            }
-            return 'bi-award-fill';
-        }
-
-        function displayError(message) {
-            honorsContainer.innerHTML = `
-                <div class="col-12">
-                    <div class="alert alert-danger text-center" role="alert">${message}</div>
-                </div>
-            `;
+            if (normalized.includes('viral')) return 'bi-fire';
+            if (normalized.includes('growth') || normalized.includes('bền')) return 'bi-graph-up-arrow';
+            if (normalized.includes('chuyển đổi') || normalized.includes('sales')) return 'bi-currency-dollar';
+            if (normalized.includes('team')) return 'bi-people-fill';
+            if (normalized.includes('kỷ lục')) return 'bi-trophy-fill';
+            return 'bi-star-fill';
         }
 
         function renderHonors(honors) {
-            honorsContainer.innerHTML = '';
-
+            honorsGrid.innerHTML = '';
             honors.forEach(honor => {
                 const title = honor.thanh_tich ?? honor.tieu_de ?? 'Thành tích nổi bật';
                 const student = honor.hoc_vien ?? honor.ten ?? 'Ẩn danh';
-                const tiktokHandle = honor.kenh_tiktok ?? honor.handle ?? '';
-                const description = honor.mo_ta ?? 'Đã đạt được thành tích xuất sắc trong hành trình xây kênh.';
+                const handle = honor.kenh_tiktok ?? honor.handle ?? '';
+                const description = honor.mo_ta ?? 'Đã tạo nên dấu ấn đáng nhớ trong hành trình TikTok.';
                 const stats = honor.so_lieu ?? 'Đang cập nhật';
                 const type = honor.loai_danh_hieu ?? 'Thành tích chung';
                 const iconClass = pickHonorIcon(type);
 
-                honorsContainer.innerHTML += `
-                    <div class="col-lg-4 col-md-6">
-                        <div class="card honor-card h-100">
-                            <div class="card-header text-center">
-                                <i class="bi ${iconClass} trophy-icon"></i>${title}
-                            </div>
-                            <div class="card-body text-center">
-                                <h5 class="card-title text-danger">${student}${tiktokHandle ? ` (@${tiktokHandle.replace(/^@/, '')})` : ''}</h5>
-                                <p class="card-text">${description}</p>
-                                <p class="text-muted mb-0">Danh hiệu: ${type}</p>
-                            </div>
-                            <div class="card-footer text-muted text-center">
-                                <i class="bi bi-bullseye me-1"></i> Số liệu: ${stats}
-                            </div>
+                const card = document.createElement('div');
+                card.className = 'honor-card';
+                card.innerHTML = `
+                    <div class="honor-card-header">
+                        <div>
+                            <h3>${title}</h3>
+                            <div class="honor-handle">${student}${handle ? ` · @${handle.replace(/^@/, '')}` : ''}</div>
                         </div>
+                        <span class="honor-tag"><i class="bi ${iconClass}"></i>${type}</span>
+                    </div>
+                    <div class="honor-highlight">
+                        “${description}”
+                    </div>
+                    <div class="honor-body">
+                        <span class="honor-stats"><i class="bi bi-bullseye me-1"></i>${stats}</span>
                     </div>
                 `;
+                honorsGrid.appendChild(card);
             });
         }
 
         async function fetchHonors() {
             try {
                 const response = await fetch(HONORS_URL);
-                if (!response.ok) {
-                    throw new Error(`HTTP ${response.status}`);
-                }
+                if (!response.ok) throw new Error(`HTTP ${response.status}`);
                 const data = await response.json();
-
                 const honors = data
                     .map(normalizeRowKeys)
                     .filter(row => Object.values(row).some(val => val && val.toString().trim() !== ''));
 
                 if (honors.length === 0) {
-                    displayError('Không có dữ liệu vinh danh trong tab Honors. Vui lòng kiểm tra lại Google Sheet.');
+                    honorsAlert.classList.remove('d-none');
+                    honorsAlert.textContent = 'Chưa có dữ liệu trong tab Honors. Hãy bổ sung thông tin vinh danh để lan tỏa động lực.';
                     return;
                 }
 
                 renderHonors(honors);
             } catch (error) {
                 console.error('Lỗi Fetch Honors:', error);
-                displayError('Không thể tải danh sách vinh danh. Hãy kiểm tra quyền chia sẻ Google Sheet.');
+                honorsAlert.classList.remove('d-none');
+                honorsAlert.textContent = 'Không thể tải danh sách vinh danh. Kiểm tra lại quyền chia sẻ Google Sheet.';
             } finally {
-                if (loadingStatus) {
-                    loadingStatus.remove();
-                }
+                honorsLoading.style.display = 'none';
             }
         }
 

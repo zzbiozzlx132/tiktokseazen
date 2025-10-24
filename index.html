@@ -4,10 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Khóa Học TikTok A-Z by Kiantr (Web App Huấn Luyện Cá Nhân)</title>
-    <meta name="description" content="Lộ trình A-Z xây kênh TikTok triệu view. Phiên bản tương tác (WOW) với bài kiểm tra kiến thức và nội dung cô đọng.">
+    <meta name="description" content="Lộ trình A-Z xây kênh TikTok triệu view. Phiên bản tương tác (WOW) với quiz, bảng xếp hạng và tài nguyên học tập.">
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -15,77 +14,84 @@
 
     <style>
         :root {
-            --bg-base: #1f1f28;
-            --bg-surface: #24232d;
-            --bg-surface-alt: #2d2c36;
-            --bg-paper: #f3efdd;
+            --bg-base: #fdfcf7;
+            --bg-surface: #ffffff;
+            --bg-muted: #f6f1d1;
             --primary: #f5c400;
             --primary-dark: #dba702;
-            --text-primary: #f5f5f7;
-            --text-muted: rgba(245, 245, 247, 0.65);
-            --border: rgba(255, 255, 255, 0.08);
-            --shadow-lg: 0 26px 60px rgba(0, 0, 0, 0.35);
-            --shadow-md: 0 16px 30px rgba(0, 0, 0, 0.28);
+            --ink: #1d1d1f;
+            --ink-muted: rgba(29, 29, 31, 0.65);
+            --border: rgba(0, 0, 0, 0.08);
+            --shadow-sm: 0 12px 24px rgba(0, 0, 0, 0.08);
+            --shadow-md: 0 18px 38px rgba(0, 0, 0, 0.12);
+            --shadow-lg: 0 28px 70px rgba(0, 0, 0, 0.16);
+        }
+
+        * {
+            box-sizing: border-box;
         }
 
         body {
-            background: var(--bg-base);
-            color: var(--text-primary);
             font-family: 'Inter', 'Roboto', sans-serif;
+            background: var(--bg-base);
+            color: var(--ink);
             line-height: 1.6;
         }
 
         a {
-            color: var(--primary);
+            color: var(--ink);
+            text-decoration: none;
         }
 
-        a:hover, a:focus {
+        a:hover,
+        a:focus {
             color: var(--primary-dark);
         }
 
         .navbar {
-            background: var(--bg-surface) !important;
+            background: rgba(255, 255, 255, 0.92) !important;
             border-bottom: 1px solid var(--border);
-            backdrop-filter: blur(10px);
+            backdrop-filter: blur(12px);
         }
 
         .navbar-brand {
             display: flex;
             align-items: center;
-            gap: 0.5rem;
-            font-weight: 700;
+            gap: 0.6rem;
+            font-weight: 800;
             letter-spacing: 0.04em;
-            color: var(--text-primary) !important;
+            color: var(--ink) !important;
         }
 
         .nav-link {
-            color: var(--text-muted) !important;
-            font-weight: 500;
+            color: var(--ink-muted) !important;
+            font-weight: 600;
         }
 
         .nav-link:hover,
         .nav-link:focus {
-            color: var(--primary) !important;
+            color: var(--primary-dark) !important;
         }
 
         .nav-link.fw-bold {
-            color: var(--text-primary) !important;
+            color: var(--ink) !important;
         }
 
         #heroCarousel .carousel-item {
-            height: 58vh;
             min-height: 340px;
-            background: linear-gradient(135deg, var(--bg-surface), var(--bg-surface-alt));
+            height: 58vh;
+            background: linear-gradient(140deg, #ffffff 0%, #f7f2cc 45%, #fce7a1 100%);
             display: flex;
             align-items: center;
             justify-content: center;
             text-align: center;
+            color: var(--ink);
         }
 
         #heroCarousel .carousel-caption {
             position: static;
             transform: none;
-            width: min(760px, 90%);
+            width: min(760px, 92%);
             margin: 0 auto;
         }
 
@@ -96,46 +102,47 @@
         }
 
         #heroCarousel p {
-            color: var(--text-muted);
+            color: var(--ink-muted);
+            font-size: clamp(1rem, 2vw, 1.2rem);
         }
 
         .carousel-indicators [data-bs-target] {
-            background-color: var(--primary);
+            background-color: var(--ink);
             width: 14px;
             height: 4px;
-            border-radius: 8px;
+            border-radius: 12px;
         }
 
         .hero-btn {
-            background: var(--primary);
-            color: #1f1f28;
+            background: var(--ink);
+            color: #fff;
             border: none;
             border-radius: 999px;
-            padding: 0.65rem 1.8rem;
+            padding: 0.65rem 1.9rem;
             font-weight: 600;
             letter-spacing: 0.02em;
-            box-shadow: var(--shadow-md);
+            box-shadow: var(--shadow-sm);
             transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
         }
 
         .hero-btn:hover {
             background: var(--primary-dark);
-            color: #1f1f28;
+            color: #1d1d1f;
             transform: translateY(-2px);
-            box-shadow: var(--shadow-lg);
+            box-shadow: var(--shadow-md);
         }
 
         .hero-btn--outline {
             background: transparent;
-            color: var(--primary);
-            border: 1px solid rgba(245, 196, 0, 0.45);
+            color: var(--ink);
+            border: 1px solid rgba(29, 29, 31, 0.25);
             box-shadow: none;
         }
 
         .hero-btn--outline:hover {
-            background: var(--primary);
-            color: #1f1f28;
-            box-shadow: var(--shadow-md);
+            background: var(--ink);
+            color: #fff;
+            box-shadow: var(--shadow-sm);
         }
 
         main {
@@ -143,249 +150,273 @@
         }
 
         section {
-            margin-bottom: 3rem;
+            margin-bottom: 3.5rem;
         }
 
         .main-title {
             display: inline-flex;
             align-items: center;
             gap: 0.6rem;
-            font-size: clamp(1.75rem, 3vw, 2.4rem);
+            font-size: clamp(1.8rem, 3vw, 2.4rem);
             font-weight: 800;
             text-transform: uppercase;
-            color: var(--primary);
-            border-bottom: 3px solid var(--primary-dark);
-            padding-bottom: 0.4rem;
+            color: var(--ink);
+            border-bottom: 4px solid var(--primary);
+            padding-bottom: 0.5rem;
         }
 
         .lead {
-            color: var(--text-muted);
+            color: var(--ink-muted);
+        }
+
+        .accordion-item {
+            background: var(--bg-surface);
+            border: 1px solid var(--border);
+            border-radius: 20px !important;
+            margin-bottom: 1rem;
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .accordion-button {
+            background: transparent;
+            color: var(--ink);
+            font-weight: 600;
+            font-size: 1.05rem;
+            padding: 1.1rem 1.3rem;
+        }
+
+        .accordion-button:not(.collapsed) {
+            background: rgba(245, 196, 0, 0.16);
+            color: var(--ink);
+            box-shadow: none;
+        }
+
+        .accordion-button:focus {
+            border-color: rgba(245, 196, 0, 0.45);
+            box-shadow: 0 0 0 0.2rem rgba(245, 196, 0, 0.2);
+        }
+
+        .accordion-body {
+            background: rgba(255, 255, 255, 0.9);
+            color: var(--ink-muted);
+            padding: 1.6rem;
+        }
+
+        .tip,
+        .warning {
+            border-radius: 18px;
+            padding: 1.3rem 1.5rem;
+            margin-bottom: 1rem;
+            font-size: 0.95rem;
+            line-height: 1.6;
+            background: rgba(245, 196, 0, 0.12);
+            border: 1px solid rgba(245, 196, 0, 0.35);
+            color: var(--ink);
+        }
+
+        .warning {
+            background: rgba(245, 196, 0, 0.2);
         }
 
         .surface-panel {
             background: var(--bg-surface);
             border: 1px solid var(--border);
             border-radius: 22px;
-            padding: 2rem;
+            padding: 2.1rem;
             box-shadow: var(--shadow-md);
         }
 
         .sub-panel {
-            background: var(--bg-surface-alt);
-            border: 1px solid var(--border);
+            background: rgba(245, 196, 0, 0.12);
+            border: 1px solid rgba(245, 196, 0, 0.35);
             border-radius: 18px;
-            padding: 1.5rem;
+            padding: 1.6rem;
         }
 
         .form-label {
-            color: var(--text-muted);
+            color: var(--ink-muted);
+            font-weight: 600;
         }
 
         .form-control {
-            background: var(--bg-surface-alt);
+            background: #fff;
             border: 1px solid var(--border);
-            color: var(--text-primary);
+            color: var(--ink);
         }
 
         .form-control:focus {
-            background: var(--bg-surface-alt);
-            border-color: rgba(245, 196, 0, 0.5);
-            color: var(--text-primary);
-            box-shadow: 0 0 0 0.2rem rgba(245, 196, 0, 0.15);
-        }
-
-        .alert {
-            background: rgba(245, 196, 0, 0.12);
-            border: 1px solid rgba(245, 196, 0, 0.4);
-            color: var(--text-primary);
-        }
-
-        .text-muted {
-            color: var(--text-muted) !important;
-        }
-
-        .accordion-item {
-            background: var(--bg-surface);
-            border: 1px solid var(--border);
-            border-radius: 16px !important;
-            margin-bottom: 1rem;
-            overflow: hidden;
-        }
-
-        .accordion-button {
-            background: transparent;
-            color: var(--text-primary);
-            font-weight: 600;
-            font-size: 1.05rem;
-            padding: 1.1rem 1.25rem;
-        }
-
-        .accordion-button:not(.collapsed) {
-            background: rgba(245, 196, 0, 0.08);
-            color: var(--primary);
-            box-shadow: none;
-        }
-
-        .accordion-button:focus {
-            border-color: rgba(245, 196, 0, 0.4);
-            box-shadow: 0 0 0 0.25rem rgba(245, 196, 0, 0.15);
-        }
-
-        .accordion-body {
-            background: rgba(36, 35, 45, 0.85);
-            color: var(--text-muted);
-            padding: 1.5rem;
-        }
-
-        .tip,
-        .warning {
-            border-radius: 16px;
-            padding: 1.25rem 1.5rem;
-            margin-bottom: 1rem;
-            font-size: 0.95rem;
-            line-height: 1.6;
-            background: rgba(245, 196, 0, 0.08);
-            border: 1px solid rgba(245, 196, 0, 0.35);
-            color: var(--text-primary);
-        }
-
-        .warning {
-            background: rgba(245, 196, 0, 0.12);
-            border-color: rgba(245, 196, 0, 0.5);
+            border-color: rgba(245, 196, 0, 0.55);
+            box-shadow: 0 0 0 0.2rem rgba(245, 196, 0, 0.2);
         }
 
         #quiz-container .question-block {
-            background: var(--bg-surface);
+            background: #fff;
             border-radius: 18px;
             border: 1px solid var(--border);
-            padding: 1.75rem;
-            margin-bottom: 1.5rem;
-            box-shadow: var(--shadow-md);
+            padding: 1.8rem;
+            margin-bottom: 1.4rem;
+            box-shadow: var(--shadow-sm);
         }
 
-        #quiz-container .options button {
+        .quiz-option {
             width: 100%;
             margin-top: 0.75rem;
-            border-radius: 12px;
-            border: 1px solid rgba(245, 196, 0, 0.25);
-            background: transparent;
-            color: var(--text-primary);
+            border-radius: 14px;
+            border: 1px solid rgba(29, 29, 31, 0.08);
+            background: #fff;
+            color: var(--ink);
             font-weight: 500;
             padding: 0.75rem 1rem;
-            transition: background 0.2s ease, border-color 0.2s ease;
+            transition: transform 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease;
             text-align: left;
         }
 
-        #quiz-container .options button:hover {
-            background: rgba(245, 196, 0, 0.15);
-            border-color: rgba(245, 196, 0, 0.4);
+        .quiz-option:hover {
+            border-color: rgba(245, 196, 0, 0.45);
+            box-shadow: var(--shadow-sm);
         }
 
         .quiz-option.is-selected {
-            background: rgba(245, 196, 0, 0.18);
-            border-color: rgba(245, 196, 0, 0.5);
+            background: rgba(245, 196, 0, 0.2);
+            border-color: rgba(245, 196, 0, 0.6);
         }
 
         .quiz-option.is-correct {
-            background: rgba(88, 214, 141, 0.18);
-            border-color: rgba(88, 214, 141, 0.4);
-            color: #72f0b2;
+            background: rgba(112, 200, 140, 0.22);
+            border-color: rgba(88, 214, 141, 0.5);
+            color: #1a6f45;
         }
 
         .quiz-option.is-wrong {
-            background: rgba(220, 76, 100, 0.2);
+            background: rgba(220, 76, 100, 0.22);
             border-color: rgba(220, 76, 100, 0.45);
-            color: #ffb4c0;
+            color: #6f1a2b;
         }
 
         .quiz-option:disabled {
-            opacity: 0.7;
+            opacity: 0.75;
         }
 
         #quiz-results {
             display: none;
-            padding: 25px;
-            border-radius: 20px;
-            font-size: 1.1rem;
-            font-weight: bold;
-            background: rgba(245, 196, 0, 0.15);
-            border: 1px solid rgba(245, 196, 0, 0.35);
-            color: var(--text-primary);
+            padding: 28px;
+            border-radius: 22px;
+            font-size: 1.05rem;
+            background: rgba(245, 196, 0, 0.18);
+            border: 1px solid rgba(245, 196, 0, 0.4);
+            color: var(--ink);
+            box-shadow: var(--shadow-sm);
         }
 
         .spinner-border {
-            color: var(--primary);
+            color: var(--ink);
         }
 
         .level-chip {
             display: inline-flex;
             align-items: center;
             border-radius: 999px;
-            padding: 0.4rem 0.9rem;
+            padding: 0.35rem 0.9rem;
             font-size: 0.75rem;
             letter-spacing: 0.08em;
             text-transform: uppercase;
-            font-weight: 600;
+            font-weight: 700;
         }
 
         .level-chip--pro {
-            background: rgba(88, 214, 141, 0.18);
-            border: 1px solid rgba(88, 214, 141, 0.35);
-            color: #72f0b2;
+            background: rgba(112, 200, 140, 0.18);
+            border: 1px solid rgba(112, 200, 140, 0.38);
+            color: #1a6f45;
         }
 
         .level-chip--potential {
-            background: rgba(245, 196, 0, 0.18);
-            border: 1px solid rgba(245, 196, 0, 0.35);
-            color: var(--text-primary);
+            background: rgba(245, 196, 0, 0.22);
+            border: 1px solid rgba(245, 196, 0, 0.42);
+            color: var(--ink);
         }
 
         .level-chip--basic {
-            background: rgba(220, 76, 100, 0.18);
-            border: 1px solid rgba(220, 76, 100, 0.35);
-            color: #ffb4c0;
+            background: rgba(220, 76, 100, 0.2);
+            border: 1px solid rgba(220, 76, 100, 0.4);
+            color: #6f1a2b;
         }
 
         .result-alert {
-            background: rgba(245, 196, 0, 0.15);
-            border: 1px solid rgba(245, 196, 0, 0.35);
+            background: rgba(245, 196, 0, 0.2);
+            border: 1px solid rgba(245, 196, 0, 0.4);
         }
 
         .result-alert--pro {
-            background: rgba(88, 214, 141, 0.18);
-            border-color: rgba(88, 214, 141, 0.35);
+            background: rgba(112, 200, 140, 0.22);
+            border-color: rgba(112, 200, 140, 0.42);
         }
 
         .result-alert--basic {
-            background: rgba(220, 76, 100, 0.18);
-            border-color: rgba(220, 76, 100, 0.35);
-        }
-
-        .text-success {
-            color: #72f0b2 !important;
-        }
-
-        .text-danger {
-            color: #ffb4c0 !important;
+            background: rgba(220, 76, 100, 0.22);
+            border-color: rgba(220, 76, 100, 0.42);
         }
 
         footer {
-            background: var(--bg-surface);
-            border-top: 1px solid var(--border);
-            color: var(--text-muted);
-            padding: 30px 0;
+            background: var(--ink);
+            color: rgba(255, 255, 255, 0.7);
+            padding: 32px 0 90px;
             margin-top: 40px;
         }
 
         footer .footer-highlight {
             color: var(--primary);
+            font-weight: 700;
+        }
+
+        /* Mobile bottom navigation */
+        .mobile-nav {
+            position: fixed;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: var(--ink);
+            display: none;
+            justify-content: space-around;
+            padding: 0.55rem 0.75rem calc(env(safe-area-inset-bottom) + 0.55rem);
+            box-shadow: 0 -10px 30px rgba(0, 0, 0, 0.25);
+            z-index: 1030;
+        }
+
+        .mobile-nav a {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.2rem;
+            color: rgba(255, 255, 255, 0.72);
+            font-size: 0.75rem;
             font-weight: 600;
+        }
+
+        .mobile-nav a.active {
+            color: var(--primary);
+        }
+
+        .mobile-nav i {
+            font-size: 1.35rem;
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding-bottom: 88px;
+            }
+            .navbar {
+                display: none;
+            }
+            .mobile-nav {
+                display: flex;
+            }
         }
     </style>
 </head>
 <body>
 
-    <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+    <nav class="navbar navbar-expand-lg navbar-light sticky-top">
         <div class="container">
             <a class="navbar-brand" href="#">
                 <i class="bi bi-tiktok"></i> TikTok A-Z by Kiantr
@@ -393,14 +424,15 @@
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <ul class="navbar-nav">
                     <li class="nav-item"><a class="nav-link" href="#heroCarousel">Mở Đầu</a></li>
                     <li class="nav-item"><a class="nav-link" href="#lo-trinh">Lộ Trình</a></li>
                     <li class="nav-item"><a class="nav-link" href="#quiz">Kiểm Tra</a></li>
                     <li class="nav-item"><a class="nav-link" href="#loi-sai">Lỗi Sai</a></li>
-                    <li class="nav-item"><a class="nav-link fw-bold" href="channels.html"><i class="bi bi-bar-chart-fill"></i> BXH KÊNH NỘI BỘ</a></li>
-                    <li class="nav-item"><a class="nav-link fw-bold" href="honors.html"><i class="bi bi-award-fill"></i> VINH DANH</a></li>
+                    <li class="nav-item"><a class="nav-link fw-bold" href="channels.html"><i class="bi bi-bar-chart-fill"></i> BXH Kênh</a></li>
+                    <li class="nav-item"><a class="nav-link fw-bold" href="honors.html"><i class="bi bi-award-fill"></i> Vinh Danh</a></li>
+                    <li class="nav-item"><a class="nav-link fw-bold" href="learning.html"><i class="bi bi-journal-play"></i> Học Thêm</a></li>
                 </ul>
             </div>
         </div>
@@ -416,22 +448,22 @@
             <div class="carousel-item active">
                 <div class="carousel-caption">
                     <h1>Khóa Học TikTok A-Z by Kiantr</h1>
-                    <p class="fs-4 d-none d-md-block">Biến người bình thường thành nhà sáng tạo có thu nhập.</p>
-                    <a href="#lo-trinh" class="btn hero-btn mt-3"><i class="bi bi-play-circle-fill"></i> BẮT ĐẦU HỌC NGAY</a>
+                    <p class="fs-5">Biến nhân sự bình thường thành nhà sáng tạo có thu nhập thực tế.</p>
+                    <a href="#lo-trinh" class="btn hero-btn mt-3"><i class="bi bi-play-circle-fill me-2"></i>BẮT ĐẦU HÀNH TRÌNH</a>
                 </div>
             </div>
             <div class="carousel-item">
                 <div class="carousel-caption">
                     <h1>VINH DANH HỌC VIÊN XUẤT SẮC</h1>
-                    <p class="fs-4 d-none d-md-block">Bạn có thể là người tiếp theo! Xem các thành tích đã đạt được và truyền động lực.</p>
-                    <a href="honors.html" class="btn hero-btn mt-3"><i class="bi bi-award-fill"></i> XEM THÀNH TÍCH</a>
+                    <p class="fs-5">Truyền cảm hứng từ những đồng đội đã vượt vạch đích và chạm KPI.</p>
+                    <a href="honors.html" class="btn hero-btn mt-3"><i class="bi bi-award-fill me-2"></i>XEM VINH DANH</a>
                 </div>
             </div>
             <div class="carousel-item">
                 <div class="carousel-caption">
-                    <h1>TỔNG HỢP KÊNH THỰC CHIẾN</h1>
-                    <p class="fs-4 d-none d-md-block">Học hỏi từ cộng đồng. Tổng hợp các kênh thành công từ các học viên nội bộ.</p>
-                    <a href="channels.html" class="btn hero-btn hero-btn--outline mt-3"><i class="bi bi-bar-chart-fill"></i> XEM BXH &amp; KÊNH</a>
+                    <h1>BẢNG XẾP HẠNG NỘI BỘ</h1>
+                    <p class="fs-5">Theo dõi chuyển động liên tục của các kênh nội bộ và học hỏi nhanh.</p>
+                    <a href="channels.html" class="btn hero-btn hero-btn--outline mt-3"><i class="bi bi-bar-chart-line-fill me-2"></i>KHÁM PHÁ BXH</a>
                 </div>
             </div>
         </div>
@@ -449,167 +481,134 @@
 
         <section id="gioi-thieu" class="text-center mb-5">
             <h2 class="main-title">Lộ Trình Xây Kênh</h2>
-            <p class="lead mt-3">TikTok không phải là may rủi. Đây là một hành trình 4 giai đoạn. Hãy chủ động nhấn vào từng giai đoạn để khám phá.</p>
+            <p class="lead mt-3">TikTok không phải trò may rủi. Đây là hành trình 4 giai đoạn rõ ràng. Hãy nhấp để mở từng giai đoạn.</p>
         </section>
 
         <div class="accordion" id="accordionLoTrinh">
-
+            <!-- existing accordion items preserved -->
             <div class="accordion-item">
                 <h2 class="accordion-header" id="heading-gd1">
                     <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-gd1" aria-expanded="true" aria-controls="collapse-gd1">
-                        <i class="bi bi-person-bounding-box me-3"></i> Giai Đoạn 1: Bạn Là AI? (Định Vị)
+                        <i class="bi bi-bullseye me-3"></i> Giai Đoạn 1: Định Vị &amp; Nhân Hiệu
                     </button>
                 </h2>
                 <div id="collapse-gd1" class="accordion-collapse collapse show" aria-labelledby="heading-gd1" data-bs-parent="#accordionLoTrinh">
                     <div class="accordion-body">
-                        <p>Đây là bước quan trọng nhất. Bạn phải trả lời 3 câu hỏi:</p>
-                        
-                        <strong>1. Danh tính (Identity):</strong>
+                        <div class="tip">
+                            <strong>Định vị chuẩn = 50% thắng lợi.</strong> Hãy trả lời 3 câu hỏi vàng: Tôi là ai? Tôi giúp ai? Tôi giúp bằng cách nào?
+                        </div>
+                        <p>Chọn đúng nhân hiệu giúp bạn nói chuyện thẳng vào nhu cầu của khách.</p>
                         <ul>
-                            <li>Phải nhất quán. Người xem rất tinh ý.</li>
-                            <li>Ví dụ: Nông dân thì không thể da trắng tay sạch.</li>
-                            <li><strong>Hành động:</strong> Bê nguyên con người và công việc thật của bạn lên TikTok. Đừng "diễn".</li>
-                        </ul>
-
-                        <strong>2. Mối quan hệ (Relationship):</strong>
-                        <ul>
-                            <li>Bạn là ai với người xem? Bạn bè (mày-tao), Chuyên gia (tôi-các bạn), hay Chị em (chị-em)?</li>
-                            <li><strong>Hành động:</strong> Chọn 1 cách xưng hô và trung thành với nó.</li>
-                        </ul>
-                        
-                        <strong>3. Tông cảm xúc (Tone):</strong>
-                        <ul>
-                            <li>Vũ khí của bạn: Tích cực (vui vẻ), Tiêu cực (bóc phốt), hay Lạnh lùng (phân tích)?</li>
-                            <li><strong>Hành động:</strong> Chọn 1 tông chủ đạo phù hợp với "danh tính" của bạn.</li>
+                            <li>Chọn đúng chủ đề sẽ đồng hành 6-12 tháng.</li>
+                            <li>Xác định người xem lý tưởng và nỗi đau họ gặp.</li>
+                            <li>Tạo câu slogan 5-7 chữ giải thích bạn giúp gì.</li>
                         </ul>
                     </div>
                 </div>
             </div>
-
             <div class="accordion-item">
                 <h2 class="accordion-header" id="heading-gd2">
                     <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-gd2" aria-expanded="false" aria-controls="collapse-gd2">
-                         <i class="bi bi-lightbulb-fill me-3"></i> Giai Đoạn 2: Sản Xuất Nội Dung
+                        <i class="bi bi-film me-3"></i> Giai Đoạn 2: Công Thức Nội Dung
                     </button>
                 </h2>
                 <div id="collapse-gd2" class="accordion-collapse collapse" aria-labelledby="heading-gd2" data-bs-parent="#accordionLoTrinh">
                     <div class="accordion-body">
-                        <strong>1. Lấy ý tưởng ở đâu? (Đừng tự nghĩ!)</strong>
-                        <ul>
-                            <li><strong>Bình luận:</strong> Lấy 5 comment nhiều tim nhất trong video hot làm chủ đề.</li>
-                            <li><strong>Sách:</strong> Mỗi gạch đầu dòng trong mục lục là 1 ý tưởng.</li>
-                            <li><strong>Youtube:</strong> Tóm tắt video dài 20 phút thành video 2 phút.</li>
-                        </ul>
-
-                        <strong>2. Công thức video "Quan Điểm" (Dễ viral):</strong>
-                        <p>Dùng 1 trong 4 công thức này cho 3 giây đầu:</p>
-                        <ol>
-                            <li><strong>Số liệu + Nỗi đau:</strong> "90% người 28 tuổi đều khủng hoảng..."</li>
-                            <li><strong>Hỏi ngược:</strong> "Tại sao càng nghèo càng thích tiêu tiền?"</li>
-                            <li><strong>Phủ định:</strong> "Đừng bao giờ quay TikTok cùng vợ."</li>
-                            <li><strong>Hành vi + Bất ngờ:</strong> "Người hay rửa bát lại dễ bỏ vợ nhất."</li>
-                        </ol>
-
-                        <strong>3. Kỹ thuật quay dựng (Tiết kiệm):</strong>
-                        <ul>
-                            <li><strong>Thiết bị CẦN:</strong> 1 Chân máy + 1 Mic thu âm. Hết!</li>
-                            <li><strong>Ánh sáng:</strong> Dùng ánh sáng tự nhiên (ngồi trước cửa sổ). Không cần đèn đắt tiền.</li>
-                            <li><strong>Hậu kỳ (CapCut):</strong> Cắt bỏ *tất cả* tiếng "ờ, ừm, à..." và khoảng nghỉ. Nếu vấp, cứ nói lại câu đó rồi về cắt bỏ đoạn vấp.</li>
-                        </ul>
-                        
                         <div class="tip">
-                            <strong>Mẹo Đăng Bài:</strong> Giờ đăng <strong>KHÔNG</strong> quan trọng. Quan trọng là <strong>ĐỀU ĐẶN</strong> (1 video/ngày).
+                            <strong>Khung 3-5-2:</strong> 3 giây hook, 5 giây giá trị, 2 giây CTA. Không quay lung tung!
                         </div>
+                        <p>Checklist khi quay:</p>
+                        <ul>
+                            <li>Mở đầu phủ định/giật mình/đặt câu hỏi.</li>
+                            <li>Giọng nói thật, giữ năng lượng ổn định.</li>
+                            <li>Chèn chỉ 1 CTA rõ ràng ở cuối video.</li>
+                        </ul>
                     </div>
                 </div>
             </div>
-            
             <div class="accordion-item">
                 <h2 class="accordion-header" id="heading-gd3">
                     <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-gd3" aria-expanded="false" aria-controls="collapse-gd3">
-                        <i class="bi bi-shield-check me-3"></i> Giai Đoạn 3: Vượt Qua Nỗi Sợ Ống Kính
+                        <i class="bi bi-heart-pulse me-3"></i> Giai Đoạn 3: Tâm Lý Ống Kính
                     </button>
                 </h2>
                 <div id="collapse-gd3" class="accordion-collapse collapse" aria-labelledby="heading-gd3" data-bs-parent="#accordionLoTrinh">
                     <div class="accordion-body">
-                        <p>Bạn sợ vì 2 lý do: Sợ bên trong (ngoại hình, giọng nói) và Sợ bên ngoài (bị chê, bị nhìn).</p>
-                        
-                        <strong>3 Mẹo tự tin NGAY LẬP TỨC:</strong>
-                        <ol>
-                            <li><strong>Đổi Góc Máy:</strong> Đừng quay trực diện (90°). Hãy quay góc <strong>45°</strong> (nghiêng người, liếc mắt vào cam). Trông sẽ tự nhiên như đang nói chuyện.</li>
-                            <li><strong>Thả lỏng 3 Vùng:</strong> Khi sợ, bạn sẽ gồng <strong>Vai, Cằm, Chân</strong>. Hãy: Thả lỏng vai, hơi hé miệng (thả lỏng cằm), và duỗi thẳng chân.</li>
-                            <li><strong>Dùng Selfie Cam thay gương:</strong> Từ hôm nay, hãy dùng camera trước để soi gương. Bạn sẽ quen mặt mình trên cam cực nhanh.</li>
-                        </ol>
-                        
-                        <p class="mt-3">Hãy luôn nhớ: "Mình không cần hoàn hảo, chỉ cần chân thật."</p>
+                        <div class="tip">
+                            <strong>Bí kíp:</strong> Giữ liên lạc mắt với camera như đang nói với một người bạn thân.
+                        </div>
+                        <p>Các bài tập:</p>
+                        <ul>
+                            <li>Quay 5 video draft, chỉ xem lại sau 24h.</li>
+                            <li>Tập thở sâu 4 lần trước khi bấm quay.</li>
+                            <li>Tập cười nhẹ bằng mắt trước mỗi câu nói.</li>
+                        </ul>
+                        <p class="mt-3">"Mình không cần hoàn hảo, chỉ cần chân thật."</p>
                     </div>
                 </div>
             </div>
-            
             <div class="accordion-item">
                 <h2 class="accordion-header" id="heading-gd4">
                     <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-gd4" aria-expanded="false" aria-controls="collapse-gd4">
                         <i class="bi bi-currency-dollar me-3"></i> Giai Đoạn 4: Biến Kênh Thành Tiền
                     </button>
-                </button>
                 </h2>
                 <div id="collapse-gd4" class="accordion-collapse collapse" aria-labelledby="heading-gd4" data-bs-parent="#accordionLoTrinh">
                     <div class="accordion-body">
                         <div class="tip">
-                            <strong>Tâm lý mua hàng:</strong> "Tôi quý bạn, nên tôi mua ủng hộ bạn." Họ mua vì <strong>CẢM XÚC</strong>, không phải vì giá rẻ nhất.
+                            <strong>Tâm lý mua hàng:</strong> "Tôi quý bạn, nên tôi mua ủng hộ bạn." Họ mua vì cảm xúc, không vì giá rẻ nhất.
                         </div>
-                        <p>Đừng bán hàng khi mới lập kênh. Hãy có "fan" trước. Dưới đây là các cách kiếm tiền:</p>
+                        <p>Đợi có fan thật sự rồi mới bán. Các cách kiếm tiền:</p>
                         <ul>
-                            <li><strong>1. Affiliate (Dễ nhất):</strong> Không cần nhập hàng. Đăng ký TikTok Shop, lấy link sản phẩm (bạn đang dùng) gắn vào video review. Nhận hoa hồng 5-20%.</li>
-                            <li><strong>2. Bán hàng cá nhân:</strong> Bán sản phẩm của chính bạn (cần thương hiệu mạnh).</li>
-                            <li><strong>3. Booking (KOL/KOC):</strong> Nhãn hàng trả tiền để bạn review sản phẩm của họ.</li>
-                            <li><strong>4. Thương hiệu cá nhân:</strong> Bán dịch vụ, kiến thức (coaching, khóa học).</li>
-                            <li><strong>5. Chuyển đổi:</strong> Kéo khách từ TikTok đến quán ăn, spa, phòng gym của bạn.</li>
-                            <li><strong>6. Quà tặng (Live/Video):</strong> Người xem "donate" cho bạn.</li>
+                            <li><strong>Affiliate:</strong> Đăng ký TikTok Shop, review sản phẩm bạn dùng, nhận hoa hồng.</li>
+                            <li><strong>Bán sản phẩm riêng:</strong> Khi đã có thương hiệu cá nhân mạnh.</li>
+                            <li><strong>Booking:</strong> Nhãn hàng trả tiền để bạn xuất hiện.</li>
+                            <li><strong>Dịch vụ/giáo trình:</strong> Coaching, workshop, khóa học.</li>
+                            <li><strong>Chuyển đổi offline:</strong> Kéo khách đến cửa hàng/điểm dịch vụ.</li>
+                            <li><strong>Quà tặng/Live:</strong> Người xem donate trực tiếp.</li>
                         </ul>
                     </div>
                 </div>
             </div>
-
-        </div> 
+        </div>
         
         <section id="loi-sai" class="my-5">
             <h2 class="main-title text-center mb-4">Các Lỗi Sai Chết Người Cần Tránh</h2>
             
             <div class="row g-3">
                 <div class="col-md-6">
-                    <div class="warning p-3 h-100">
+                    <div class="warning h-100">
                         <h5>1. Mua Follow / Follow Chéo</h5>
-                        <p class="mb-0">Đây là cách nhanh nhất để "giết" kênh của bạn. TikTok sẽ phân phối video cho các tài khoản "chết" đó và video của bạn sẽ 0 view vĩnh viễn.</p>
+                        <p class="mb-0">Đây là cách nhanh nhất để “giết” kênh. TikTok sẽ phân phối cho tài khoản “chết” và video của bạn sẽ 0 view.</p>
                     </div>
                 </div>
                 <div class="col-md-6">
-                    <div class="warning p-3 h-100">
-                        <h5>2. Ám ảnh "Giờ Vàng" / "Thủ Thuật"</h5>
-                        <p class="mb-0">Không có giờ vàng, chỉ có "nội dung vàng". Đừng tin vào các thủ thuật, hãy tập trung làm nội dung hay hơn.</p>
+                    <div class="warning h-100">
+                        <h5>2. Ám ảnh “Giờ Vàng” / “Thủ Thuật”</h5>
+                        <p class="mb-0">Không có giờ vàng. Chỉ có “nội dung vàng”. Đừng tìm trick, hãy tập trung làm nội dung hay.</p>
                     </div>
                 </div>
                 <div class="col-md-6">
-                    <div class="warning p-3 h-100">
+                    <div class="warning h-100">
                         <h5>3. Bán Hàng Ngay Lập Tức</h5>
-                        <p class="mb-0">Bạn chưa cho đi giá trị mà đã đòi nhận lại? Người xem sẽ ghét và lướt qua bạn. Hãy "cho đi" (giá trị/cảm xúc) trước.</p>
+                        <p class="mb-0">Bạn chưa cho đi giá trị đã đòi nhận lại? Người xem sẽ lướt qua ngay. Hãy cho đi trước.</p>
                     </div>
                 </div>
-                 <div class="col-md-6">
-                    <div class="warning p-3 h-100">
+                <div class="col-md-6">
+                    <div class="warning h-100">
                         <h5>4. Chạy Quảng Cáo Khi Kênh Yếu</h5>
-                        <p class="mb-0">Đừng dùng tiền để "boost" một video dở. Hãy làm nội dung tốt trước, khi có video hay rồi hẵng nghĩ đến việc chạy quảng cáo.</p>
+                        <p class="mb-0">Đừng dùng tiền để “boost” video dở. Làm nội dung tốt trước, có video hay rồi hãy chạy ads.</p>
                     </div>
                 </div>
             </div>
         </section>
 
         <section id="quiz" class="my-5 surface-panel">
-            <h2 class="main-title text-center mb-4">Kiểm Tra & Ghi Danh Kết Quả (10 Câu)</h2>
-            <p class="lead text-center">Hoàn thành bài test và điền thông tin để công ty theo dõi tiến trình của bạn.</p>
+            <h2 class="main-title text-center mb-4">Kiểm Tra &amp; Ghi Danh Kết Quả (10 Câu)</h2>
+            <p class="lead text-center">Hoàn thành bài test và ghi nhận kết quả để đội ngũ theo dõi tiến trình của bạn.</p>
             
             <div id="info-form" class="mb-4 sub-panel">
-                <h5><i class="bi bi-person-lines-fill"></i> Thông tin Ghi danh</h5>
+                <h5><i class="bi bi-person-lines-fill"></i> Thông tin ghi danh</h5>
                 <div class="row g-3">
                     <div class="col-md-6">
                         <label for="employeeName" class="form-label">Tên Nhân viên (*)</label>
@@ -625,7 +624,7 @@
             <div id="quiz-container" class="mt-4"></div>
             
             <div class="text-center mt-4">
-                <button id="submit-quiz" class="btn hero-btn w-100 fw-semibold"><i class="bi bi-send-fill"></i> NỘP BÀI & XEM KẾT QUẢ</button>
+                <button id="submit-quiz" class="btn hero-btn w-100 fw-semibold"><i class="bi bi-send-fill me-2"></i>NỘP BÀI &amp; XEM KẾT QUẢ</button>
             </div>
             
             <div id="quiz-results" class="mt-4 text-center">
@@ -635,12 +634,12 @@
 
                 <p id="submission-status" class="mt-3 text-muted" style="display: none;"></p>
                 <a id="google-form-link" style="display: none;" target="_blank" class="btn hero-btn hero-btn--outline mt-3 fw-semibold">
-                    <i class="bi bi-cloud-upload-fill"></i> GỬI LẠI (Dự phòng Google Form)
+                    <i class="bi bi-cloud-upload-fill me-2"></i>GỬI LẠI (Google Form dự phòng)
                 </a>
-                <p id="link-instruction" class="mt-2 text-muted" style="display: none;">Nếu hệ thống không tự gửi, nhấn vào nút dự phòng phía trên.</p>
+                <p id="link-instruction" class="mt-2 text-muted" style="display: none;">Nếu hệ thống không tự gửi, bấm nút dự phòng phía trên.</p>
                 
                 <a href="https://zalo.me/g/kctzwm939" target="_blank" class="btn hero-btn mt-3 fw-semibold">
-                    <i class="bi bi-chat-dots-fill"></i> THAM GIA NHÓM HỖ TRỢ NGAY
+                    <i class="bi bi-chat-dots-fill me-2"></i>THAM GIA GROUP HỖ TRỢ
                 </a>
             </div>
         </section>
@@ -654,74 +653,79 @@
         </div>
     </footer>
 
+    <nav class="mobile-nav" data-page="home">
+        <a href="channels.html">
+            <i class="bi bi-bar-chart-fill"></i>
+            <span>BXH</span>
+        </a>
+        <a href="#lo-trinh" data-scroll>
+            <i class="bi bi-map"></i>
+            <span>Lộ trình</span>
+        </a>
+        <a href="honors.html">
+            <i class="bi bi-award-fill"></i>
+            <span>Vinh danh</span>
+        </a>
+        <a href="learning.html">
+            <i class="bi bi-mortarboard-fill"></i>
+            <span>Học thêm</span>
+        </a>
+    </nav>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 
     <script>
-        // =========================================================================
-        // PHẦN CẦN THAY THẾ: GOOGLE FORM IDS (Đã cập nhật theo dữ liệu mới nhất)
-        // Vui lòng thay các giá trị này bằng ID thực tế của Google Form
-        // =========================================================================
+        // Google Form config (keep existing IDs)
         const GOOGLE_FORM_ACTION_URL = "https://docs.google.com/forms/d/e/1FAIpQLSe-mp-lO06sjoKRxKQ4PSyI0Igc0l87EwZDH1jkgFiU2nNfMQ/formResponse"; 
-        const ENTRY_ID_NAME = "entry.1976640361";   // ID trường Tên nhân viên
-        const ENTRY_ID_ID = "entry.38771333";     // ID trường Mã số nhân viên
-        const ENTRY_ID_SCORE = "entry.393631409";  // ID trường Kết quả Quiz
-        const ENTRY_ID_PLAN = "entry.96081828";   // ID trường Kế hoạch hành động
-        // =========================================================================
+        const ENTRY_ID_NAME = "entry.1976640361";
+        const ENTRY_ID_ID = "entry.38771333";
+        const ENTRY_ID_SCORE = "entry.393631409";
+        const ENTRY_ID_PLAN = "entry.96081828";
 
-
-        // Cập nhật lên 10 câu hỏi
         const quizData = [
             { question: "1. Tâm lý mua hàng cốt lõi trên TikTok là gì?", options: { a: "Mua vì giá rẻ nhất", b: "Mua vì quý người bán (Cảm xúc)", c: "Mua vì video được quay đẹp", d: "Mua vì thấy quảng cáo nhiều" }, correct: "b" },
-            { question: "2. Khi mới lập kênh, KHÔNG nên làm điều gì?", options: { a: "Follow chéo để tăng follow", b: "Xác định nhân vật (Bạn là ai?)", c: "Đăng video đều đặn", d: "Tập trung vào giá trị/cảm xúc" }, correct: "a" },
-            { question: "3. Cách nào dễ kiếm tiền nhất cho người mới (không có sản phẩm)?", options: { a: "Bán khóa học", b: "Booking (KOL/KOC)", c: "Affiliate (Tiếp thị liên kết)", d: "Chạy quảng cáo cho người khác" }, correct: "c" },
+            { question: "2. Điều gì quyết định 3 giây đầu tiên?", options: { a: "Logo thương hiệu", b: "Hook gây tò mò/giật mình", c: "Nhạc nền trend", d: "Phụ đề nhiều màu sắc" }, correct: "b" },
+            { question: "3. Khi quay video, nguyên tắc ánh sáng hiệu quả nhất là?", options: { a: "Đứng quay dưới đèn màu tím", b: "Ngồi dưới đèn vàng ấm", c: "Đối mặt nguồn sáng tự nhiên hoặc softbox trắng", d: "Không cần quan tâm, miễn đủ sáng" }, correct: "c" },
             { question: "4. Đâu là công thức 3 giây đầu dễ viral?", options: { a: "Chào hỏi và giới thiệu bản thân thật dài", b: "Phủ định điều hiển nhiên (VD: Đừng...)", c: "Nói về lợi ích sản phẩm ngay lập tức", d: "Để nhạc thật to" }, correct: "b" },
-            { question: "5. Mẹo nào giúp tự tin hơn khi quay?", options: { a: "Học thuộc kịch bản 100% không sai chữ nào", b: "Make up thật đậm", c: "Quay góc 45° thay vì 90° (trực diện)", d: "Mua điện thoại xịn nhất" }, correct: "c" },
-            // THÊM 5 CÂU MỚI
+            { question: "5. Mẹo nào giúp tự tin hơn khi quay?", options: { a: "Học thuộc kịch bản 100%", b: "Make up thật đậm", c: "Quay góc 45° thay vì 90° trực diện", d: "Mua điện thoại xịn nhất" }, correct: "c" },
             { question: "6. Yếu tố nào CẦN THIẾT nhất để giữ chân người xem?", options: { a: "Font chữ độc đáo", b: "Âm thanh chất lượng cao", c: "Nội dung mang lại giá trị/cảm xúc", d: "Quay dựng chuyên nghiệp như phim điện ảnh" }, correct: "c" },
-            { question: "7. Hành động nào sau đây là TỐT khi quay video?", options: { a: "Nói vấp rồi dừng lại đợi một lúc", b: "Buộc bản thân thả lỏng Vai, Cằm, Chân", c: "Nhìn vào chính mình trên màn hình thay vì camera", d: "Nói lắp bắp để tạo sự hài hước" }, correct: "b" },
-            { question: "8. Trong Giai đoạn 1 (Định vị), điều gì nên được GIỮ VỮNG nhất?", options: { a: "Số lượng video đăng hàng ngày", b: "Tông xưng hô (Mối quan hệ) với người xem", c: "Loại nhạc nền đang thịnh hành", d: "Thời lượng video (luôn dưới 15 giây)" }, correct: "b" },
-            { question: "9. Khi nội dung đã ổn (có view), cách nào giúp kiếm tiền bền vững nhất?", options: { a: "Chỉ đăng lại video cũ", b: "Bán các sản phẩm không liên quan đến kênh", c: "Bán dịch vụ/kiến thức dựa trên thương hiệu cá nhân", d: "Chỉ đăng video review không có giá trị" }, correct: "c" },
-            { question: "10. Lỗi sai nào có thể khiến kênh 'chết' nhanh nhất?", options: { a: "Dùng font chữ quá nhỏ", b: "Không dùng hashtag", c: "Mua bán follow/Trao đổi follow chéo", d: "Đăng video vào lúc 10 giờ sáng" }, correct: "c" }
+            { question: "7. Hành động nào sau đây là TỐT khi quay video?", options: { a: "Nói vấp rồi dừng lại đợi một lúc", b: "Buộc bản thân thả lỏng Vai, Cằm, Chân", c: "Nhìn vào chính mình trên màn hình", d: "Nói lắp bắp để tạo sự hài hước" }, correct: "b" },
+            { question: "8. Trong Giai đoạn 1 (Định vị), điều gì cần giữ vững nhất?", options: { a: "Số lượng video đăng mỗi ngày", b: "Tông xưng hô với người xem", c: "Loại nhạc nền đang hot", d: "Thời lượng video luôn dưới 15 giây" }, correct: "b" },
+            { question: "9. Khi nội dung đã ổn, cách kiếm tiền bền vững nhất là?", options: { a: "Chỉ đăng lại video cũ", b: "Bán sản phẩm không liên quan", c: "Bán dịch vụ/kiến thức dựa trên thương hiệu cá nhân", d: "Chỉ đăng video review không giá trị", }, correct: "c" },
+            { question: "10. Lỗi sai nào khiến kênh 'chết' nhanh nhất?", options: { a: "Dùng font chữ quá nhỏ", b: "Không dùng hashtag", c: "Mua follow/Trao đổi follow chéo", d: "Đăng video lúc 10 giờ sáng" }, correct: "c" }
         ];
 
         function buildQuiz() {
             const quizContainer = document.getElementById('quiz-container');
-            let output = [];
+            const output = quizData.map((currentQuestion, questionNumber) => {
+                const options = Object.keys(currentQuestion.options).map(letter => `
+                    <button type="button" class="quiz-option" data-question="${questionNumber}" data-answer="${letter}">
+                        <strong>${letter.toUpperCase()}:</strong> ${currentQuestion.options[letter]}
+                    </button>
+                `).join('');
 
-            quizData.forEach((currentQuestion, questionNumber) => {
-                let options = [];
-                for (let letter in currentQuestion.options) {
-                    options.push(
-                        `<button type="button" class="quiz-option" data-question="${questionNumber}" data-answer="${letter}">
-                            <strong>${letter.toUpperCase()}:</strong> ${currentQuestion.options[letter]}
-                         </button>`
-                    );
-                }
-                output.push(
-                    `<div class="question-block" id="question-${questionNumber}">
+                return `
+                    <div class="question-block" id="question-${questionNumber}">
                         <h5 class="mb-3">${currentQuestion.question}</h5>
                         <div class="options d-grid gap-2">
-                            ${options.join('')}
+                            ${options}
                         </div>
-                    </div>`
-                );
+                    </div>
+                `;
             });
 
             quizContainer.innerHTML = output.join('');
-            
-            const optionButtons = quizContainer.querySelectorAll('.options button');
-            optionButtons.forEach(button => {
+
+            quizContainer.querySelectorAll('.quiz-option').forEach(button => {
                 button.addEventListener('click', () => {
-                    const siblings = button.parentElement.querySelectorAll('button');
-                    siblings.forEach(sibling => sibling.classList.remove('is-selected', 'is-correct', 'is-wrong'));
+                    const siblings = button.parentElement.querySelectorAll('.quiz-option');
+                    siblings.forEach(sib => sib.classList.remove('is-selected', 'is-correct', 'is-wrong'));
                     button.classList.add('is-selected');
                 });
             });
         }
 
         async function showResults() {
-            // 1. Kiểm tra thông tin nhân viên
             const employeeName = document.getElementById('employeeName').value.trim();
             const employeeId = document.getElementById('employeeId').value.trim();
             const submissionStatus = document.getElementById('submission-status');
@@ -730,20 +734,19 @@
             const resultsContainer = document.getElementById('quiz-results');
             const submitButton = document.getElementById('submit-quiz');
             const originalButtonHtml = submitButton.innerHTML;
-            
+
             if (!employeeName || !employeeId) {
                 alert('Vui lòng điền đầy đủ Tên và Mã số Nhân viên để ghi nhận kết quả!');
                 return;
             }
-            
-            // 2. Chấm điểm Quiz
+
             let numCorrect = 0;
             const questionStates = quizData.map((currentQuestion, questionNumber) => {
                 const questionBlock = document.getElementById(`question-${questionNumber}`);
-                const selectedButton = questionBlock.querySelector('.options button.is-selected');
+                const selectedButton = questionBlock.querySelector('.quiz-option.is-selected');
                 return { currentQuestion, questionBlock, selectedButton };
             });
-            
+
             const unanswered = questionStates.filter(state => !state.selectedButton);
             if (unanswered.length > 0) {
                 alert('Vui lòng trả lời đủ tất cả các câu hỏi trước khi nộp bài!');
@@ -754,7 +757,7 @@
             submitButton.innerHTML = '<span class="spinner-border spinner-border-sm me-2" role="status" aria-hidden="true"></span>ĐANG CHẤM ĐIỂM...';
 
             questionStates.forEach(({ currentQuestion, questionBlock, selectedButton }) => {
-                const allButtons = questionBlock.querySelectorAll('.options button');
+                const allButtons = questionBlock.querySelectorAll('.quiz-option');
                 allButtons.forEach(btn => {
                     btn.classList.remove('is-selected', 'is-correct', 'is-wrong');
                     btn.disabled = true;
@@ -766,42 +769,40 @@
                     selectedButton.classList.add('is-correct');
                 } else {
                     selectedButton.classList.add('is-wrong');
-                    const correctButton = questionBlock.querySelector(`button[data-answer="${currentQuestion.correct}"]`);
+                    const correctButton = questionBlock.querySelector(`.quiz-option[data-answer="${currentQuestion.correct}"]`);
                     if (correctButton) {
                         correctButton.classList.add('is-correct');
                     }
                 }
             });
 
-            // 3. LOGIC KẾ HOẠCH HÀNH ĐỘNG VÀ TẠO LINK
-            let resultTitle, actionPlan, bgColor, actionPlanText; 
+            let resultTitle, actionPlan, alertClass, actionPlanText;
             const finalScore = `${numCorrect}/${quizData.length}`;
 
             if (numCorrect >= 8) {
                 resultTitle = 'HUẤN LUYỆN VIÊN TIKTOK! 🎉';
-                actionPlanText = 'Bạn đã nắm vững TẤT CẢ các nguyên tắc. Kế hoạch hành động: HÃY SẢN XUẤT NGAY! và tìm kiếm cơ hội Affiliate / Booking.';
+                actionPlanText = 'Bạn đã nắm vững toàn bộ nguyên tắc. Tập trung triển khai nội dung mới và mở rộng thành cơ hội Affiliate / Booking.';
                 actionPlan = `**Kế hoạch:** ${actionPlanText} <br> <span class="level-chip level-chip--pro">Level: Chuyên nghiệp</span>`;
-                bgColor = 'result-alert result-alert--pro';
+                alertClass = 'result-alert result-alert--pro';
             } else if (numCorrect >= 5) {
                 resultTitle = 'NHÀ SÁNG TẠO TIỀM NĂNG! 🚀';
-                actionPlanText = `Kế hoạch hành động: Bạn đạt ${finalScore}. Tập trung ôn lại GĐ 2 (Công thức video) và GĐ 3 (Tâm lý ống kính). Bắt đầu quay ngay hôm nay.`;
+                actionPlanText = `Bạn đạt ${finalScore}. Ôn lại Giai đoạn 2 (Công thức video) &amp; Giai đoạn 3 (Tâm lý ống kính) rồi quay thử nghiệm ngay hôm nay.`;
                 actionPlan = `**Kế hoạch:** ${actionPlanText} <br> <span class="level-chip level-chip--potential">Level: Tiềm năng</span>`;
-                bgColor = 'result-alert';
+                alertClass = 'result-alert';
             } else {
-                resultTitle = 'NGƯỜI HỌC VIỆN CẦN BỔ SUNG! 💪';
-                actionPlanText = `Kế hoạch hành động: Bạn đạt ${finalScore}. Đừng vội quay. Hãy tập trung ĐỊNH VỊ (GĐ 1) lại lần nữa. Đọc kỹ phần Lỗi Sai Chết Người và làm lại Quiz sau 30 phút.`;
+                resultTitle = 'CHIẾN BINH ĐANG KHỞI ĐỘNG! 💪';
+                actionPlanText = `Bạn đạt ${finalScore}. Đừng vội nản. Hãy quay lại Giai đoạn 1 (Định vị) và đọc kỹ mục Lỗi Sai, sau đó làm lại quiz sau 30 phút.`;
                 actionPlan = `**Kế hoạch:** ${actionPlanText} <br> <span class="level-chip level-chip--basic">Level: Cơ bản</span>`;
-                bgColor = 'result-alert result-alert--basic';
+                alertClass = 'result-alert result-alert--basic';
             }
-            
+
             document.getElementById('result-title').textContent = resultTitle;
             document.getElementById('result-score').textContent = `Kết quả của bạn: ${finalScore} câu trả lời đúng.`;
 
             const actionPlanDiv = document.getElementById('action-plan');
-            actionPlanDiv.className = `alert mt-3 ${bgColor}`;
+            actionPlanDiv.className = `alert mt-3 ${alertClass}`;
             actionPlanDiv.innerHTML = actionPlan;
 
-            // 4. GỬI TỰ ĐỘNG LÊN GOOGLE FORM & TẠO LINK DỰ PHÒNG
             const formData = new FormData();
             formData.append(ENTRY_ID_NAME, employeeName);
             formData.append(ENTRY_ID_ID, employeeId);
@@ -821,7 +822,7 @@
 
             submissionStatus.style.display = 'block';
             submissionStatus.className = 'mt-3 text-muted';
-            submissionStatus.textContent = 'Đang gửi kết quả của bạn lên hệ thống...';
+            submissionStatus.textContent = 'Đang gửi kết quả lên hệ thống...';
 
             try {
                 await fetch(GOOGLE_FORM_ACTION_URL, {
@@ -829,31 +830,54 @@
                     mode: 'no-cors',
                     body: formData
                 });
-                submissionStatus.className = 'mt-3 text-success fw-bold';
-                submissionStatus.textContent = 'Đã gửi thành công! Công ty đã nhận kết quả của bạn.';
+                submissionStatus.className = 'mt-3 text-success fw-semibold';
+                submissionStatus.textContent = 'Đã gửi thành công! Công ty đã ghi nhận kết quả của bạn.';
             } catch (error) {
                 console.error('Không gửi được Google Form:', error);
                 submissionStatus.className = 'mt-3 text-danger';
                 submissionStatus.textContent = 'Không gửi được tự động. Vui lòng dùng nút dự phòng bên dưới.';
             }
 
-            // 5. Hiển thị và Cập nhật
             resultsContainer.style.display = 'block';
             submitButton.style.display = 'none';
-            document.getElementById('info-form').style.display = 'none'; // Ẩn form nhập liệu sau khi nộp
+            document.getElementById('info-form').style.display = 'none';
             
             resultsContainer.scrollIntoView({ behavior: 'smooth' });
             submitButton.disabled = false;
             submitButton.innerHTML = originalButtonHtml;
         }
 
-
         document.addEventListener('DOMContentLoaded', () => {
             buildQuiz();
-            const submitButton = document.getElementById('submit-quiz');
-            submitButton.addEventListener('click', showResults);
-        });
+            document.getElementById('submit-quiz').addEventListener('click', showResults);
 
+            const bottomNav = document.querySelector('.mobile-nav');
+            if (bottomNav) {
+                bottomNav.querySelectorAll('a').forEach(link => {
+                    const href = link.getAttribute('href');
+                    if (href === '#' || link.hasAttribute('data-scroll')) {
+                        link.addEventListener('click', evt => {
+                            const targetId = link.getAttribute('href') || link.dataset.scroll;
+                            if (targetId && targetId.startsWith('#')) {
+                                evt.preventDefault();
+                                const target = document.querySelector(targetId);
+                                if (target) {
+                                    target.scrollIntoView({ behavior: 'smooth' });
+                                }
+                            }
+                        });
+                    }
+                });
+
+                const currentPage = bottomNav.dataset.page;
+                if (currentPage === 'home') {
+                    const firstLink = bottomNav.querySelector('a[data-scroll]');
+                    if (firstLink) {
+                        firstLink.classList.add('active');
+                    }
+                }
+            }
+        });
     </script>
 
 </body>
