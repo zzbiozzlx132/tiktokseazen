@@ -202,6 +202,43 @@
             color: var(--ink-muted);
             padding: 1.6rem;
         }
+        
+        .accordion-body h3 {
+            color: var(--ink);
+            font-size: 1.3em;
+            font-weight: 600;
+            margin-top: 20px;
+        }
+        
+        .accordion-body h4 {
+            color: var(--ink);
+            font-size: 1.1em;
+            font-weight: 600;
+            margin-top: 15px;
+        }
+        
+        /* CSS cho accordion lồng nhau bên trong Giai Đoạn 3 */
+        .accordion-body .accordion {
+            box-shadow: none;
+        }
+        .accordion-body .accordion .accordion-item {
+             background: var(--bg-base);
+             border-radius: 12px !important;
+             box-shadow: none;
+        }
+        .accordion-body .accordion .accordion-button {
+            font-size: 0.95rem;
+            font-weight: 500;
+            padding: 0.9rem 1.1rem;
+        }
+         .accordion-body .accordion .accordion-button:not(.collapsed) {
+            background: rgba(245, 196, 0, 0.1);
+         }
+        .accordion-body .accordion .accordion-body {
+            background: var(--bg-surface);
+            font-size: 0.9rem;
+        }
+
 
         .tip,
         .warning {
@@ -217,6 +254,24 @@
 
         .warning {
             background: rgba(245, 196, 0, 0.2);
+        }
+        
+        /* Thêm style cho warning từ file text */
+        .warning-danger {
+            background-color: #fff1f2;
+            border-color: #fda4af;
+            border-left: 5px solid #f43f5e;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+        
+        blockquote {
+            font-style: italic;
+            background: var(--bg-muted);
+            border-left: 5px solid var(--primary);
+            margin: 1.5em 0;
+            padding: 0.5em 10px;
         }
 
         .surface-panel {
@@ -411,6 +466,10 @@
             .mobile-nav {
                 display: flex;
             }
+            
+            .accordion-body h3 {
+                font-size: 1.15em;
+            }
         }
     </style>
 </head>
@@ -467,11 +526,11 @@
                 </div>
             </div>
         </div>
-        <button class="carousel-control-prev" type="button" data-bs-target="#heroCarousel" data-bs-slide="prev">
+        <button class="carousel-control-prev" type="button" data-bs-target="#heroCarousel" data-bs-slide-prev">
             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
             <span class="visually-hidden">Previous</span>
         </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#heroCarousel" data-bs-slide="next">
+        <button class="carousel-control-next" type="button" data-bs-target="#heroCarousel" data-bs-slide-next">
             <span class="carousel-control-next-icon" aria-hidden="true"></span>
             <span class="visually-hidden">Next</span>
         </button>
@@ -485,88 +544,328 @@
         </section>
 
         <div class="accordion" id="accordionLoTrinh">
-            <!-- existing accordion items preserved -->
+            
             <div class="accordion-item">
-                <h2 class="accordion-header" id="heading-gd1">
-                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-gd1" aria-expanded="true" aria-controls="collapse-gd1">
-                        <i class="bi bi-bullseye me-3"></i> Giai Đoạn 1: Định Vị &amp; Nhân Hiệu
+                <h2 class="accordion-header" id="heading-gd0">
+                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-gd0" aria-expanded="true" aria-controls="collapse-gd0">
+                        <i class="bi bi-lightbulb-fill me-3"></i> Tư Duy Cốt Lõi (BẮT ĐẦU TỪ ĐÂY)
                     </button>
                 </h2>
-                <div id="collapse-gd1" class="accordion-collapse collapse show" aria-labelledby="heading-gd1" data-bs-parent="#accordionLoTrinh">
+                <div id="collapse-gd0" class="accordion-collapse collapse show" aria-labelledby="heading-gd0" data-bs-parent="#accordionLoTrinh">
                     <div class="accordion-body">
-                        <div class="tip">
-                            <strong>Định vị chuẩn = 50% thắng lợi.</strong> Hãy trả lời 3 câu hỏi vàng: Tôi là ai? Tôi giúp ai? Tôi giúp bằng cách nào?
-                        </div>
-                        <p>Chọn đúng nhân hiệu giúp bạn nói chuyện thẳng vào nhu cầu của khách.</p>
+                        <p>Chào bạn, tôi ở đây để hướng dẫn bạn "cầm tay chỉ việc" xây dựng kênh TikTok. Trước khi nói về kỹ thuật, chúng ta cần thống nhất về tư duy. TikTok không phải là nơi may rủi, cũng không phải là nơi chỉ dành cho thủ thuật. Đây là nền tảng dành cho <strong>người bình thường</strong>.</p>
+                        <p>Với hơn 70 triệu người dùng tại Việt Nam, TikTok là một "biển lớn" để bạn thể hiện giá trị. Nhưng chìa khóa không phải là cố gắng "diễn" hay "làm màu". Chìa khóa là sự <strong>chân thành</strong> và <strong>bền bững</strong>.</p>
+            
+                        <h3 class="mt-4">Thần chú của kênh TikTok thành công</h3>
+                        <p>Hãy nhớ, người xem lướt TikTok rất nhanh. Video của bạn phải đạt được 1 trong 2 mục tiêu (hoặc cả 2):</p>
+                        <ol>
+                            <li><strong>Mang lại CẢM XÚC:</strong> Vui, buồn, đồng cảm, tức giận, tự hào... Cảm xúc giữ chân người xem và khiến họ muốn tương tác.</li>
+                            <li><strong>Mang lại BÀI HỌC:</strong> Một mẹo vặt, một kiến thức, một kinh nghiệm, một góc nhìn mới... Giá trị khiến họ muốn follow bạn.</li>
+                        </ol>
+                        <p>Nếu video của bạn không có 1 trong 2 điều trên, nó sẽ bị lướt qua. Hành trình này không chỉ là xây kênh, đây là hành trình <strong>phát triển bản thân</strong>. Bạn sẽ phải học mỗi ngày, update bản thân mỗi ngày.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="heading-gd1">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-gd1" aria-expanded="false" aria-controls="collapse-gd1">
+                        <i class="bi bi-bullseye me-3"></i> Giai Đoạn 1: Bạn Là AI? (Định Vị & Nhân Vật)
+                    </button>
+                </h2>
+                <div id="collapse-gd1" class="accordion-collapse collapse" aria-labelledby="heading-gd1" data-bs-parent="#accordionLoTrinh">
+                    <div class="accordion-body">
+                        <p>Đây là bước quan trọng nhất mà 90% người mới bỏ qua. Bạn không thể làm nội dung nếu không biết mình là ai và nói chuyện với ai. Đừng nghĩ đến kịch bản vội, hãy trả lời 3 câu hỏi sau:</p>
+
+                        <h3>1. Danh tính (Identity) của bạn là gì?</h3>
+                        <p>Bạn phải nhất quán giữa hình ảnh và nội dung. Người xem rất tinh ý.</p>
                         <ul>
-                            <li>Chọn đúng chủ đề sẽ đồng hành 6-12 tháng.</li>
-                            <li>Xác định người xem lý tưởng và nỗi đau họ gặp.</li>
-                            <li>Tạo câu slogan 5-7 chữ giải thích bạn giúp gì.</li>
+                            <li>Nếu bạn nói bạn là nông dân, nhưng tay bạn sạch sẽ, da trắng bóc, người ta sẽ không tin.</li>
+                            <li>Nếu bạn nói bạn là chuyên gia tài chính, nhưng bạn ngồi ở một bối cảnh lộn xộn, âm thanh ồn ào, người ta sẽ nghi ngờ.</li>
+                            <li><strong>Hãy là chính mình:</strong> Cách tốt nhất là bê nguyên con người và công việc ngoài đời của bạn lên TikTok. Bạn là giáo viên, là thợ sửa xe, là mẹ bỉm sữa... hãy cứ là người đó.</li>
+                        </ul>
+
+                        <h3>2. Mối quan hệ (Relationship) với người xem là gì?</h3>
+                        <p>Bạn muốn người xem coi bạn là ai? Điều này quyết định cách xưng hô và văn phong của bạn.</p>
+                        <ul>
+                            <li><strong>Bạn bè:</strong> "Mày tao", "chúng mày ơi", "các ông ạ"... (Tạo sự gần gũi, thân thiết).</li>
+                            <li><strong>Chuyên gia/Thầy cô:</strong> "Anh/chị", "tôi", "các bạn"... (Tạo sự tin tưởng, uy tín).</li>
+                            <li><strong>Người em/Người chị:</strong> "Em bảo này", "Các chị ơi"... (Tạo sự đồng cảm, chia sẻ).</li>
+                        </ul>
+                        <div class="tip">
+                            <strong>Mẹo:</strong> Chọn một mối quan hệ và trung thành với nó. Đừng hôm nay xưng "anh", mai xưng "mình", ngày mốt xưng "tao". Sự nhất quán tạo nên thương hiệu.
+                        </div>
+
+                        <h3>3. Tông cảm xúc (Emotional Tone) chủ đạo là gì?</h3>
+                        <p>Đây là "vũ khí" của bạn. Cùng một kịch bản, nhưng tông cảm xúc khác nhau sẽ ra kết quả khác nhau.</p>
+                        <ul>
+                            <li><strong>Tích cực:</strong> Vui vẻ, năng lượng, tự hào, mãn nguyện. (Phù hợp với chủ đề truyền động lực, khoe thành quả, giải trí).</li>
+                            <li><strong>Tiêu cực:</strong> Bực mình, phẫn nộ, thất vọng. (Phù hợp để "bóc phốt", thể hiện quan điểm trái chiều, tạo drama).</li>
+                            <li><strong>Trung tính/Lạnh lùng:</strong> Phân tích, thượng đẳng, bình thản. (Phù hợp với kênh kiến thức chuyên sâu, review đồ công nghệ, hàng hiệu).</li>
                         </ul>
                     </div>
                 </div>
             </div>
+            
             <div class="accordion-item">
                 <h2 class="accordion-header" id="heading-gd2">
                     <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-gd2" aria-expanded="false" aria-controls="collapse-gd2">
-                        <i class="bi bi-film me-3"></i> Giai Đoạn 2: Công Thức Nội Dung
+                        <i class="bi bi-film me-3"></i> Giai Đoạn 2: Sản Xuất Nội Dung (Content Creation)
                     </button>
                 </h2>
                 <div id="collapse-gd2" class="accordion-collapse collapse" aria-labelledby="heading-gd2" data-bs-parent="#accordionLoTrinh">
                     <div class="accordion-body">
-                        <div class="tip">
-                            <strong>Khung 3-5-2:</strong> 3 giây hook, 5 giây giá trị, 2 giây CTA. Không quay lung tung!
+                        <p>Sau khi đã có "nhân vật", giờ là lúc tạo ra nội dung.</p>
+
+                        <h3>1. Lấy ý tưởng ở đâu?</h3>
+                        <div class="warning-danger">
+                            <strong>Đừng tự nghĩ 100%!</strong> Người mới không cần phải sáng tạo ra cái mới. Hãy biết "mượn ý tưởng" một cách thông minh:
                         </div>
-                        <p>Checklist khi quay:</p>
                         <ul>
-                            <li>Mở đầu phủ định/giật mình/đặt câu hỏi.</li>
-                            <li>Giọng nói thật, giữ năng lượng ổn định.</li>
-                            <li>Chèn chỉ 1 CTA rõ ràng ở cuối video.</li>
+                            <li><strong>Từ bình luận (Comment):</strong> Đọc 5 bình luận được "thả tim" nhiều nhất trong các video hot cùng chủ đề. Lấy quan điểm đó làm chủ đề cho video của bạn.</li>
+                            <li><strong>Từ sách:</strong> Mở mục lục của một cuốn sách. Mỗi gạch đầu dòng trong mục lục là một ý tưởng video.</li>
+                            <li><strong>Từ video dài (Youtube/Phim):</strong> Tóm tắt một bộ phim, một bài phân tích dài thành một video ngắn 2 phút. Đây gọi là "cô đọng thông tin".</li>
                         </ul>
+
+                        <h3>2. Công thức video "Quan Điểm" (Dễ Lên Xu Hướng)</h3>
+                        <p>Dạng video thể hiện quan điểm cá nhân (thể hiện "lập trường") rất dễ kéo tương tác. Hãy dùng các công thức sau cho 3 giây đầu tiên:</p>
+                        <ol>
+                            <li><strong>Số liệu + Nỗi đau:</strong> "90% người 28 tuổi đều gặp khủng hoảng mà không dám nói ra."</li>
+                            <li><strong>Hỏi ngược + Trái nhận thức:</strong> "Tại sao càng nghèo lại càng thích tiêu tiền?"</li>
+                            <li><strong>Phủ định điều hiển nhiên:</strong> "Đừng bao giờ quay TikTok cùng vợ." / "Tuyệt đối đừng tặng quà cho sếp vào dịp Tết."</li>
+                            <li><strong>Hành vi quen + Kết quả bất ngờ:</strong> "Những người hay rửa bát cho vợ lại dễ bỏ vợ nhất."</li>
+                        </ol>
+                        
+                        <h3>3. Kỹ thuật quay dựng (Production)</h3>
+                        <p>Là người bình thường, chúng ta phải giữ <strong>chi phí rẻ</strong> để đi đường dài.</p>
+                        <ul>
+                            <li><strong>Thiết bị:</strong> Bạn CHỈ CẦN 2 thứ: <strong>1 Chân máy (Tripod)</strong> và <strong>1 Mic thu âm</strong> (Ví dụ: Mic GoCheck). Hết!</li>
+                            <li><strong>Ánh sáng:</strong> Không cần đèn đắt tiền. Hãy đi ra ngoài đường quay ban ngày, hoặc ngồi trước cửa sổ. Ánh sáng tự nhiên là đẹp nhất.</li>
+                            <li><strong>Hậu kỳ (Editing):</strong>
+                                <ul>
+                                    <li>Hãy tự cắt video của mình (dùng CapCut).</li>
+                                    <li><strong>Cắt bỏ hết "ậm ừ":</strong> Cắt bỏ mọi tiếng "ờ...", "ừm...", "à..." và các khoảng nghỉ thừa. Điều này làm video có nhịp điệu nhanh, giữ chân người xem.</li>
+                                    <li><strong>Che lỗi bằng cut:</strong> Nếu bạn nói vấp, hãy dừng lại, nói lại câu đó. Lúc edit, bạn chỉ cần cắt bỏ đoạn vấp đi là được.</li>
+                                </ul>
+                            </li>
+                        </ul>
+
+                        <h3>4. Đăng tải (Posting)</h3>
+                        <div class="tip">
+                            <strong>Giờ đăng video KHÔNG QUAN TRỌNG!</strong>
+                            <p>Nội dung của bạn hay, bạn đăng 2 giờ sáng vẫn có người xem. Đừng tin vào "khung giờ vàng". Hãy đăng khi bạn đã edit xong video. Điều quan trọng là sự <strong>đều đặn</strong> (ví dụ: 1 video mỗi ngày).</p>
+                        </div>
                     </div>
                 </div>
             </div>
+            
             <div class="accordion-item">
                 <h2 class="accordion-header" id="heading-gd3">
                     <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-gd3" aria-expanded="false" aria-controls="collapse-gd3">
-                        <i class="bi bi-heart-pulse me-3"></i> Giai Đoạn 3: Tâm Lý Ống Kính
+                        <i class="bi bi-heart-pulse me-3"></i> Giai Đoạn 3: Vượt Qua Nỗi Sợ (Tâm Lý Ống Kính)
                     </button>
                 </h2>
                 <div id="collapse-gd3" class="accordion-collapse collapse" aria-labelledby="heading-gd3" data-bs-parent="#accordionLoTrinh">
                     <div class="accordion-body">
-                        <div class="tip">
-                            <strong>Bí kíp:</strong> Giữ liên lạc mắt với camera như đang nói với một người bạn thân.
-                        </div>
-                        <p>Các bài tập:</p>
+                        <p>Tôi biết, bạn có đủ mọi thứ, nhưng bạn sợ. Sợ bị chê, sợ ngoại hình, sợ giọng nói. Đây là 2 rào cản chính và cách vượt qua:</p>
+
+                        <h3>1. Nỗi sợ bên trong (Internal Fear)</h3>
                         <ul>
-                            <li>Quay 5 video draft, chỉ xem lại sau 24h.</li>
-                            <li>Tập thở sâu 4 lần trước khi bấm quay.</li>
-                            <li>Tập cười nhẹ bằng mắt trước mỗi câu nói.</li>
+                            <li><strong>"Trông mình kinh quá":</strong> Bạn không cần hoàn hảo, chỉ cần chân thật.</li>
+                            <li><strong>"Giọng mình nghe ghê quá":</strong> Ai nghe lại giọng mình cũng thấy vậy. Kệ nó, nói tiếp đi!</li>
+                            <li><strong>"Nói cái này chả ai xem":</strong> Kiến thức của bạn là "dễ" với bạn, nhưng là "mới" với hàng ngàn người khác.</li>
                         </ul>
-                        <p class="mt-3">"Mình không cần hoàn hảo, chỉ cần chân thật."</p>
+                        
+                        <h3>2. Nỗi sợ bên ngoài (External Fear)</h3>
+                        <ul>
+                            <li><strong>"Sợ người khác nhìn":</strong> Họ nhìn rồi họ cũng đi. Họ không trả tiền cho bạn. Người yêu quý bạn mới trả tiền cho bạn.</li>
+                            <li><strong>"Sợ bình luận tiêu cực":</strong> Người ta mắng bạn trên mạng, nhưng đó không phải con người thật của bạn. Đó chỉ là một khoảnh khắc của bạn bị hiểu lầm. Ngó lơ họ đi!</li>
+                        </ul>
+
+                        <h3>3. Mẹo thực hành để tự tin ngay lập tức</h3>
+                        <ol>
+                            <li><strong>Thay đổi góc máy:</strong> Đừng quay góc trực diện (90 độ) vì nó giống "tra khảo". Hãy thử quay góc <strong>70 độ</strong> hoặc <strong>45 độ</strong> (nghiêng người, liếc mắt vào camera). Góc này tạo cảm giác "nói chuyện" tự nhiên.</li>
+                            <li><strong>Thả lỏng cơ thể:</strong> Khi căng thẳng, 3 vùng sẽ bị gồng: <strong>Vai, Cằm, Chân</strong>. Hãy thả lỏng vai, hơi há miệng (để cằm thư giãn), và thả lỏng chân (đừng co rúm lại).</li>
+                            <li><strong>Dùng Selfie Cam thay gương:</strong> Từ hôm nay, đừng soi gương. Hãy mở camera trước của điện thoại lên để soi. Quen dần với khuôn mặt mình trên camera là cách nhanh nhất để hết sợ.</li>
+                        </ol>
+                        
+                        <h4 class="mt-4">10 Câu "Tự Kỷ Ám Thị" Giúp Bạn Tự Tin (Bấm để xem)</h4>
+                        
+                        <div class="accordion mt-3" id="accordionGiaiDoan3">
+                            <div class="accordion-item">
+                                <h2 class="accordion-header">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-gd3-1">
+                                        1. Mình không cần hoàn hảo, chỉ cần chân thật.
+                                    </button>
+                                </h2>
+                                <div id="collapse-gd3-1" class="accordion-collapse collapse" data-bs-parent="#accordionGiaiDoan3">
+                                    <div class="accordion-body">
+                                        <p>Người xem đã quá mệt mỏi với những thứ giả tạo. Sự chân thật, thậm chí là khuyết điểm của bạn, mới là thứ kết nối.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="accordion-item">
+                                <h2 class="accordion-header">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-gd3-2">
+                                        2. Người xem quan tâm thông điệp, hơn là ngoại hình.
+                                    </button>
+                                </h2>
+                                <div id="collapse-gd3-2" class="accordion-collapse collapse" data-bs-parent="#accordionGiaiDoan3">
+                                    <div class="accordion-body">
+                                        <p>Họ ở lại vì bạn cho họ bài học hoặc cảm xúc, không phải vì hôm nay bạn có cái mụn hay không.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="accordion-item">
+                                <h2 class="accordion-header">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-gd3-3">
+                                        3. Sai có thể quay lại, đừng tự áp lực.
+                                    </button>
+                                </h2>
+                                <div id="collapse-gd3-3" class="accordion-collapse collapse" data-bs-parent="#accordionGiaiDoan3">
+                                    <div class="accordion-body">
+                                        <p>Chúng ta có CapCut mà! Cứ nói đi, vấp thì nói lại, về nhà cắt sau.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="accordion-item">
+                                <h2 class="accordion-header">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-gd3-4">
+                                        4. Video sau sẽ tốt hơn video trước.
+                                    </button>
+                                </h2>
+                                <div id="collapse-gd3-4" class="accordion-collapse collapse" data-bs-parent="#accordionGiaiDoan3">
+                                    <div class="accordion-body">
+                                        <p>Đừng so sánh với ai. Hãy so sánh với chính bạn ngày hôm qua.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="accordion-item">
+                                <h2 class="accordion-header">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-gd3-5">
+                                        5. Người xem đang ủng hộ mình, họ không soi mói mình.
+                                    </button>
+                                </h2>
+                                <div id="collapse-gd3-5" class="accordion-collapse collapse" data-bs-parent="#accordionGiaiDoan3">
+                                    <div class="accordion-body">
+                                        <p>Hãy tưởng tượng bạn đang nói chuyện với người bạn thân nhất của mình.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="accordion-item">
+                                <h2 class="accordion-header">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-gd3-6">
+                                        6. Mình đang trò chuyện, không phải đang diễn thuyết.
+                                    </button>
+                                </h2>
+                                <div id="collapse-gd3-6" class="accordion-collapse collapse" data-bs-parent="#accordionGiaiDoan3">
+                                    <div class="accordion-body">
+                                        <p>Hãy dùng ngôn ngữ đời thường, gần gũi. Đừng cố nói như MC truyền hình.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="accordion-item">
+                                <h2 class="accordion-header">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-gd3-7">
+                                        7. TikToker 1 triệu follow cũng bắt đầu từ con số 0.
+                                    </button>
+                                </h2>
+                                <div id="collapse-gd3-7" class="accordion-collapse collapse" data-bs-parent="#accordionGiaiDoan3">
+                                    <div class="accordion-body">
+                                        <p>Họ cũng từng giống bạn, cũng từng sợ hãi, cũng từng không có view.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="accordion-item">
+                                <h2 class="accordion-header">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-gd3-8">
+                                        8. Camera là bạn mình.
+                                    </button>
+                                </h2>
+                                <div id="collapse-gd3-8" class="accordion-collapse collapse" data-bs-parent="#accordionGiaiDoan3">
+                                    <div class="accordion-body">
+                                        <p>Nó là công cụ giúp bạn lan tỏa giá trị, không phải kẻ thù phán xét bạn.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="accordion-item">
+                                <h2 class="accordion-header">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-gd3-9">
+                                        9. Cứ sai đi, người xem còn lâu mới biết mình lỗi.
+                                    </button>
+                                </h2>
+                                <div id="collapse-gd3-9" class="accordion-collapse collapse" data-bs-parent="#accordionGiaiDoan3">
+                                    <div class="accordion-body">
+                                        <p>Chỉ bạn mới biết kịch bản. Nếu bạn quên lời và "chế" lời mới, người xem sẽ nghĩ đó là kịch bản. Cứ tự tin lên!</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="accordion-item">
+                                <h2 class="accordion-header">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-gd3-10">
+                                        10. Cười thật tươi, thả lỏng vai, BẮT ĐẦU THÔI!
+                                    </button>
+                                </h2>
+                                <div id="collapse-gd3-10" class="accordion-collapse collapse" data-bs-parent="#accordionGiaiDoan3">
+                                    <div class="accordion-body">
+                                        <p>Bấm máy ngay đi, đừng chần chừ nữa!</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
                     </div>
                 </div>
             </div>
+            
             <div class="accordion-item">
                 <h2 class="accordion-header" id="heading-gd4">
                     <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-gd4" aria-expanded="false" aria-controls="collapse-gd4">
-                        <i class="bi bi-currency-dollar me-3"></i> Giai Đoạn 4: Biến Kênh Thành Tiền
+                        <i class="bi bi-currency-dollar me-3"></i> Giai Đoạn 4: Biến Kênh Thành Tiền (Monetization)
                     </button>
                 </h2>
                 <div id="collapse-gd4" class="accordion-collapse collapse" aria-labelledby="heading-gd4" data-bs-parent="#accordionLoTrinh">
                     <div class="accordion-body">
-                        <div class="tip">
-                            <strong>Tâm lý mua hàng:</strong> "Tôi quý bạn, nên tôi mua ủng hộ bạn." Họ mua vì cảm xúc, không vì giá rẻ nhất.
-                        </div>
-                        <p>Đợi có fan thật sự rồi mới bán. Các cách kiếm tiền:</p>
-                        <ul>
-                            <li><strong>Affiliate:</strong> Đăng ký TikTok Shop, review sản phẩm bạn dùng, nhận hoa hồng.</li>
-                            <li><strong>Bán sản phẩm riêng:</strong> Khi đã có thương hiệu cá nhân mạnh.</li>
-                            <li><strong>Booking:</strong> Nhãn hàng trả tiền để bạn xuất hiện.</li>
-                            <li><strong>Dịch vụ/giáo trình:</strong> Coaching, workshop, khóa học.</li>
-                            <li><strong>Chuyển đổi offline:</strong> Kéo khách đến cửa hàng/điểm dịch vụ.</li>
-                            <li><strong>Quà tặng/Live:</strong> Người xem donate trực tiếp.</li>
-                        </ul>
+                        <p>Chúng ta làm nội dung cuối cùng là để ra tiền. Nhưng phải kiếm tiền một cách bền vững. Đừng bao giờ bán hàng ngay khi mới lập kênh. Bạn phải có giá trị, có người yêu quý (fan) trước đã.</p>
+                        <blockquote>Tâm lý mua hàng trên TikTok là: "Tôi quý bạn, nên tôi mua hàng ủng hộ bạn". Họ không mua vì giá rẻ nhất, họ mua vì CẢM XÚC.</blockquote>
+
+                        <h3>Các hình thức kiếm tiền chính:</h3>
+                        <ol>
+                            <li><strong>Affiliate (Tiếp thị liên kết):</strong> Đây là cách dễ nhất cho người mới.
+                                <ul>
+                                    <li>Bạn không cần nhập hàng, không cần kho bãi.</li>
+                                    <li>Bạn đăng ký TikTok Shop, tìm sản phẩm bạn thích (ví dụ: cái mic bạn đang dùng, cuốn sách bạn đang đọc).</li>
+                                    <li>Gắn link sản phẩm vào video review của bạn. Khi ai đó mua qua link, bạn nhận được hoa hồng (5-20%).</li>
+                                    <li>Hãy review như một "người dùng" (khách hàng) chứ đừng như một "người bán". Hãy chân thật!</li>
+                                </ul>
+                            </li>
+                            <li><strong>Bán hàng (Kinh doanh cá nhân):</strong>
+                                <ul>
+                                    <li>Bạn bán sản phẩm của chính mình (quần áo, mỹ phẩm, đồ ăn...).</li>
+                                    <li>Cách này cần bạn xây dựng thương hiệu cá nhân thật mạnh để người ta tin tưởng.</li>
+                                </ul>
+                            </li>
+                            <li><strong>Booking (KOL/KOC):</strong>
+                                <ul>
+                                    <li>Khi kênh của bạn đủ lớn, các nhãn hàng sẽ trả tiền để bạn xuất hiện trong video của họ, hoặc để bạn review sản phẩm của họ.</li>
+                                </ul>
+                            </li>
+                            <li><strong>Thương hiệu cá nhân (Personal Branding):</strong>
+                                <ul>
+                                    <li>Bạn không bán sản phẩm hữu hình, bạn bán kiến thức, dịch vụ (ví dụ: các gói coaching, tư vấn, khóa học). Đây là cách làm của mình (Duy Muối).</li>
+                                </ul>
+                            </li>
+                            <li><strong>Chuyển đổi (Conversion):</strong>
+                                <ul>
+                                    <li>Bạn làm video để kéo khách từ TikTok đến cơ sở kinh doanh của bạn (quán ăn, spa, nhà hàng, phòng gym...).</li>
+                                </ul>
+                            </li>
+                            <li><strong>Quà tặng (Live Gifts & Video Gifts):</strong>
+                                <ul>
+                                    <li>Khi bạn livestream hoặc đăng video, người xem có thể "donate" (tặng quà) cho bạn và bạn quy đổi nó ra tiền.</li>
+                                </ul>
+                            </li>
+                        </ol>
                     </div>
                 </div>
             </div>
@@ -575,29 +874,35 @@
         <section id="loi-sai" class="my-5">
             <h2 class="main-title text-center mb-4">Các Lỗi Sai Chết Người Cần Tránh</h2>
             
-            <div class="row g-3">
+            <div class="row g-4">
                 <div class="col-md-6">
                     <div class="warning h-100">
-                        <h5>1. Mua Follow / Follow Chéo</h5>
-                        <p class="mb-0">Đây là cách nhanh nhất để “giết” kênh. TikTok sẽ phân phối cho tài khoản “chết” và video của bạn sẽ 0 view.</p>
+                        <h5>1. Mua Follower / Follow Chéo / Nuôi Tài Khoản</h5>
+                        <p class="mb-0">Đây là thứ nhảm nhí nhất. Bạn mua 10.000 follow ảo, nhưng đó không phải người xem thật. TikTok phân phối video dựa trên sở thích. Khi bạn đăng video, nó sẽ phân phối cho 10.000 tài khoản "chết" đó, không ai xem, và video của bạn sẽ "chết" theo. Đừng bao giờ làm việc này!</p>
+                    </div>
+                </div>
+                 <div class="col-md-6">
+                    <div class="warning h-100">
+                        <h5>2. Ám ảnh "Giờ Đăng" và "Bảng Phân Tích"</h5>
+                        <p class="mb-0">Như đã nói, giờ đăng không quan trọng. Ngoài ra, nếu video của bạn dưới 10.000 view, đừng nhìn vào bảng phân tích dữ liệu. Nó không có ý nghĩa gì cả. Hãy tập trung vào việc làm video tiếp theo hay hơn.</p>
                     </div>
                 </div>
                 <div class="col-md-6">
                     <div class="warning h-100">
-                        <h5>2. Ám ảnh “Giờ Vàng” / “Thủ Thuật”</h5>
-                        <p class="mb-0">Không có giờ vàng. Chỉ có “nội dung vàng”. Đừng tìm trick, hãy tập trung làm nội dung hay.</p>
+                        <h5>3. Nghĩ rằng kiếm tiền dễ</h5>
+                        <p class="mb-0">Những người khoe kiếm trăm triệu, tiền tỷ là "thiên kiến kẻ sống sót". Họ có thể làm được, nhưng họ đã nỗ lực rất nhiều. Không có gì là dễ dàng cho người bình thường cả.</p>
                     </div>
                 </div>
                 <div class="col-md-6">
                     <div class="warning h-100">
-                        <h5>3. Bán Hàng Ngay Lập Tức</h5>
-                        <p class="mb-0">Bạn chưa cho đi giá trị đã đòi nhận lại? Người xem sẽ lướt qua ngay. Hãy cho đi trước.</p>
+                        <h5>4. Quá tin vào "Thầy" / "Thủ Thuật"</h5>
+                        <p class="mb-0">Mỗi người sẽ nói một kiểu. Đừng tin ai 100% (kể cả mình). Hãy xem đây là thông tin tham khảo, và bạn phải là người tự trải nghiệm để tìm ra sự thật. Không có "thủ thuật" nào qua mặt được nền tảng.</p>
                     </div>
                 </div>
-                <div class="col-md-6">
+                <div class="col-md-12">
                     <div class="warning h-100">
-                        <h5>4. Chạy Quảng Cáo Khi Kênh Yếu</h5>
-                        <p class="mb-0">Đừng dùng tiền để “boost” video dở. Làm nội dung tốt trước, có video hay rồi hãy chạy ads.</p>
+                        <h5>5. Chạy quảng cáo (Boost) khi kênh còn yếu</h5>
+                        <p class="mb-0">Đừng bao giờ chạy quảng cáo cho video khi bạn không biết chắc nó sẽ lãi. Bạn phải sản xuất nội dung (content) tốt trước. Khi có video hay, giữ chân người xem tốt, lúc đó mới nghĩ đến việc dùng tiền để đẩy nó đi xa hơn.</p>
                     </div>
                 </div>
             </div>

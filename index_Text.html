@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hướng Dẫn Xây Dựng Kênh TikTok A-Z (Từ Tư Duy Đến Kiếm Tiền)</title>
+    <meta name="description" content="Lộ trình chi tiết A-Z giúp người mới xây dựng kênh TikTok triệu view và tạo thu nhập bền vững. Dựa trên kinh nghiệm thực chiến 2024-2025.">
+    
+    <style>
+        /* Cài đặt cơ bản cho toàn trang */
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+            line-height: 1.6;
+            background-color: #f4f4f4; /* Màu nền xám nhạt */
+            color: #333; /* Màu chữ chính (đen mờ) */
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Container chính giữa trang, giới hạn chiều rộng để dễ đọc */
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #ffffff; /* Nền trắng cho nội dung */
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            border-radius: 8px;
+        }
+
+        /* --- Header (Phần đầu trang) --- */
+        header {
+            text-align: center;
+            padding-bottom: 20px;
+            border-bottom: 2px solid #eeeeee;
+        }
+
+        header h1 {
+            color: #010101; /* Màu đen của TikTok */
+            margin-bottom: 10px;
+            font-size: 2.2em;
+        }
+
+        /* --- Navigation (Menu điều hướng) --- */
+        nav {
+            background-color: #010101; /* Nền đen */
+            padding: 10px 0;
+            position: sticky; /* Giữ menu dính ở trên cùng khi cuộn */
+            top: 0;
+            z-index: 1000;
+            overflow-x: auto; /* Cho phép cuộn ngang trên mobile nếu menu quá dài */
+            white-space: nowrap; /* Giữ các mục menu trên 1 hàng */
+            display: flex;
+            justify-content: center;
+        }
+
+        nav a {
+            color: #ffffff; /* Chữ trắng */
+            padding: 10px 15px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 0.9em;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        nav a:hover {
+            background-color: #FE2C55; /* Màu đỏ hồng của TikTok khi rê chuột */
+            color: #ffffff;
+        }
+        
+        /* --- Main Content (Nội dung chính) --- */
+        main {
+            padding: 20px 0;
+        }
+
+        section {
+            margin-bottom: 40px;
+            padding-bottom: 20px;
+            border-bottom: 1px dashed #cccccc;
+        }
+        
+        section:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+        }
+
+        h2 {
+            color: #FE2C55; /* Màu đỏ hồng cho tiêu đề chính của mục */
+            border-left: 5px solid #FE2C55;
+            padding-left: 10px;
+            font-size: 1.8em;
+        }
+
+        h3 {
+            color: #333;
+            font-size: 1.4em;
+            margin-top: 25px;
+        }
+
+        /* Định dạng cho danh sách (các bước thực hiện) */
+        ul, ol {
+            margin-left: 20px;
+            padding-left: 20px;
+        }
+
+        li {
+            margin-bottom: 10px;
+        }
+
+        /* Định dạng cho các "Mẹo" hoặc "Lưu ý" */
+        .tip, .warning {
+            background-color: #fffbeb; /* Nền vàng nhạt */
+            border: 1px solid #fde047;
+            border-left: 5px solid #fde047; /* Viền vàng đậm bên trái */
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+        
+        .warning {
+            background-color: #fff1f2;
+            border-color: #fda4af;
+            border-left-color: #f43f5e;
+        }
+
+        /* Định dạng cho trích dẫn */
+        blockquote {
+            font-style: italic;
+            background: #f9f9f9;
+            border-left: 5px solid #ccc;
+            margin: 1.5em 10px;
+            padding: 0.5em 10px;
+        }
+
+        /* --- Accordion (cho 10 câu nói tự tin) --- */
+        .accordion {
+            background-color: #f1f1f1;
+            color: #444;
+            cursor: pointer;
+            padding: 18px;
+            width: 100%;
+            border: none;
+            text-align: left;
+            outline: none;
+            font-size: 1.1em;
+            font-weight: bold;
+            transition: 0.4s;
+            margin-top: 10px;
+            border-radius: 5px;
+        }
+
+        .accordion:after {
+            content: '+'; /* Biểu tượng dấu cộng */
+            font-size: 1.3em;
+            color: #777;
+            float: right;
+            margin-left: 5px;
+        }
+
+        .accordion.active:after {
+            content: "−"; /* Biểu tượng dấu trừ */
+        }
+        
+        .panel {
+            padding: 0 18px;
+            background-color: white;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+            border: 1px solid #f1f1f1;
+            border-top: none;
+        }
+        
+        .panel p {
+            margin: 15px 0;
+        }
+
+        /* --- Footer (Phần chân trang) --- */
+        footer {
+            text-align: center;
+            margin-top: 30px;
+            padding: 20px;
+            font-size: 0.9em;
+            color: #777;
+            border-top: 2px solid #eeeeee;
+        }
+
+        /* --- Responsive (Tương thích điện thoại) --- */
+        @media (max-width: 600px) {
+            .container {
+                padding: 10px;
+            }
+
+            header h1 {
+                font-size: 1.8em;
+            }
+
+            h2 {
+                font-size: 1.5em;
+            }
+            
+            h3 {
+                font-size: 1.2em;
+            }
+
+            /* Trên mobile, chúng ta cho phép menu cuộn ngang
+              chứ không làm vỡ layout.
+            */
+            nav {
+                justify-content: flex-start; /* Bắt đầu từ bên trái */
+                padding: 10px;
+            }
+            
+            nav a {
+                padding: 8px 12px;
+                font-size: 0.85em;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Lộ Trình Xây Kênh TikTok A-Z</h1>
+        <p>Từ Người Mới Đến Nhà Sáng Tạo Tạo Ra Thu Nhập Bền Vững</p>
+    </header>
+
+    <nav>
+        <a href="#gioi-thieu">Tư Duy Cốt Lõi</a>
+        <a href="#giai-doan-1">GĐ 1: Định Vị</a>
+        <a href="#giai-doan-2">GĐ 2: Sản Xuất</a>
+        <a href="#giai-doan-3">GĐ 3: Vượt Sợ</a>
+        <a href="#giai-doan-4">GĐ 4: Kiếm Tiền</a>
+        <a href="#loi-sai">Lỗi Sai Cần Tránh</a>
+    </nav>
+
+    <main class="container">
+
+        <section id="gioi-thieu">
+            <h2>Chào mừng! Đây là tư duy cốt lõi bạn CẦN BIẾT</h2>
+            <p>Chào bạn, tôi ở đây để hướng dẫn bạn "cầm tay chỉ việc" xây dựng kênh TikTok. Trước khi nói về kỹ thuật, chúng ta cần thống nhất về tư duy. TikTok không phải là nơi may rủi, cũng không phải là nơi chỉ dành cho thủ thuật. Đây là nền tảng dành cho <strong>người bình thường</strong>.</p>
+            <p>Với hơn 70 triệu người dùng tại Việt Nam, TikTok là một "biển lớn" để bạn thể hiện giá trị. Nhưng chìa khóa không phải là cố gắng "diễn" hay "làm màu". Chìa khóa là sự <strong>chân thành</strong> và <strong>bền bững</strong>.</p>
+            
+            <h3>Thần chú của kênh TikTok thành công</h3>
+            <p>Hãy nhớ, người xem lướt TikTok rất nhanh. Video của bạn phải đạt được 1 trong 2 mục tiêu (hoặc cả 2):</p>
+            <ol>
+                <li><strong>Mang lại CẢM XÚC:</strong> Vui, buồn, đồng cảm, tức giận, tự hào... Cảm xúc giữ chân người xem và khiến họ muốn tương tác.</li>
+                <li><strong>Mang lại BÀI HỌC:</strong> Một mẹo vặt, một kiến thức, một kinh nghiệm, một góc nhìn mới... Giá trị khiến họ muốn follow bạn.</li>
+            </ol>
+            <p>Nếu video của bạn không có 1 trong 2 điều trên, nó sẽ bị lướt qua. Hành trình này không chỉ là xây kênh, đây là hành trình <strong>phát triển bản thân</strong>. Bạn sẽ phải học mỗi ngày, update bản thân mỗi ngày.</p>
+        </section>
+
+        <section id="giai-doan-1">
+            <h2>Giai Đoạn 1: Bạn Là AI? (Định Vị & Nhân Vật)</h2>
+            <p>Đây là bước quan trọng nhất mà 90% người mới bỏ qua. Bạn không thể làm nội dung nếu không biết mình là ai và nói chuyện với ai. Đừng nghĩ đến kịch bản vội, hãy trả lời 3 câu hỏi sau:</p>
+
+            <h3>1. Danh tính (Identity) của bạn là gì?</h3>
+            <p>Bạn phải nhất quán giữa hình ảnh và nội dung. Người xem rất tinh ý.</p>
+            <ul>
+                <li>Nếu bạn nói bạn là nông dân, nhưng tay bạn sạch sẽ, da trắng bóc, người ta sẽ không tin.</li>
+                <li>Nếu bạn nói bạn là chuyên gia tài chính, nhưng bạn ngồi ở một bối cảnh lộn xộn, âm thanh ồn ào, người ta sẽ nghi ngờ.</li>
+                <li><strong>Hãy là chính mình:</strong> Cách tốt nhất là bê nguyên con người và công việc ngoài đời của bạn lên TikTok. Bạn là giáo viên, là thợ sửa xe, là mẹ bỉm sữa... hãy cứ là người đó.</li>
+            </ul>
+
+            <h3>2. Mối quan hệ (Relationship) với người xem là gì?</h3>
+            <p>Bạn muốn người xem coi bạn là ai? Điều này quyết định cách xưng hô và văn phong của bạn.</p>
+            <ul>
+                <li><strong>Bạn bè:</strong> "Mày tao", "chúng mày ơi", "các ông ạ"... (Tạo sự gần gũi, thân thiết).</li>
+                <li><strong>Chuyên gia/Thầy cô:</strong> "Anh/chị", "tôi", "các bạn"... (Tạo sự tin tưởng, uy tín).</li>
+                <li><strong>Người em/Người chị:</strong> "Em bảo này", "Các chị ơi"... (Tạo sự đồng cảm, chia sẻ).</li>
+            </ul>
+            <div class="tip">
+                <strong>Mẹo:</strong> Chọn một mối quan hệ và trung thành với nó. Đừng hôm nay xưng "anh", mai xưng "mình", ngày mốt xưng "tao". Sự nhất quán tạo nên thương hiệu.
+            </div>
+
+            <h3>3. Tông cảm xúc (Emotional Tone) chủ đạo là gì?</h3>
+            <p>Đây là "vũ khí" của bạn. Cùng một kịch bản, nhưng tông cảm xúc khác nhau sẽ ra kết quả khác nhau.</p>
+            <ul>
+                <li><strong>Tích cực:</strong> Vui vẻ, năng lượng, tự hào, mãn nguyện. (Phù hợp với chủ đề truyền động lực, khoe thành quả, giải trí).</li>
+                <li><strong>Tiêu cực:</strong> Bực mình, phẫn nộ, thất vọng. (Phù hợp để "bóc phốt", thể hiện quan điểm trái chiều, tạo drama).</li>
+                <li><strong>Trung tính/Lạnh lùng:</strong> Phân tích, thượng đẳng, bình thản. (Phù hợp với kênh kiến thức chuyên sâu, review đồ công nghệ, hàng hiệu).</li>
+            </ul>
+        </section>
+
+        <section id="giai-doan-2">
+            <h2>Giai Đoạn 2: Sản Xuất Nội Dung (Content Creation)</h2>
+            <p>Sau khi đã có "nhân vật", giờ là lúc tạo ra nội dung.</p>
+
+            <h3>1. Lấy ý tưởng ở đâu?</h3>
+            <div class="warning">
+                <strong>Đừng tự nghĩ 100%!</strong> Người mới không cần phải sáng tạo ra cái mới. Hãy biết "mượn ý tưởng" một cách thông minh:
+            </div>
+            <ul>
+                <li><strong>Từ bình luận (Comment):</strong> Đọc 5 bình luận được "thả tim" nhiều nhất trong các video hot cùng chủ đề. Lấy quan điểm đó làm chủ đề cho video của bạn.</li>
+                <li><strong>Từ sách:</strong> Mở mục lục của một cuốn sách. Mỗi gạch đầu dòng trong mục lục là một ý tưởng video.</li>
+                <li><strong>Từ video dài (Youtube/Phim):</strong> Tóm tắt một bộ phim, một bài phân tích dài thành một video ngắn 2 phút. Đây gọi là "cô đọng thông tin".</li>
+            </ul>
+
+            <h3>2. Công thức video "Quan Điểm" (Dễ Lên Xu Hướng)</h3>
+            <p>Dạng video thể hiện quan điểm cá nhân (thể hiện "lập trường") rất dễ kéo tương tác. Hãy dùng các công thức sau cho 3 giây đầu tiên:</p>
+            <ol>
+                <li><strong>Số liệu + Nỗi đau:</strong> "90% người 28 tuổi đều gặp khủng hoảng mà không dám nói ra."</li>
+                <li><strong>Hỏi ngược + Trái nhận thức:</strong> "Tại sao càng nghèo lại càng thích tiêu tiền?"</li>
+                <li><strong>Phủ định điều hiển nhiên:</strong> "Đừng bao giờ quay TikTok cùng vợ." / "Tuyệt đối đừng tặng quà cho sếp vào dịp Tết."</li>
+                <li><strong>Hành vi quen + Kết quả bất ngờ:</strong> "Những người hay rửa bát cho vợ lại dễ bỏ vợ nhất."</li>
+            </ol>
+            
+            <h3>3. Kỹ thuật quay dựng (Production)</h3>
+            <p>Là người bình thường, chúng ta phải giữ <strong>chi phí rẻ</strong> để đi đường dài.</p>
+            <ul>
+                <li><strong>Thiết bị:</strong> Bạn CHỈ CẦN 2 thứ: <strong>1 Chân máy (Tripod)</strong> và <strong>1 Mic thu âm</strong> (Ví dụ: Mic GoCheck). Hết!</li>
+                <li><strong>Ánh sáng:</strong> Không cần đèn đắt tiền. Hãy đi ra ngoài đường quay ban ngày, hoặc ngồi trước cửa sổ. Ánh sáng tự nhiên là đẹp nhất.</li>
+                <li><strong>Hậu kỳ (Editing):</strong>
+                    <ul>
+                        <li>Hãy tự cắt video của mình (dùng CapCut).</li>
+                        <li><strong>Cắt bỏ hết "ậm ừ":</strong> Cắt bỏ mọi tiếng "ờ...", "ừm...", "à..." và các khoảng nghỉ thừa. Điều này làm video có nhịp điệu nhanh, giữ chân người xem.</li>
+                        <li><strong>Che lỗi bằng cut:</strong> Nếu bạn nói vấp, hãy dừng lại, nói lại câu đó. Lúc edit, bạn chỉ cần cắt bỏ đoạn vấp đi là được.</li>
+                    </ul>
+                </li>
+            </ul>
+
+            <h3>4. Đăng tải (Posting)</h3>
+            <div class="tip">
+                <strong>Giờ đăng video KHÔNG QUAN TRỌNG!</strong>
+                <p>Nội dung của bạn hay, bạn đăng 2 giờ sáng vẫn có người xem. Đừng tin vào "khung giờ vàng". Hãy đăng khi bạn đã edit xong video. Điều quan trọng là sự <strong>đều đặn</strong> (ví dụ: 1 video mỗi ngày).</p>
+            </div>
+        </section>
+
+        <section id="giai-doan-3">
+            <h2>Giai Đoạn 3: Vượt Qua Nỗi Sợ (Tâm Lý Ống Kính)</h2>
+            <p>Tôi biết, bạn có đủ mọi thứ, nhưng bạn sợ. Sợ bị chê, sợ ngoại hình, sợ giọng nói. Đây là 2 rào cản chính và cách vượt qua:</p>
+
+            <h3>1. Nỗi sợ bên trong (Internal Fear)</h3>
+            <ul>
+                <li><strong>"Trông mình kinh quá":</strong> Bạn không cần hoàn hảo, chỉ cần chân thật.</li>
+                <li><strong>"Giọng mình nghe ghê quá":</strong> Ai nghe lại giọng mình cũng thấy vậy. Kệ nó, nói tiếp đi!</li>
+                <li><strong>"Nói cái này chả ai xem":</strong> Kiến thức của bạn là "dễ" với bạn, nhưng là "mới" với hàng ngàn người khác.</li>
+            </ul>
+            
+            <h3>2. Nỗi sợ bên ngoài (External Fear)</h3>
+            <ul>
+                <li><strong>"Sợ người khác nhìn":</strong> Họ nhìn rồi họ cũng đi. Họ không trả tiền cho bạn. Người yêu quý bạn mới trả tiền cho bạn.</li>
+                <li><strong>"Sợ bình luận tiêu cực":</strong> Người ta mắng bạn trên mạng, nhưng đó không phải con người thật của bạn. Đó chỉ là một khoảnh khắc của bạn bị hiểu lầm. Ngó lơ họ đi!</li>
+            </ul>
+
+            <h3>3. Mẹo thực hành để tự tin ngay lập tức</h3>
+            <ol>
+                <li><strong>Thay đổi góc máy:</strong> Đừng quay góc trực diện (90 độ) vì nó giống "tra khảo". Hãy thử quay góc <strong>70 độ</strong> hoặc <strong>45 độ</strong> (nghiêng người, liếc mắt vào camera). Góc này tạo cảm giác "nói chuyện" tự nhiên.</li>
+                <li><strong>Thả lỏng cơ thể:</strong> Khi căng thẳng, 3 vùng sẽ bị gồng: <strong>Vai, Cằm, Chân</strong>. Hãy thả lỏng vai, hơi há miệng (để cằm thư giãn), và thả lỏng chân (đừng co rúm lại).</li>
+                <li><strong>Dùng Selfie Cam thay gương:</strong> Từ hôm nay, đừng soi gương. Hãy mở camera trước của điện thoại lên để soi. Quen dần với khuôn mặt mình trên camera là cách nhanh nhất để hết sợ.</li>
+            </ol>
+            
+            <h3>10 Câu "Tự Kỷ Ám Thị" Giúp Bạn Tự Tin (Bấm để xem)</h3>
+            
+            <button class="accordion">1. Mình không cần hoàn hảo, chỉ cần chân thật.</button>
+            <div class="panel">
+                <p>Người xem đã quá mệt mỏi với những thứ giả tạo. Sự chân thật, thậm chí là khuyết điểm của bạn, mới là thứ kết nối.</p>
+            </div>
+
+            <button class="accordion">2. Người xem quan tâm thông điệp, hơn là ngoại hình.</button>
+            <div class="panel">
+                <p>Họ ở lại vì bạn cho họ bài học hoặc cảm xúc, không phải vì hôm nay bạn có cái mụn hay không.</p>
+            </div>
+            
+            <button class="accordion">3. Sai có thể quay lại, đừng tự áp lực.</button>
+            <div class="panel">
+                <p>Chúng ta có CapCut mà! Cứ nói đi, vấp thì nói lại, về nhà cắt sau.</p>
+            </div>
+            
+            <button class="accordion">4. Video sau sẽ tốt hơn video trước.</button>
+            <div class="panel">
+                <p>Đừng so sánh với ai. Hãy so sánh với chính bạn ngày hôm qua.</p>
+            </div>
+
+            <button class="accordion">5. Người xem đang ủng hộ mình, họ không soi mói mình.</button>
+            <div class="panel">
+                <p>Hãy tưởng tượng bạn đang nói chuyện với người bạn thân nhất của mình.</p>
+            </div>
+
+            <button class="accordion">6. Mình đang trò chuyện, không phải đang diễn thuyết.</button>
+            <div class="panel">
+                <p>Hãy dùng ngôn ngữ đời thường, gần gũi. Đừng cố nói như MC truyền hình.</p>
+            </div>
+            
+            <button class="accordion">7. TikToker 1 triệu follow cũng bắt đầu từ con số 0.</button>
+            <div class="panel">
+                <p>Họ cũng từng giống bạn, cũng từng sợ hãi, cũng từng không có view.</p>
+            </div>
+            
+            <button class="accordion">8. Camera là bạn mình.</button>
+            <div class="panel">
+                <p>Nó là công cụ giúp bạn lan tỏa giá trị, không phải kẻ thù phán xét bạn.</p>
+            </div>
+            
+            <button class="accordion">9. Cứ sai đi, người xem còn lâu mới biết mình lỗi.</button>
+            <div class="panel">
+                <p>Chỉ bạn mới biết kịch bản. Nếu bạn quên lời và "chế" lời mới, người xem sẽ nghĩ đó là kịch bản. Cứ tự tin lên!</p>
+            </div>
+            
+            <button class="accordion">10. Cười thật tươi, thả lỏng vai, BẮT ĐẦU THÔI!</button>
+            <div class="panel">
+                <p>Bấm máy ngay đi, đừng chần chừ nữa!</p>
+            </div>
+            
+        </section>
+
+        <section id="giai-doan-4">
+            <h2>Giai Đoạn 4: Biến Kênh Thành Tiền (Monetization)</h2>
+            <p>Chúng ta làm nội dung cuối cùng là để ra tiền. Nhưng phải kiếm tiền một cách bền vững. Đừng bao giờ bán hàng ngay khi mới lập kênh. Bạn phải có giá trị, có người yêu quý (fan) trước đã.</p>
+            <blockquote
+>Tâm lý mua hàng trên TikTok là: "Tôi quý bạn, nên tôi mua hàng ủng hộ bạn". Họ không mua vì giá rẻ nhất, họ mua vì CẢM XÚC.</blockquote>
+
+            <h3>Các hình thức kiếm tiền chính:</h3>
+            <ol>
+                <li><strong>Affiliate (Tiếp thị liên kết):</strong> Đây là cách dễ nhất cho người mới.
+                    <ul>
+                        <li>Bạn không cần nhập hàng, không cần kho bãi.</li>
+                        <li>Bạn đăng ký TikTok Shop, tìm sản phẩm bạn thích (ví dụ: cái mic bạn đang dùng, cuốn sách bạn đang đọc).</li>
+                        <li>Gắn link sản phẩm vào video review của bạn. Khi ai đó mua qua link, bạn nhận được hoa hồng (5-20%).</li>
+                        <li>Hãy review như một "người dùng" (khách hàng) chứ đừng như một "người bán". Hãy chân thật!</li>
+                    </ul>
+                </li>
+                <li><strong>Bán hàng (Kinh doanh cá nhân):</strong>
+                    <ul>
+                        <li>Bạn bán sản phẩm của chính mình (quần áo, mỹ phẩm, đồ ăn...).</li>
+                        <li>Cách này cần bạn xây dựng thương hiệu cá nhân thật mạnh để người ta tin tưởng.</li>
+                    </ul>
+                </li>
+                <li><strong>Booking (KOL/KOC):</strong>
+                    <ul>
+                        <li>Khi kênh của bạn đủ lớn, các nhãn hàng sẽ trả tiền để bạn xuất hiện trong video của họ, hoặc để bạn review sản phẩm của họ.</li>
+                    </ul>
+                </li>
+                <li><strong>Thương hiệu cá nhân (Personal Branding):</strong>
+                    <ul>
+                        <li>Bạn không bán sản phẩm hữu hình, bạn bán kiến thức, dịch vụ (ví dụ: các gói coaching, tư vấn, khóa học). Đây là cách làm của mình (Duy Muối).</li>
+                    </ul>
+                </li>
+                <li><strong>Chuyển đổi (Conversion):</strong>
+                    <ul>
+                        <li>Bạn làm video để kéo khách từ TikTok đến cơ sở kinh doanh của bạn (quán ăn, spa, nhà hàng, phòng gym...).</li>
+                    </ul>
+                </li>
+                <li><strong>Quà tặng (Live Gifts & Video Gifts):</strong>
+                    <ul>
+                        <li>Khi bạn livestream hoặc đăng video, người xem có thể "donate" (tặng quà) cho bạn và bạn quy đổi nó ra tiền.</li>
+                    </ul>
+                </li>
+            </ol>
+        </section>
+
+        <section id="loi-sai">
+            <h2>Các Lỗi Sai Chết Người Của Người Mới</h2>
+            <p>Hãy tránh xa những điều này nếu bạn muốn đi đường dài:</p>
+            
+            <div class="warning">
+                <strong>1. Mua Follower / Follow Chéo / Nuôi Tài Khoản</strong>
+                <p>Đây là thứ nhảm nhí nhất. Bạn mua 10.000 follow ảo, nhưng đó không phải người xem thật. TikTok phân phối video dựa trên sở thích. Khi bạn đăng video, nó sẽ phân phối cho 10.000 tài khoản "chết" đó, không ai xem, và video của bạn sẽ "chết" theo. Đừng bao giờ làm việc này!</p>
+            </div>
+            
+            <div class="warning">
+                <strong>2. Nghĩ rằng kiếm tiền dễ</strong>
+                <p>Những người khoe kiếm trăm triệu, tiền tỷ là "thiên kiến kẻ sống sót". Họ có thể làm được, nhưng họ đã nỗ lực rất nhiều. Không có gì là dễ dàng cho người bình thường cả.</p>
+            </div>
+            
+            <div class="warning">
+                <strong>3. Quá tin vào "Thầy" / "Thủ Thuật"</strong>
+                <p>Mỗi người sẽ nói một kiểu. Đừng tin ai 100% (kể cả mình). Hãy xem đây là thông tin tham khảo, và bạn phải là người tự trải nghiệm để tìm ra sự thật. Không có "thủ thuật" nào qua mặt được nền tảng.</p>
+            </div>
+
+            <div class="warning">
+                <strong>4. Ám ảnh "Giờ Đăng" và "Bảng Phân Tích"</strong>
+                <p>Như đã nói, giờ đăng không quan trọng. Ngoài ra, nếu video của bạn dưới 10.000 view, đừng nhìn vào bảng phân tích dữ liệu. Nó không có ý nghĩa gì cả. Hãy tập trung vào việc làm video tiếp theo hay hơn.</p>
+            </div>
+            
+            <div class="warning">
+                <strong>5. Chạy quảng cáo (Boost) khi kênh còn yếu</strong>
+                <p>Đừng bao giờ chạy quảng cáo cho video khi bạn không biết chắc nó sẽ lãi. Bạn phải sản xuất nội dung (content) tốt trước. Khi có video hay, giữ chân người xem tốt, lúc đó mới nghĩ đến việc dùng tiền để đẩy nó đi xa hơn.</p>
+            </div>
+
+        </section>
+        
+    </main>
+
+    <footer>
+        <p>Đây là website giáo dục phi lợi nhuận, được xây dựng để giúp đỡ cộng đồng.</p>
+        <p>Nội dung dựa trên kinh nghiệm thực chiến và kiến thức tổng hợp. Chúc bạn thành công trên hành trình của mình!</p>
+        <p>&copy; 2025 - Hướng dẫn bởi Lập Trình Viên Sư Phạm.</p>
+    </footer>
+
+    <script>
+        // Lấy tất cả các phần tử có class là "accordion"
+        var acc = document.getElementsByClassName("accordion");
+        var i;
+
+        // Lặp qua từng nút accordion và thêm sự kiện "click"
+        for (i = 0; i < acc.length; i++) {
+            acc[i].addEventListener("click", function() {
+                // Thêm/xóa class "active" để đổi dấu + thành -
+                this.classList.toggle("active");
+
+                // Lấy phần tử "panel" (nội dung) ngay sau nút bấm
+                var panel = this.nextElementSibling;
+
+                // Nếu panel đang mở (có max-height), thì đóng nó lại (set = 0)
+                if (panel.style.maxHeight) {
+                    panel.style.maxHeight = null;
+                } else {
+                    // Nếu panel đang đóng, mở nó ra bằng cách set max-height
+                    // bằng với chiều cao thực của nội dung bên trong nó.
+                    panel.style.maxHeight = panel.scrollHeight + "px";
+                }
+            });
+        }
+    </script>
+
+</body>
+</html>
