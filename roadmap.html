@@ -1,0 +1,879 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lộ Trình Xây Kênh | TikTok A-Z by Kiantr</title>
+    <meta name="description" content="Từng giai đoạn xây kênh TikTok SeaZen: định vị, sản xuất nội dung và tối ưu chuyển đổi. Tài liệu thực chiến dành cho nội bộ.">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --bg-base: #fdfcf7;
+            --bg-surface: #ffffff;
+            --bg-muted: #f6f1d1;
+            --primary: #f5c400;
+            --primary-dark: #dba702;
+            --ink: #1d1d1f;
+            --ink-muted: rgba(29, 29, 31, 0.65);
+            --border: rgba(0, 0, 0, 0.08);
+            --shadow-sm: 0 12px 24px rgba(0, 0, 0, 0.08);
+            --shadow-md: 0 18px 38px rgba(0, 0, 0, 0.12);
+            --shadow-lg: 0 28px 70px rgba(0, 0, 0, 0.16);
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', 'Roboto', sans-serif;
+            background: var(--bg-base);
+            color: var(--ink);
+            line-height: 1.6;
+        }
+
+        a {
+            color: var(--ink);
+            text-decoration: none;
+        }
+
+        a:hover,
+        a:focus {
+            color: var(--primary-dark);
+        }
+
+        .navbar {
+            background: rgba(255, 255, 255, 0.92) !important;
+            border-bottom: 1px solid var(--border);
+            backdrop-filter: blur(12px);
+        }
+
+        .navbar-brand {
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            font-weight: 800;
+            letter-spacing: 0.04em;
+            color: var(--ink) !important;
+        }
+
+        .nav-link {
+            color: var(--ink-muted) !important;
+            font-weight: 600;
+        }
+
+        .nav-link:hover,
+        .nav-link:focus {
+            color: var(--primary-dark) !important;
+        }
+
+        .nav-link.fw-bold {
+            color: var(--ink) !important;
+        }
+
+        #heroCarousel .carousel-item {
+            min-height: 340px;
+            height: 58vh;
+            background: linear-gradient(140deg, #ffffff 0%, #f7f2cc 45%, #fce7a1 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--ink);
+        }
+
+        #heroCarousel .carousel-caption {
+            position: static;
+            transform: none;
+            width: min(760px, 92%);
+            margin: 0 auto;
+        }
+
+        #heroCarousel h1 {
+            font-weight: 800;
+            font-size: clamp(2rem, 4vw, 3.25rem);
+            margin-bottom: 1rem;
+        }
+
+        #heroCarousel p {
+            color: var(--ink-muted);
+            font-size: clamp(1rem, 2vw, 1.2rem);
+        }
+
+        .carousel-indicators [data-bs-target] {
+            background-color: var(--ink);
+            width: 14px;
+            height: 4px;
+            border-radius: 12px;
+        }
+
+        .hero-btn {
+            background: var(--ink);
+            color: #fff;
+            border: none;
+            border-radius: 999px;
+            padding: 0.65rem 1.9rem;
+            font-weight: 600;
+            letter-spacing: 0.02em;
+            box-shadow: var(--shadow-sm);
+            transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+        }
+
+        .hero-btn:hover {
+            background: var(--primary-dark);
+            color: #1d1d1f;
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .hero-btn--outline {
+            background: transparent;
+            color: var(--ink);
+            border: 1px solid rgba(29, 29, 31, 0.25);
+            box-shadow: none;
+        }
+
+        .hero-btn--outline:hover {
+            background: var(--ink);
+            color: #fff;
+            box-shadow: var(--shadow-sm);
+        }
+
+        main {
+            margin-top: 4rem;
+        }
+
+        section {
+            margin-bottom: 3.5rem;
+        }
+
+        .main-title {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.6rem;
+            font-size: clamp(1.8rem, 3vw, 2.4rem);
+            font-weight: 800;
+            text-transform: uppercase;
+            color: var(--ink);
+            border-bottom: 4px solid var(--primary);
+            padding-bottom: 0.5rem;
+        }
+
+        .lead {
+            color: var(--ink-muted);
+        }
+
+        .accordion-item {
+            background: var(--bg-surface);
+            border: 1px solid var(--border);
+            border-radius: 20px !important;
+            margin-bottom: 1rem;
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .accordion-button {
+            background: transparent;
+            color: var(--ink);
+            font-weight: 600;
+            font-size: 1.05rem;
+            padding: 1.1rem 1.3rem;
+        }
+
+        .accordion-button:not(.collapsed) {
+            background: rgba(245, 196, 0, 0.16);
+            color: var(--ink);
+            box-shadow: none;
+        }
+
+        .accordion-button:focus {
+            border-color: rgba(245, 196, 0, 0.45);
+            box-shadow: 0 0 0 0.2rem rgba(245, 196, 0, 0.2);
+        }
+
+        .accordion-body {
+            background: rgba(255, 255, 255, 0.9);
+            color: var(--ink-muted);
+            padding: 1.6rem;
+        }
+        
+        .accordion-body h3 {
+            color: var(--ink);
+            font-size: 1.3em;
+            font-weight: 600;
+            margin-top: 20px;
+        }
+        
+        .accordion-body h4 {
+            color: var(--ink);
+            font-size: 1.1em;
+            font-weight: 600;
+            margin-top: 15px;
+        }
+        
+        /* CSS cho accordion lồng nhau bên trong Giai Đoạn 3 */
+        .accordion-body .accordion {
+            box-shadow: none;
+        }
+        .accordion-body .accordion .accordion-item {
+             background: var(--bg-base);
+             border-radius: 12px !important;
+             box-shadow: none;
+        }
+        .accordion-body .accordion .accordion-button {
+            font-size: 0.95rem;
+            font-weight: 500;
+            padding: 0.9rem 1.1rem;
+        }
+         .accordion-body .accordion .accordion-button:not(.collapsed) {
+            background: rgba(245, 196, 0, 0.1);
+         }
+        .accordion-body .accordion .accordion-body {
+            background: var(--bg-surface);
+            font-size: 0.9rem;
+        }
+
+
+        .tip,
+        .warning {
+            border-radius: 18px;
+            padding: 1.3rem 1.5rem;
+            margin-bottom: 1rem;
+            font-size: 0.95rem;
+            line-height: 1.6;
+            background: rgba(245, 196, 0, 0.12);
+            border: 1px solid rgba(245, 196, 0, 0.35);
+            color: var(--ink);
+        }
+
+        .warning {
+            background: rgba(245, 196, 0, 0.2);
+        }
+        
+        /* Thêm style cho warning từ file text */
+        .warning-danger {
+            background-color: #fff1f2;
+            border-color: #fda4af;
+            border-left: 5px solid #f43f5e;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+        
+        blockquote {
+            font-style: italic;
+            background: var(--bg-muted);
+            border-left: 5px solid var(--primary);
+            margin: 1.5em 0;
+            padding: 0.5em 10px;
+        }
+
+        .surface-panel {
+            background: var(--bg-surface);
+            border: 1px solid var(--border);
+            border-radius: 22px;
+            padding: 2.1rem;
+            box-shadow: var(--shadow-md);
+        }
+
+        .sub-panel {
+            background: rgba(245, 196, 0, 0.12);
+            border: 1px solid rgba(245, 196, 0, 0.35);
+            border-radius: 18px;
+            padding: 1.6rem;
+        }
+
+        .form-label {
+            color: var(--ink-muted);
+            font-weight: 600;
+        }
+
+        .form-control {
+            background: #fff;
+            border: 1px solid var(--border);
+            color: var(--ink);
+        }
+
+        .form-control:focus {
+            border-color: rgba(245, 196, 0, 0.55);
+            box-shadow: 0 0 0 0.2rem rgba(245, 196, 0, 0.2);
+        }
+
+        footer {
+            background: var(--ink);
+            color: rgba(255, 255, 255, 0.7);
+            padding: 32px 0 90px;
+            margin-top: 40px;
+        }
+
+        footer .footer-highlight {
+            color: var(--primary);
+            font-weight: 700;
+        }
+
+        .floating-cta-group {
+            position: fixed;
+            right: clamp(16px, 4vw, 28px);
+            bottom: calc(env(safe-area-inset-bottom) + 96px);
+            z-index: 1200;
+            display: flex;
+            flex-direction: column;
+            gap: 0.6rem;
+        }
+
+        .floating-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.55rem;
+            padding: 0.55rem 1rem;
+            border-radius: 999px;
+            background: #111;
+            color: #fff;
+            font-weight: 600;
+            box-shadow: 0 14px 30px rgba(0, 0, 0, 0.28);
+            transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+        }
+
+        .floating-cta i {
+            font-size: 1.05rem;
+        }
+
+        .floating-cta:hover {
+            transform: translateY(-3px);
+            background: var(--primary-dark);
+            color: #111;
+            box-shadow: 0 18px 36px rgba(0, 0, 0, 0.32);
+        }
+
+        /* Mobile bottom navigation */
+        .mobile-nav {
+            position: fixed;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: var(--ink);
+            display: none;
+            justify-content: space-around;
+            padding: 0.55rem 0.75rem calc(env(safe-area-inset-bottom) + 0.55rem);
+            box-shadow: 0 -10px 30px rgba(0, 0, 0, 0.25);
+            z-index: 1030;
+        }
+
+        .mobile-nav a {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.2rem;
+            color: rgba(255, 255, 255, 0.72);
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+
+        .mobile-nav a.active {
+            color: var(--primary);
+        }
+
+        .mobile-nav i {
+            font-size: 1.35rem;
+        }
+
+        @media (min-width: 769px) {
+            .floating-cta-group {
+                bottom: 32px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding-bottom: 88px;
+            }
+            .navbar {
+                display: none;
+            }
+            .mobile-nav {
+                display: flex;
+            }
+            
+            .accordion-body h3 {
+                font-size: 1.15em;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-light sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <i class="bi bi-tiktok"></i> TikTok A-Z by Kiantr
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item"><a class="nav-link" href="index.html"><i class="bi bi-bar-chart-fill"></i> BXH Kênh</a></li>
+                    <li class="nav-item"><a class="nav-link" href="learning.html"><i class="bi bi-journal-play"></i> Học Thêm</a></li>
+                    <li class="nav-item"><a class="nav-link active-page fw-bold" href="roadmap.html">Lộ Trình</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div id="heroCarousel" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-indicators">
+            <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+            <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+            <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+        </div>
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <div class="carousel-caption">
+                    <h1>Lộ Trình Xây Kênh TikTok SeaZen</h1>
+                    <p class="fs-5">Đi từng bước rõ ràng từ định vị, sản xuất nội dung đến tối ưu chuyển đổi cho đội ngũ SeaZen.</p>
+                    <a href="#lo-trinh" class="btn hero-btn mt-3"><i class="bi bi-play-circle-fill me-2"></i>BẮT ĐẦU HÀNH TRÌNH</a>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <div class="carousel-caption">
+                    <h1>Gửi Nội Dung &amp; Kịch Bản</h1>
+                    <p class="fs-5">Chia sẻ ý tưởng hoặc kênh TikTok để SeaZen thẩm định và hỗ trợ triển khai ngay.</p>
+                    <a href="https://seazen.vn/submitnoidung" class="btn hero-btn mt-3"><i class="bi bi-pencil-square me-2"></i>GỬI NỘI DUNG</a>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <div class="carousel-caption">
+                    <h1>Tài Nguyên &amp; Gửi Kênh</h1>
+                    <p class="fs-5">Mở playlist học thêm, gửi kênh cho SeaZen thẩm định và kết nối cộng đồng nội bộ.</p>
+                    <a href="learning.html" class="btn hero-btn hero-btn--outline mt-3"><i class="bi bi-journal-play me-2"></i>MỞ KHO HỌC THÊM</a>
+                </div>
+            </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#heroCarousel" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#heroCarousel" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+
+    <main class="container my-5" id="lo-trinh">
+
+        <section id="gioi-thieu" class="text-center mb-5">
+            <h2 class="main-title">Lộ Trình Xây Kênh</h2>
+            <p class="lead mt-3">TikTok không phải trò may rủi. Đây là hành trình 4 giai đoạn rõ ràng. Hãy nhấp để mở từng giai đoạn.</p>
+        </section>
+
+        <div class="accordion" id="accordionLoTrinh">
+            
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="heading-gd0">
+                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-gd0" aria-expanded="true" aria-controls="collapse-gd0">
+                        <i class="bi bi-lightbulb-fill me-3"></i> Tư Duy Cốt Lõi (BẮT ĐẦU TỪ ĐÂY)
+                    </button>
+                </h2>
+                <div id="collapse-gd0" class="accordion-collapse collapse show" aria-labelledby="heading-gd0" data-bs-parent="#accordionLoTrinh">
+                    <div class="accordion-body">
+                        <p>Chào bạn, tôi ở đây để hướng dẫn bạn "cầm tay chỉ việc" xây dựng kênh TikTok. Trước khi nói về kỹ thuật, chúng ta cần thống nhất về tư duy. TikTok không phải là nơi may rủi, cũng không phải là nơi chỉ dành cho thủ thuật. Đây là nền tảng dành cho <strong>người bình thường</strong>.</p>
+                        <p>Với hơn 70 triệu người dùng tại Việt Nam, TikTok là một "biển lớn" để bạn thể hiện giá trị. Nhưng chìa khóa không phải là cố gắng "diễn" hay "làm màu". Chìa khóa là sự <strong>chân thành</strong> và <strong>bền bững</strong>.</p>
+            
+                        <h3 class="mt-4">Thần chú của kênh TikTok thành công</h3>
+                        <p>Hãy nhớ, người xem lướt TikTok rất nhanh. Video của bạn phải đạt được 1 trong 2 mục tiêu (hoặc cả 2):</p>
+                        <ol>
+                            <li><strong>Mang lại CẢM XÚC:</strong> Vui, buồn, đồng cảm, tức giận, tự hào... Cảm xúc giữ chân người xem và khiến họ muốn tương tác.</li>
+                            <li><strong>Mang lại BÀI HỌC:</strong> Một mẹo vặt, một kiến thức, một kinh nghiệm, một góc nhìn mới... Giá trị khiến họ muốn follow bạn.</li>
+                        </ol>
+                        <p>Nếu video của bạn không có 1 trong 2 điều trên, nó sẽ bị lướt qua. Hành trình này không chỉ là xây kênh, đây là hành trình <strong>phát triển bản thân</strong>. Bạn sẽ phải học mỗi ngày, update bản thân mỗi ngày.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="heading-gd1">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-gd1" aria-expanded="false" aria-controls="collapse-gd1">
+                        <i class="bi bi-bullseye me-3"></i> Giai Đoạn 1: Bạn Là AI? (Định Vị & Nhân Vật)
+                    </button>
+                </h2>
+                <div id="collapse-gd1" class="accordion-collapse collapse" aria-labelledby="heading-gd1" data-bs-parent="#accordionLoTrinh">
+                    <div class="accordion-body">
+                        <p>Đây là bước quan trọng nhất mà 90% người mới bỏ qua. Bạn không thể làm nội dung nếu không biết mình là ai và nói chuyện với ai. Đừng nghĩ đến kịch bản vội, hãy trả lời 3 câu hỏi sau:</p>
+
+                        <h3>1. Danh tính (Identity) của bạn là gì?</h3>
+                        <p>Bạn phải nhất quán giữa hình ảnh và nội dung. Người xem rất tinh ý.</p>
+                        <ul>
+                            <li>Nếu bạn nói bạn là nông dân, nhưng tay bạn sạch sẽ, da trắng bóc, người ta sẽ không tin.</li>
+                            <li>Nếu bạn nói bạn là chuyên gia tài chính, nhưng bạn ngồi ở một bối cảnh lộn xộn, âm thanh ồn ào, người ta sẽ nghi ngờ.</li>
+                            <li><strong>Hãy là chính mình:</strong> Cách tốt nhất là bê nguyên con người và công việc ngoài đời của bạn lên TikTok. Bạn là giáo viên, là thợ sửa xe, là mẹ bỉm sữa... hãy cứ là người đó.</li>
+                        </ul>
+
+                        <h3>2. Mối quan hệ (Relationship) với người xem là gì?</h3>
+                        <p>Bạn muốn người xem coi bạn là ai? Điều này quyết định cách xưng hô và văn phong của bạn.</p>
+                        <ul>
+                            <li><strong>Bạn bè:</strong> "Mày tao", "chúng mày ơi", "các ông ạ"... (Tạo sự gần gũi, thân thiết).</li>
+                            <li><strong>Chuyên gia/Thầy cô:</strong> "Anh/chị", "tôi", "các bạn"... (Tạo sự tin tưởng, uy tín).</li>
+                            <li><strong>Người em/Người chị:</strong> "Em bảo này", "Các chị ơi"... (Tạo sự đồng cảm, chia sẻ).</li>
+                        </ul>
+                        <div class="tip">
+                            <strong>Mẹo:</strong> Chọn một mối quan hệ và trung thành với nó. Đừng hôm nay xưng "anh", mai xưng "mình", ngày mốt xưng "tao". Sự nhất quán tạo nên thương hiệu.
+                        </div>
+
+                        <h3>3. Tông cảm xúc (Emotional Tone) chủ đạo là gì?</h3>
+                        <p>Đây là "vũ khí" của bạn. Cùng một kịch bản, nhưng tông cảm xúc khác nhau sẽ ra kết quả khác nhau.</p>
+                        <ul>
+                            <li><strong>Tích cực:</strong> Vui vẻ, năng lượng, tự hào, mãn nguyện. (Phù hợp với chủ đề truyền động lực, khoe thành quả, giải trí).</li>
+                            <li><strong>Tiêu cực:</strong> Bực mình, phẫn nộ, thất vọng. (Phù hợp để "bóc phốt", thể hiện quan điểm trái chiều, tạo drama).</li>
+                            <li><strong>Trung tính/Lạnh lùng:</strong> Phân tích, thượng đẳng, bình thản. (Phù hợp với kênh kiến thức chuyên sâu, review đồ công nghệ, hàng hiệu).</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="heading-gd2">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-gd2" aria-expanded="false" aria-controls="collapse-gd2">
+                        <i class="bi bi-film me-3"></i> Giai Đoạn 2: Sản Xuất Nội Dung (Content Creation)
+                    </button>
+                </h2>
+                <div id="collapse-gd2" class="accordion-collapse collapse" aria-labelledby="heading-gd2" data-bs-parent="#accordionLoTrinh">
+                    <div class="accordion-body">
+                        <p>Sau khi đã có "nhân vật", giờ là lúc tạo ra nội dung.</p>
+
+                        <h3>1. Lấy ý tưởng ở đâu?</h3>
+                        <div class="warning-danger">
+                            <strong>Đừng tự nghĩ 100%!</strong> Người mới không cần phải sáng tạo ra cái mới. Hãy biết "mượn ý tưởng" một cách thông minh:
+                        </div>
+                        <ul>
+                            <li><strong>Từ bình luận (Comment):</strong> Đọc 5 bình luận được "thả tim" nhiều nhất trong các video hot cùng chủ đề. Lấy quan điểm đó làm chủ đề cho video của bạn.</li>
+                            <li><strong>Từ sách:</strong> Mở mục lục của một cuốn sách. Mỗi gạch đầu dòng trong mục lục là một ý tưởng video.</li>
+                            <li><strong>Từ video dài (Youtube/Phim):</strong> Tóm tắt một bộ phim, một bài phân tích dài thành một video ngắn 2 phút. Đây gọi là "cô đọng thông tin".</li>
+                        </ul>
+
+                        <h3>2. Công thức video "Quan Điểm" (Dễ Lên Xu Hướng)</h3>
+                        <p>Dạng video thể hiện quan điểm cá nhân (thể hiện "lập trường") rất dễ kéo tương tác. Hãy dùng các công thức sau cho 3 giây đầu tiên:</p>
+                        <ol>
+                            <li><strong>Số liệu + Nỗi đau:</strong> "90% người 28 tuổi đều gặp khủng hoảng mà không dám nói ra."</li>
+                            <li><strong>Hỏi ngược + Trái nhận thức:</strong> "Tại sao càng nghèo lại càng thích tiêu tiền?"</li>
+                            <li><strong>Phủ định điều hiển nhiên:</strong> "Đừng bao giờ quay TikTok cùng vợ." / "Tuyệt đối đừng tặng quà cho sếp vào dịp Tết."</li>
+                            <li><strong>Hành vi quen + Kết quả bất ngờ:</strong> "Những người hay rửa bát cho vợ lại dễ bỏ vợ nhất."</li>
+                        </ol>
+                        
+                        <h3>3. Kỹ thuật quay dựng (Production)</h3>
+                        <p>Là người bình thường, chúng ta phải giữ <strong>chi phí rẻ</strong> để đi đường dài.</p>
+                        <ul>
+                            <li><strong>Thiết bị:</strong> Bạn CHỈ CẦN 2 thứ: <strong>1 Chân máy (Tripod)</strong> và <strong>1 Mic thu âm</strong> (Ví dụ: Mic GoCheck). Hết!</li>
+                            <li><strong>Ánh sáng:</strong> Không cần đèn đắt tiền. Hãy đi ra ngoài đường quay ban ngày, hoặc ngồi trước cửa sổ. Ánh sáng tự nhiên là đẹp nhất.</li>
+                            <li><strong>Hậu kỳ (Editing):</strong>
+                                <ul>
+                                    <li>Hãy tự cắt video của mình (dùng CapCut).</li>
+                                    <li><strong>Cắt bỏ hết "ậm ừ":</strong> Cắt bỏ mọi tiếng "ờ...", "ừm...", "à..." và các khoảng nghỉ thừa. Điều này làm video có nhịp điệu nhanh, giữ chân người xem.</li>
+                                    <li><strong>Che lỗi bằng cut:</strong> Nếu bạn nói vấp, hãy dừng lại, nói lại câu đó. Lúc edit, bạn chỉ cần cắt bỏ đoạn vấp đi là được.</li>
+                                </ul>
+                            </li>
+                        </ul>
+
+                        <h3>4. Đăng tải (Posting)</h3>
+                        <div class="tip">
+                            <strong>Giờ đăng video KHÔNG QUAN TRỌNG!</strong>
+                            <p>Nội dung của bạn hay, bạn đăng 2 giờ sáng vẫn có người xem. Đừng tin vào "khung giờ vàng". Hãy đăng khi bạn đã edit xong video. Điều quan trọng là sự <strong>đều đặn</strong> (ví dụ: 1 video mỗi ngày).</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="heading-gd3">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-gd3" aria-expanded="false" aria-controls="collapse-gd3">
+                        <i class="bi bi-heart-pulse me-3"></i> Giai Đoạn 3: Vượt Qua Nỗi Sợ (Tâm Lý Ống Kính)
+                    </button>
+                </h2>
+                <div id="collapse-gd3" class="accordion-collapse collapse" aria-labelledby="heading-gd3" data-bs-parent="#accordionLoTrinh">
+                    <div class="accordion-body">
+                        <p>Tôi biết, bạn có đủ mọi thứ, nhưng bạn sợ. Sợ bị chê, sợ ngoại hình, sợ giọng nói. Đây là 2 rào cản chính và cách vượt qua:</p>
+
+                        <h3>1. Nỗi sợ bên trong (Internal Fear)</h3>
+                        <ul>
+                            <li><strong>"Trông mình kinh quá":</strong> Bạn không cần hoàn hảo, chỉ cần chân thật.</li>
+                            <li><strong>"Giọng mình nghe ghê quá":</strong> Ai nghe lại giọng mình cũng thấy vậy. Kệ nó, nói tiếp đi!</li>
+                            <li><strong>"Nói cái này chả ai xem":</strong> Kiến thức của bạn là "dễ" với bạn, nhưng là "mới" với hàng ngàn người khác.</li>
+                        </ul>
+                        
+                        <h3>2. Nỗi sợ bên ngoài (External Fear)</h3>
+                        <ul>
+                            <li><strong>"Sợ người khác nhìn":</strong> Họ nhìn rồi họ cũng đi. Họ không trả tiền cho bạn. Người yêu quý bạn mới trả tiền cho bạn.</li>
+                            <li><strong>"Sợ bình luận tiêu cực":</strong> Người ta mắng bạn trên mạng, nhưng đó không phải con người thật của bạn. Đó chỉ là một khoảnh khắc của bạn bị hiểu lầm. Ngó lơ họ đi!</li>
+                        </ul>
+
+                        <h3>3. Mẹo thực hành để tự tin ngay lập tức</h3>
+                        <ol>
+                            <li><strong>Thay đổi góc máy:</strong> Đừng quay góc trực diện (90 độ) vì nó giống "tra khảo". Hãy thử quay góc <strong>70 độ</strong> hoặc <strong>45 độ</strong> (nghiêng người, liếc mắt vào camera). Góc này tạo cảm giác "nói chuyện" tự nhiên.</li>
+                            <li><strong>Thả lỏng cơ thể:</strong> Khi căng thẳng, 3 vùng sẽ bị gồng: <strong>Vai, Cằm, Chân</strong>. Hãy thả lỏng vai, hơi há miệng (để cằm thư giãn), và thả lỏng chân (đừng co rúm lại).</li>
+                            <li><strong>Dùng Selfie Cam thay gương:</strong> Từ hôm nay, đừng soi gương. Hãy mở camera trước của điện thoại lên để soi. Quen dần với khuôn mặt mình trên camera là cách nhanh nhất để hết sợ.</li>
+                        </ol>
+                        
+                        <h4 class="mt-4">10 Câu "Tự Kỷ Ám Thị" Giúp Bạn Tự Tin (Bấm để xem)</h4>
+                        
+                        <div class="accordion mt-3" id="accordionGiaiDoan3">
+                            <div class="accordion-item">
+                                <h2 class="accordion-header">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-gd3-1">
+                                        1. Mình không cần hoàn hảo, chỉ cần chân thật.
+                                    </button>
+                                </h2>
+                                <div id="collapse-gd3-1" class="accordion-collapse collapse" data-bs-parent="#accordionGiaiDoan3">
+                                    <div class="accordion-body">
+                                        <p>Người xem đã quá mệt mỏi với những thứ giả tạo. Sự chân thật, thậm chí là khuyết điểm của bạn, mới là thứ kết nối.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="accordion-item">
+                                <h2 class="accordion-header">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-gd3-2">
+                                        2. Người xem quan tâm thông điệp, hơn là ngoại hình.
+                                    </button>
+                                </h2>
+                                <div id="collapse-gd3-2" class="accordion-collapse collapse" data-bs-parent="#accordionGiaiDoan3">
+                                    <div class="accordion-body">
+                                        <p>Họ ở lại vì bạn cho họ bài học hoặc cảm xúc, không phải vì hôm nay bạn có cái mụn hay không.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="accordion-item">
+                                <h2 class="accordion-header">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-gd3-3">
+                                        3. Sai có thể quay lại, đừng tự áp lực.
+                                    </button>
+                                </h2>
+                                <div id="collapse-gd3-3" class="accordion-collapse collapse" data-bs-parent="#accordionGiaiDoan3">
+                                    <div class="accordion-body">
+                                        <p>Chúng ta có CapCut mà! Cứ nói đi, vấp thì nói lại, về nhà cắt sau.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="accordion-item">
+                                <h2 class="accordion-header">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-gd3-4">
+                                        4. Video sau sẽ tốt hơn video trước.
+                                    </button>
+                                </h2>
+                                <div id="collapse-gd3-4" class="accordion-collapse collapse" data-bs-parent="#accordionGiaiDoan3">
+                                    <div class="accordion-body">
+                                        <p>Đừng so sánh với ai. Hãy so sánh với chính bạn ngày hôm qua.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="accordion-item">
+                                <h2 class="accordion-header">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-gd3-5">
+                                        5. Người xem đang ủng hộ mình, họ không soi mói mình.
+                                    </button>
+                                </h2>
+                                <div id="collapse-gd3-5" class="accordion-collapse collapse" data-bs-parent="#accordionGiaiDoan3">
+                                    <div class="accordion-body">
+                                        <p>Hãy tưởng tượng bạn đang nói chuyện với người bạn thân nhất của mình.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="accordion-item">
+                                <h2 class="accordion-header">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-gd3-6">
+                                        6. Mình đang trò chuyện, không phải đang diễn thuyết.
+                                    </button>
+                                </h2>
+                                <div id="collapse-gd3-6" class="accordion-collapse collapse" data-bs-parent="#accordionGiaiDoan3">
+                                    <div class="accordion-body">
+                                        <p>Hãy dùng ngôn ngữ đời thường, gần gũi. Đừng cố nói như MC truyền hình.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="accordion-item">
+                                <h2 class="accordion-header">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-gd3-7">
+                                        7. TikToker 1 triệu follow cũng bắt đầu từ con số 0.
+                                    </button>
+                                </h2>
+                                <div id="collapse-gd3-7" class="accordion-collapse collapse" data-bs-parent="#accordionGiaiDoan3">
+                                    <div class="accordion-body">
+                                        <p>Họ cũng từng giống bạn, cũng từng sợ hãi, cũng từng không có view.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="accordion-item">
+                                <h2 class="accordion-header">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-gd3-8">
+                                        8. Camera là bạn mình.
+                                    </button>
+                                </h2>
+                                <div id="collapse-gd3-8" class="accordion-collapse collapse" data-bs-parent="#accordionGiaiDoan3">
+                                    <div class="accordion-body">
+                                        <p>Nó là công cụ giúp bạn lan tỏa giá trị, không phải kẻ thù phán xét bạn.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="accordion-item">
+                                <h2 class="accordion-header">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-gd3-9">
+                                        9. Cứ sai đi, người xem còn lâu mới biết mình lỗi.
+                                    </button>
+                                </h2>
+                                <div id="collapse-gd3-9" class="accordion-collapse collapse" data-bs-parent="#accordionGiaiDoan3">
+                                    <div class="accordion-body">
+                                        <p>Chỉ bạn mới biết kịch bản. Nếu bạn quên lời và "chế" lời mới, người xem sẽ nghĩ đó là kịch bản. Cứ tự tin lên!</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="accordion-item">
+                                <h2 class="accordion-header">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-gd3-10">
+                                        10. Cười thật tươi, thả lỏng vai, BẮT ĐẦU THÔI!
+                                    </button>
+                                </h2>
+                                <div id="collapse-gd3-10" class="accordion-collapse collapse" data-bs-parent="#accordionGiaiDoan3">
+                                    <div class="accordion-body">
+                                        <p>Bấm máy ngay đi, đừng chần chừ nữa!</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="heading-gd4">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-gd4" aria-expanded="false" aria-controls="collapse-gd4">
+                        <i class="bi bi-currency-dollar me-3"></i> Giai Đoạn 4: Biến Kênh Thành Tiền (Monetization)
+                    </button>
+                </h2>
+                <div id="collapse-gd4" class="accordion-collapse collapse" aria-labelledby="heading-gd4" data-bs-parent="#accordionLoTrinh">
+                    <div class="accordion-body">
+                        <p>Chúng ta làm nội dung cuối cùng là để ra tiền. Nhưng phải kiếm tiền một cách bền vững. Đừng bao giờ bán hàng ngay khi mới lập kênh. Bạn phải có giá trị, có người yêu quý (fan) trước đã.</p>
+                        <blockquote>Tâm lý mua hàng trên TikTok là: "Tôi quý bạn, nên tôi mua hàng ủng hộ bạn". Họ không mua vì giá rẻ nhất, họ mua vì CẢM XÚC.</blockquote>
+
+                        <h3>Các hình thức kiếm tiền chính:</h3>
+                        <ol>
+                            <li><strong>Affiliate (Tiếp thị liên kết):</strong> Đây là cách dễ nhất cho người mới.
+                                <ul>
+                                    <li>Bạn không cần nhập hàng, không cần kho bãi.</li>
+                                    <li>Bạn đăng ký TikTok Shop, tìm sản phẩm bạn thích (ví dụ: cái mic bạn đang dùng, cuốn sách bạn đang đọc).</li>
+                                    <li>Gắn link sản phẩm vào video review của bạn. Khi ai đó mua qua link, bạn nhận được hoa hồng (5-20%).</li>
+                                    <li>Hãy review như một "người dùng" (khách hàng) chứ đừng như một "người bán". Hãy chân thật!</li>
+                                </ul>
+                            </li>
+                            <li><strong>Bán hàng (Kinh doanh cá nhân):</strong>
+                                <ul>
+                                    <li>Bạn bán sản phẩm của chính mình (quần áo, mỹ phẩm, đồ ăn...).</li>
+                                    <li>Cách này cần bạn xây dựng thương hiệu cá nhân thật mạnh để người ta tin tưởng.</li>
+                                </ul>
+                            </li>
+                            <li><strong>Booking (KOL/KOC):</strong>
+                                <ul>
+                                    <li>Khi kênh của bạn đủ lớn, các nhãn hàng sẽ trả tiền để bạn xuất hiện trong video của họ, hoặc để bạn review sản phẩm của họ.</li>
+                                </ul>
+                            </li>
+                            <li><strong>Thương hiệu cá nhân (Personal Branding):</strong>
+                                <ul>
+                                    <li>Bạn không bán sản phẩm hữu hình, bạn bán kiến thức, dịch vụ (ví dụ: các gói coaching, tư vấn, khóa học). Đây là cách làm của mình (Duy Muối).</li>
+                                </ul>
+                            </li>
+                            <li><strong>Chuyển đổi (Conversion):</strong>
+                                <ul>
+                                    <li>Bạn làm video để kéo khách từ TikTok đến cơ sở kinh doanh của bạn (quán ăn, spa, nhà hàng, phòng gym...).</li>
+                                </ul>
+                            </li>
+                            <li><strong>Quà tặng (Live Gifts & Video Gifts):</strong>
+                                <ul>
+                                    <li>Khi bạn livestream hoặc đăng video, người xem có thể "donate" (tặng quà) cho bạn và bạn quy đổi nó ra tiền.</li>
+                                </ul>
+                            </li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <section id="loi-sai" class="my-5">
+            <h2 class="main-title text-center mb-4">Các Lỗi Sai Chết Người Cần Tránh</h2>
+            
+            <div class="row g-4">
+                <div class="col-md-6">
+                    <div class="warning h-100">
+                        <h5>1. Mua Follower / Follow Chéo / Nuôi Tài Khoản</h5>
+                        <p class="mb-0">Đây là thứ nhảm nhí nhất. Bạn mua 10.000 follow ảo, nhưng đó không phải người xem thật. TikTok phân phối video dựa trên sở thích. Khi bạn đăng video, nó sẽ phân phối cho 10.000 tài khoản "chết" đó, không ai xem, và video của bạn sẽ "chết" theo. Đừng bao giờ làm việc này!</p>
+                    </div>
+                </div>
+                 <div class="col-md-6">
+                    <div class="warning h-100">
+                        <h5>2. Ám ảnh "Giờ Đăng" và "Bảng Phân Tích"</h5>
+                        <p class="mb-0">Như đã nói, giờ đăng không quan trọng. Ngoài ra, nếu video của bạn dưới 10.000 view, đừng nhìn vào bảng phân tích dữ liệu. Nó không có ý nghĩa gì cả. Hãy tập trung vào việc làm video tiếp theo hay hơn.</p>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="warning h-100">
+                        <h5>3. Nghĩ rằng kiếm tiền dễ</h5>
+                        <p class="mb-0">Những người khoe kiếm trăm triệu, tiền tỷ là "thiên kiến kẻ sống sót". Họ có thể làm được, nhưng họ đã nỗ lực rất nhiều. Không có gì là dễ dàng cho người bình thường cả.</p>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="warning h-100">
+                        <h5>4. Quá tin vào "Thầy" / "Thủ Thuật"</h5>
+                        <p class="mb-0">Mỗi người sẽ nói một kiểu. Đừng tin ai 100% (kể cả mình). Hãy xem đây là thông tin tham khảo, và bạn phải là người tự trải nghiệm để tìm ra sự thật. Không có "thủ thuật" nào qua mặt được nền tảng.</p>
+                    </div>
+                </div>
+                <div class="col-md-12">
+                    <div class="warning h-100">
+                        <h5>5. Chạy quảng cáo (Boost) khi kênh còn yếu</h5>
+                        <p class="mb-0">Đừng bao giờ chạy quảng cáo cho video khi bạn không biết chắc nó sẽ lãi. Bạn phải sản xuất nội dung (content) tốt trước. Khi có video hay, giữ chân người xem tốt, lúc đó mới nghĩ đến việc dùng tiền để đẩy nó đi xa hơn.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <div class="floating-cta-group">
+        <a class="floating-cta" href="https://seazen.vn/submitkenh" target="_blank" rel="noopener">
+            <i class="bi bi-send-check-fill"></i><span>Gửi kênh</span>
+        </a>
+        <a class="floating-cta" href="https://seazen.vn/submitnoidung" target="_blank" rel="noopener">
+            <i class="bi bi-pencil-square"></i><span>Gửi nội dung</span>
+        </a>
+    </div>
+
+    <footer class="text-center">
+        <div class="container">
+            <p class="mb-1 footer-highlight">&copy; 2025 - Bản quyền Kiantr.</p>
+            <p>Website giáo dục phi lợi nhuận. Chúc bạn thành công!</p>
+        </div>
+    </footer>
+
+    <nav class="mobile-nav" data-page="roadmap">
+        <a href="index.html">
+            <i class="bi bi-bar-chart-fill"></i>
+            <span>BXH</span>
+        </a>
+        <a href="learning.html">
+            <i class="bi bi-mortarboard-fill"></i>
+            <span>Học thêm</span>
+        </a>
+        <a href="roadmap.html" class="active">
+            <i class="bi bi-map"></i>
+            <span>Lộ trình</span>
+        </a>
+    </nav>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script src="visitor-modal.js"></script>
+
+
+
+</body>
+</html>

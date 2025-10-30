@@ -40,7 +40,7 @@
 
         .navbar-brand {
             display: flex;
-            align-items: center;
+            align-items: flex-start;
             gap: 0.6rem;
             font-weight: 800;
             letter-spacing: 0.04em;
@@ -75,64 +75,353 @@
             color: var(--ink-muted);
         }
 
-        .resource-card {
-            background: var(--bg-surface);
-            border: 1px solid var(--border);
-            border-radius: 24px;
-            padding: 2.2rem;
-            box-shadow: var(--shadow-md);
+        .playlist-experience {
+            display: grid;
+            gap: 2.2rem;
+            grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
+            align-items: flex-start;
         }
 
-        .resource-card h2 {
-            font-weight: 800;
-            font-size: 1.6rem;
-        }
-
-        .resource-card p {
-            color: var(--ink-muted);
-        }
-
-        .resource-meta {
+        .player-stack {
             display: flex;
-            flex-wrap: wrap;
-            gap: 1rem;
-            margin: 1.5rem 0;
-            color: var(--ink-muted);
-            font-weight: 600;
-        }
-
-        .resource-meta span {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.4rem;
-            padding: 0.45rem 0.9rem;
-            border-radius: 999px;
-            background: rgba(29, 29, 31, 0.08);
-        }
-
-        .cta-button {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.6rem;
-            background: var(--ink);
-            color: #fff;
-            border-radius: 999px;
-            padding: 0.75rem 1.8rem;
-            font-weight: 600;
-            box-shadow: var(--shadow-sm);
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
-        }
-
-        .cta-button:hover {
-            transform: translateY(-2px);
-            box-shadow: var(--shadow-md);
-            color: #fff;
+            flex-direction: column;
+            gap: 1.3rem;
         }
 
         .playlist-frame {
             border-radius: 22px;
             overflow: hidden;
             box-shadow: var(--shadow-md);
+            background: #000;
+        }
+
+        #playlist-player,
+        #playlist-player iframe {
+            width: 100%;
+            height: 100%;
+        }
+
+        .player-note {
+            background: rgba(255, 255, 255, 0.9);
+            border: 1px solid var(--border);
+            border-radius: 18px;
+            padding: 1.2rem 1.4rem;
+            display: flex;
+            gap: 0.9rem;
+            align-items: center;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .player-note i {
+            font-size: 1.5rem;
+            color: var(--primary-dark);
+        }
+
+        .playlist-card {
+            background: var(--bg-surface);
+            border: 1px solid var(--border);
+            border-radius: 24px;
+            box-shadow: var(--shadow-md);
+            padding: 1.8rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            max-height: 100%;
+        }
+
+        .playlist-card header {
+            display: flex;
+            flex-direction: column;
+            gap: 0.25rem;
+        }
+
+        .playlist-card h3 {
+            font-weight: 700;
+            font-size: 1.3rem;
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            margin: 0;
+        }
+
+        .playlist-header {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 1rem;
+            justify-content: space-between;
+        }
+
+        .playlist-actions {
+            display: inline-flex;
+            gap: 0.45rem;
+        }
+
+        .playlist-action-btn {
+            width: 42px;
+            height: 42px;
+            border-radius: 14px;
+            border: 1px solid rgba(0, 0, 0, 0.12);
+            background: rgba(255, 255, 255, 0.85);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--ink);
+            transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease, background 0.15s ease;
+        }
+
+        .playlist-action-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-sm);
+            border-color: rgba(245, 196, 0, 0.6);
+            color: var(--primary-dark);
+            background: rgba(245, 196, 0, 0.16);
+        }
+
+        .playlist-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.6rem;
+        }
+
+        .playlist-meta span {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.35rem;
+            padding: 0.35rem 0.75rem;
+            border-radius: 999px;
+            background: rgba(29, 29, 31, 0.08);
+            font-weight: 600;
+            font-size: 0.85rem;
+        }
+
+        .playlist-scroll {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .playlist-search {
+            position: relative;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.65rem 0.9rem;
+            border-radius: 14px;
+            border: 1px solid rgba(0, 0, 0, 0.12);
+            background: rgba(255, 255, 255, 0.9);
+            transition: border-color 0.15s ease, box-shadow 0.15s ease;
+        }
+
+        .playlist-search:focus-within {
+            border-color: rgba(245, 196, 0, 0.6);
+            box-shadow: 0 0 0 0.2rem rgba(245, 196, 0, 0.18);
+        }
+
+        .playlist-search i {
+            color: var(--ink-muted);
+            font-size: 1rem;
+        }
+
+        .playlist-search input {
+            border: none;
+            background: transparent;
+            width: 100%;
+            font-size: 0.95rem;
+            outline: none;
+            color: var(--ink);
+        }
+
+        .playlist-search button {
+            border: none;
+            background: transparent;
+            color: var(--ink-muted);
+            font-size: 1rem;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0;
+            width: 24px;
+            height: 24px;
+            cursor: pointer;
+        }
+
+        .playlist-search button:hover {
+            color: var(--primary-dark);
+        }
+
+        .playlist-toolbar {
+            display: flex;
+            flex-direction: column;
+            gap: 0.9rem;
+        }
+
+        .playlist-search-feedback {
+            font-size: 0.85rem;
+            color: var(--ink-muted);
+            padding-left: 0.3rem;
+        }
+
+        .playlist-scroll-inner {
+            max-height: clamp(360px, 52vh, 560px);
+            overflow-y: auto;
+            padding-right: 0.4rem;
+            scroll-behavior: smooth;
+        }
+
+        .playlist-scroll-inner::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        .playlist-scroll-inner::-webkit-scrollbar-thumb {
+            background: rgba(0, 0, 0, 0.15);
+            border-radius: 999px;
+        }
+
+        .playlist-video-list {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+
+        .playlist-video-list li {
+            display: grid;
+            grid-template-columns: auto 1fr auto;
+            gap: 0.7rem;
+            align-items: flex-start;
+            padding: 0.85rem 1rem;
+            border-radius: 16px;
+            border: 1px solid rgba(0, 0, 0, 0.08);
+            background: rgba(255, 255, 255, 0.82);
+            box-shadow: 0 8px 18px rgba(0, 0, 0, 0.06);
+            transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease, background 0.15s ease;
+            position: relative;
+        }
+
+        .playlist-video-list li:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-md);
+            border-color: rgba(245, 196, 0, 0.4);
+        }
+
+        .playlist-video-list li.active {
+            border-color: var(--primary);
+            background: rgba(245, 196, 0, 0.18);
+            box-shadow: 0 14px 32px rgba(245, 196, 0, 0.28);
+        }
+
+        .playlist-video-list li.active::after {
+            content: '';
+            position: absolute;
+            inset: 6px;
+            border-radius: 12px;
+            border: 1px dashed rgba(0, 0, 0, 0.12);
+            pointer-events: none;
+        }
+
+        .playlist-index {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 46px;
+            padding: 0.3rem 0.55rem;
+            border-radius: 12px;
+            background: rgba(245, 196, 0, 0.18);
+            color: var(--primary-dark);
+            font-weight: 700;
+            font-size: 0.9rem;
+        }
+
+        .playlist-title {
+            color: var(--ink);
+            font-weight: 600;
+            line-height: 1.3;
+            font-size: clamp(0.95rem, 2.6vw, 1rem);
+        }
+
+        .playlist-title-btn {
+            background: none;
+            border: none;
+            padding: 0;
+            margin: 0;
+            color: inherit;
+            font: inherit;
+            text-align: left;
+            cursor: pointer;
+        }
+
+        .playlist-title-btn:hover {
+            color: var(--primary-dark);
+        }
+
+        .playlist-title-btn:focus-visible {
+            outline: 2px solid rgba(245, 196, 0, 0.65);
+            outline-offset: 3px;
+        }
+
+        .playlist-item-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 0.4rem;
+            font-size: clamp(0.78rem, 2.3vw, 0.85rem);
+            color: var(--ink-muted);
+        }
+
+        .playlist-item-meta span {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.25rem;
+        }
+
+        .playlist-body {
+            display: flex;
+            flex-direction: column;
+            gap: 0.35rem;
+        }
+
+        .playlist-note {
+            font-size: 0.85rem;
+            color: var(--ink-muted);
+        }
+
+        .playlist-quicklink {
+            color: var(--ink-muted);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1rem;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            transition: background 0.15s ease, color 0.15s ease;
+        }
+
+        .playlist-quicklink:hover {
+            background: rgba(29, 29, 31, 0.08);
+            color: var(--primary-dark);
+        }
+
+        .playlist-status-text {
+            font-size: clamp(0.85rem, 2.4vw, 0.95rem);
+            color: var(--ink-muted);
+        }
+
+        .playlist-empty {
+            border: 1px dashed rgba(0, 0, 0, 0.15);
+            border-radius: 16px;
+            padding: 1.5rem;
+            text-align: center;
+            color: var(--ink-muted);
+            font-weight: 600;
+        }
+
+        .form-frame {
+            width: 100%;
+            min-height: min(80vh, 820px);
+            border: 0;
         }
 
         footer {
@@ -178,6 +467,55 @@
             font-size: 1.35rem;
         }
 
+        .floating-cta-group {
+            position: fixed;
+            right: clamp(16px, 4vw, 28px);
+            bottom: calc(env(safe-area-inset-bottom) + 96px);
+            z-index: 1200;
+            display: flex;
+            flex-direction: column;
+            gap: 0.6rem;
+        }
+
+        .floating-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.55rem;
+            padding: 0.55rem 1rem;
+            border-radius: 999px;
+            background: #111;
+            color: #fff;
+            font-weight: 600;
+            box-shadow: 0 14px 30px rgba(0, 0, 0, 0.28);
+            transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+        }
+
+        .floating-cta i {
+            font-size: 1.05rem;
+        }
+
+        .floating-cta:hover {
+            transform: translateY(-3px);
+            background: var(--primary-dark);
+            color: #111;
+            box-shadow: 0 18px 36px rgba(0, 0, 0, 0.32);
+        }
+
+        @media (min-width: 769px) {
+            .floating-cta-group {
+                bottom: 32px;
+            }
+        }
+
+        @media (max-width: 992px) {
+            .playlist-experience {
+                grid-template-columns: 1fr;
+            }
+            .playlist-card {
+                order: -1;
+            }
+        }
+
         @media (max-width: 768px) {
             body {
                 padding-bottom: 88px;
@@ -196,18 +534,16 @@
     <nav class="navbar navbar-expand-lg navbar-light sticky-top">
         <div class="container">
             <a class="navbar-brand" href="index.html">
-                <i class="bi bi-tiktok"></i> TikTok A-Z by Kiantr
+                <i class="bi bi-tiktok"></i> X10 SeaZen
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
                 <ul class="navbar-nav">
-                    <li class="nav-item"><a class="nav-link" href="index.html#lo-trinh">Lộ Trình</a></li>
-                    <li class="nav-item"><a class="nav-link" href="index.html#quiz">Kiểm Tra</a></li>
-                    <li class="nav-item"><a class="nav-link fw-bold" href="channels.html"><i class="bi bi-bar-chart-fill"></i> BXH Kênh</a></li>
-                    <li class="nav-item"><a class="nav-link fw-bold" href="honors.html"><i class="bi bi-award-fill"></i> Vinh Danh</a></li>
-                    <li class="nav-item"><a class="nav-link fw-bold active-page" href="learning.html"><i class="bi bi-journal-play"></i> Học Thêm</a></li>
+                    <li class="nav-item"><a class="nav-link" href="index.html"><i class="bi bi-bar-chart-fill"></i> BXH Kênh</a></li>
+                    <li class="nav-item"><a class="nav-link active-page fw-bold" href="learning.html"><i class="bi bi-journal-play"></i> Học Thêm</a></li>
+                    <li class="nav-item"><a class="nav-link" href="roadmap.html">Lộ Trình</a></li>
                 </ul>
             </div>
         </div>
@@ -219,25 +555,82 @@
     </section>
 
     <main class="container pb-5">
-        <div class="resource-card mb-4">
-            <h2><i class="bi bi-play-circle-fill me-2 text-warning"></i> Playlist: TikTok SeaZen Mastery</h2>
-            <p>Chuỗi 20+ video cập nhật liên tục, bao trùm toàn bộ hành trình xây dựng kênh: tư duy nội dung, quy trình sản xuất, tối ưu chuyển đổi và ví dụ thực chiến.</p>
-
-            <div class="resource-meta">
-                <span><i class="bi bi-clock-history"></i>Thời lượng ~5 phút/video</span>
-                <span><i class="bi bi-lightning-charge"></i>Cập nhật hàng tuần</span>
-                <span><i class="bi bi-bookmark-star"></i>Đề xuất xem 1 clip/ngày</span>
+        <section class="playlist-experience">
+            <div class="player-stack">
+                <div class="playlist-frame ratio ratio-16x9">
+                    <div id="playlist-player"></div>
+                </div>
+                <div class="player-note">
+                    <i class="bi bi-lightbulb-fill"></i>
+                    <div>
+                        <strong>Xem thông minh:</strong> Bật chế độ toàn màn hình hoặc phát ở tốc độ 1.25x để theo dõi nhanh hơn. Nhấp vào bất kỳ tiêu đề nào ở danh sách bên cạnh để chuyển clip tức thì.
+                    </div>
+                </div>
             </div>
 
-            <a class="cta-button" href="https://www.youtube.com/playlist?list=PLqHrpazdPffFdisI6uTt57i4S7eHzigNO" target="_blank" rel="noopener">
-                <i class="bi bi-box-arrow-up-right"></i> Mở danh sách phát trên YouTube
-            </a>
-        </div>
-
-        <div class="playlist-frame ratio ratio-16x9">
-            <iframe src="https://www.youtube.com/embed/videoseries?list=PLqHrpazdPffFdisI6uTt57i4S7eHzigNO" title="TikTok SeaZen Mastery Playlist" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-        </div>
+            <aside class="playlist-card">
+                <header class="playlist-header">
+                    <h3><i class="bi bi-list-check text-warning"></i> Playlist: TikTok SeaZen Mastery</h3>
+                    <div class="playlist-actions">
+                        <button type="button" class="playlist-action-btn" data-bs-toggle="modal" data-bs-target="#submitChannelModal" title="Gửi kênh TikTok cho SeaZen">
+                            <i class="bi bi-send-check-fill"></i>
+                        </button>
+                        <a class="playlist-action-btn" href="https://seazen.vn/submitkenh" target="_blank" rel="noopener" title="Mở form gửi kênh trong tab mới">
+                            <i class="bi bi-box-arrow-up-right"></i>
+                        </a>
+                        <a class="playlist-action-btn" href="https://zalo.me/g/kctzwm939" target="_blank" rel="noopener" title="Tham gia nhóm Zalo SeaZen">
+                            <i class="bi bi-chat-dots-fill"></i>
+                        </a>
+                        <a class="playlist-action-btn" href="https://www.youtube.com/playlist?list=PLqHrpazdPffFdisI6uTt57i4S7eHzigNO" target="_blank" rel="noopener" title="Xem playlist trên YouTube">
+                            <i class="bi bi-youtube"></i>
+                        </a>
+                    </div>
+                </header>
+                <div class="playlist-toolbar">
+                    <div class="playlist-search">
+                        <i class="bi bi-search"></i>
+                        <input type="search" id="playlistSearch" placeholder="Tìm theo tiêu đề video..." autocomplete="off">
+                        <button type="button" id="playlistSearchClear" class="d-none" aria-label="Xóa tìm kiếm">
+                            <i class="bi bi-x-circle-fill"></i>
+                        </button>
+                    </div>
+                    <div id="playlist-search-feedback" class="playlist-search-feedback d-none"></div>
+                    <div class="playlist-meta">
+                        <span><i class="bi bi-collection-play"></i><span id="playlist-count">0 video</span></span>
+                    </div>
+                </div>
+                <div id="playlist-status" class="playlist-status-text">Đang tải tiêu đề video từ Google Sheet...</div>
+                <div class="playlist-scroll">
+                    <div class="playlist-scroll-inner">
+                        <ol id="playlist-videos" class="playlist-video-list"></ol>
+                    </div>
+                </div>
+            </aside>
+        </section>
     </main>
+
+    <div class="floating-cta-group">
+        <a class="floating-cta" href="#" data-bs-toggle="modal" data-bs-target="#submitChannelModal">
+            <i class="bi bi-send-check-fill"></i><span>Gửi kênh</span>
+        </a>
+        <a class="floating-cta" href="https://seazen.vn/submitnoidung" target="_blank" rel="noopener">
+            <i class="bi bi-pencil-square"></i><span>Gửi nội dung</span>
+        </a>
+    </div>
+
+    <div class="modal fade" id="submitChannelModal" tabindex="-1" aria-labelledby="submitChannelModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="submitChannelModalLabel"><i class="bi bi-send-check-fill me-2 text-warning"></i>Gửi kênh TikTok cho SeaZen</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Đóng"></button>
+                </div>
+                <div class="modal-body p-0">
+                    <iframe class="form-frame" src="https://docs.google.com/forms/d/e/1FAIpQLSfK7hwiKNwIR2Drfvzwu1EcIm0YviqqlG5uyzcXrWGRQIxMtQ/viewform?embedded=true" allowfullscreen loading="lazy">Đang tải…</iframe>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <footer class="text-center">
         <div class="container">
@@ -247,25 +640,559 @@
     </footer>
 
     <nav class="mobile-nav" data-page="learning">
-        <a href="channels.html">
+        <a href="index.html">
             <i class="bi bi-bar-chart-fill"></i>
             <span>BXH</span>
-        </a>
-        <a href="index.html#lo-trinh">
-            <i class="bi bi-map"></i>
-            <span>Lộ trình</span>
-        </a>
-        <a href="honors.html">
-            <i class="bi bi-award-fill"></i>
-            <span>Vinh danh</span>
         </a>
         <a href="learning.html" class="active">
             <i class="bi bi-mortarboard-fill"></i>
             <span>Học thêm</span>
         </a>
+        <a href="roadmap.html">
+            <i class="bi bi-map"></i>
+            <span>Lộ trình</span>
+        </a>
     </nav>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script src="visitor-modal.js"></script>
+    
+    <script src="https://www.youtube.com/iframe_api"></script>
+
+    <script>
+        const PLAYLIST_ID = 'PLqHrpazdPffFdisI6uTt57i4S7eHzigNO';
+        const SHEET_ID = '1vrF559kiodjQyFVS_JUsp8e6QZZruxWoh7POUt2KoFQ';
+        const SHEET_NAME = 'Playlist';
+        const PLAYLIST_URL = `https://opensheet.elk.sh/${SHEET_ID}/${SHEET_NAME}`;
+
+        const playlistStatus = document.getElementById('playlist-status');
+        const playlistList = document.getElementById('playlist-videos');
+        const playlistCountLabel = document.getElementById('playlist-count');
+        const searchInput = document.getElementById('playlistSearch');
+        const searchClearBtn = document.getElementById('playlistSearchClear');
+        const searchFeedback = document.getElementById('playlist-search-feedback');
+
+        let playlistData = [];
+        let playlistElements = [];
+        let mainPlayer = null;
+        let isPlayerReady = false;
+        let pendingSelection = 0;
+        let activeIndex = -1;
+        let pendingVideoIds = null;
+        let listIndexToPlayerIndex = {};
+        let playerIndexToListIndex = [];
+        let playbackStatus = '';
+
+        function toCleanString(value) {
+            if (value === undefined || value === null) return '';
+            return String(value).trim();
+        }
+
+        function normalizeHeader(header) {
+            return toCleanString(header)
+                .toLowerCase()
+                .normalize('NFD')
+                .replace(/[\u0300-\u036f]/g, '')
+                .replace(/[^a-z0-9]+/g, '_')
+                .replace(/^_|_$/g, '');
+        }
+
+        function normalizeRowKeys(row) {
+            const normalized = {};
+            Object.entries(row).forEach(([key, value]) => {
+                const cleanKey = normalizeHeader(key);
+                normalized[cleanKey] = value;
+            });
+            return normalized;
+        }
+
+        function normalizeSearchText(value) {
+            return toCleanString(value)
+                .toLowerCase()
+                .normalize('NFD')
+                .replace(/[\u0300-\u036f]/g, '');
+        }
+
+        function parseOrder(row, fallback) {
+            const orderKeys = ['order', 'thu_tu', 'stt', 'index', 'thu_tu_trong_playlist'];
+            for (const key of orderKeys) {
+                if (row[key] !== undefined && row[key] !== null && row[key] !== '') {
+                    const parsed = Number(String(row[key]).replace(/[^\d.-]/g, ''));
+                    if (!Number.isNaN(parsed)) {
+                        return parsed;
+                    }
+                }
+            }
+            return fallback;
+        }
+
+        function extractVideoId(raw) {
+            const input = toCleanString(raw);
+            if (!input) return '';
+
+            const standard = input.match(/[?&]v=([\w-]{11})/);
+            if (standard) return standard[1];
+
+            const short = input.match(/youtu\.be\/([\w-]{11})/);
+            if (short) return short[1];
+
+            const embed = input.match(/\/embed\/([\w-]{11})/);
+            if (embed) return embed[1];
+
+            const shorts = input.match(/\/shorts\/([\w-]{11})/);
+            if (shorts) return shorts[1];
+
+            const generic = input.match(/([\w-]{11})/);
+            return generic ? generic[1] : '';
+        }
+
+        function ensurePlaylistUrl(rawUrl, playlistId) {
+            const input = toCleanString(rawUrl);
+            if (!input) {
+                return playlistId ? `https://www.youtube.com/playlist?list=${playlistId}` : '#';
+            }
+            try {
+                const url = input.startsWith('http')
+                    ? new URL(input)
+                    : new URL(input, 'https://www.youtube.com');
+                if (playlistId && !url.searchParams.get('list')) {
+                    url.searchParams.set('list', playlistId);
+                }
+                return url.toString();
+            } catch (error) {
+                return input;
+            }
+        }
+
+        function createMetaSpan(icon, text) {
+            const span = document.createElement('span');
+            span.innerHTML = `<i class="bi ${icon}"></i>${text}`;
+            return span;
+        }
+
+        function updateCountLabel(count) {
+            if (!playlistCountLabel) return;
+            playlistCountLabel.textContent = `${count.toLocaleString('vi-VN')} video`;
+        }
+
+        function updatePlaybackStatus(message) {
+            playbackStatus = message;
+            if (playlistStatus) {
+                playlistStatus.textContent = message;
+            }
+        }
+
+        function preparePlaylist(rows) {
+            return rows
+                .map(normalizeRowKeys)
+                .map((row, index) => {
+                    const title =
+                        toCleanString(row.title) ||
+                        toCleanString(row.ten_video) ||
+                        toCleanString(row.video) ||
+                        toCleanString(row.noi_dung) ||
+                        `Clip ${index + 1}`;
+
+                    const rawUrl = toCleanString(row.url) || toCleanString(row.link) || '';
+                    const moduleInfo =
+                        toCleanString(row.module) ||
+                        toCleanString(row.chuong) ||
+                        toCleanString(row.chu_de) ||
+                        toCleanString(row.chuyen_de);
+                    const durationInfo =
+                        toCleanString(row.duration) ||
+                        toCleanString(row.thoi_luong) ||
+                        toCleanString(row.time) ||
+                        toCleanString(row.do_dai);
+                    const noteInfo =
+                        toCleanString(row.note) ||
+                        toCleanString(row.ghi_chu) ||
+                        toCleanString(row.mo_ta) ||
+                        toCleanString(row.summary);
+
+                    const order = parseOrder(row, index + 1);
+                    const videoId = extractVideoId(rawUrl);
+                    const playlistUrl = ensurePlaylistUrl(
+                        rawUrl || (videoId ? `https://www.youtube.com/watch?v=${videoId}` : ''),
+                        PLAYLIST_ID
+                    );
+
+                    return {
+                        title,
+                        url: playlistUrl,
+                        module: moduleInfo,
+                        duration: durationInfo,
+                        note: noteInfo,
+                        order,
+                        videoId,
+                        searchText: normalizeSearchText(`${title} ${moduleInfo} ${noteInfo}`)
+                    };
+                })
+                .filter(item => item.title && item.url && item.url !== '#')
+                .sort((a, b) => {
+                    if (a.order !== b.order) return a.order - b.order;
+                    return a.title.localeCompare(b.title, 'vi', { sensitivity: 'base' });
+                });
+        }
+
+        function setActiveItem(index, options = {}) {
+            if (!playlistElements.length) return;
+
+            if (index < 0 || index >= playlistElements.length) {
+                activeIndex = -1;
+                updatePlaybackStatus('Chọn clip để bắt đầu học.');
+                return;
+            }
+
+            playlistElements.forEach((element, idx) => {
+                if (!element) return;
+                element.classList.toggle('active', idx === index);
+            });
+
+            activeIndex = index;
+            const current = playlistData[index];
+            if (current) {
+                const reason = options.reason === 'playing' ? 'Đang phát' : 'Sẵn sàng';
+                updatePlaybackStatus(`${reason}: ${current.title}`);
+            }
+
+            if (options.scroll !== false && playlistElements[index]) {
+                const behavior = options.instant ? 'auto' : 'smooth';
+                playlistElements[index].scrollIntoView({ behavior, block: 'nearest' });
+            }
+
+            applySearchFilter();
+        }
+
+        function scrollPlayerIntoView() {
+            if (window.matchMedia && window.matchMedia('(max-width: 768px)').matches) {
+                const target = document.querySelector('.player-stack');
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            }
+        }
+
+        function handlePlaylistSelection(index, options = {}) {
+            const item = playlistData[index];
+            if (!item) return;
+
+            pendingSelection = index;
+            const userInitiated = Boolean(options.userInitiated);
+
+            if (!item.videoId) {
+                window.open(item.url, '_blank', 'noopener');
+                updatePlaybackStatus(`Mở ${item.title} trên YouTube.`);
+                if (userInitiated) {
+                    scrollPlayerIntoView();
+                }
+                return;
+            }
+
+            const playerIndex = listIndexToPlayerIndex[index];
+
+            if (!mainPlayer || !isPlayerReady || playerIndex === undefined) {
+                setActiveItem(index, { reason: 'ready', scroll: true });
+                if (userInitiated) {
+                    scrollPlayerIntoView();
+                }
+                return;
+            }
+
+            try {
+                if (typeof mainPlayer.playVideoAt === 'function') {
+                    mainPlayer.playVideoAt(playerIndex);
+                } else {
+                    mainPlayer.loadVideoById(item.videoId);
+                }
+                setActiveItem(index, { reason: 'playing', scroll: true });
+                if (userInitiated) {
+                    scrollPlayerIntoView();
+                }
+            } catch (error) {
+                console.warn('Không thể chuyển video trong player:', error);
+                window.open(item.url, '_blank', 'noopener');
+                updatePlaybackStatus(`Mở ${item.title} trên YouTube.`);
+                if (userInitiated) {
+                    scrollPlayerIntoView();
+                }
+            }
+        }
+
+        function renderPlaylist(videos) {
+            playlistData = videos;
+            playlistElements = [];
+            playlistList.innerHTML = '';
+
+            updateCountLabel(videos.length);
+
+            if (videos.length === 0) {
+                updatePlaybackStatus('Không tìm thấy video trong Google Sheet. Hãy kiểm tra lại tab "Playlist".');
+                const emptyMessage = document.createElement('div');
+                emptyMessage.className = 'playlist-empty';
+                emptyMessage.textContent = 'Danh sách đang trống. Cập nhật tab "Playlist" để hiển thị nội dung.';
+                const wrapper = document.createElement('li');
+                wrapper.appendChild(emptyMessage);
+                playlistList.appendChild(wrapper);
+                playlistElements.push(wrapper);
+                applySearchFilter();
+                return;
+            }
+
+            const fragment = document.createDocumentFragment();
+
+            videos.forEach((item, index) => {
+                const li = document.createElement('li');
+                li.dataset.index = index;
+                li.dataset.search = item.searchText;
+
+                const indexBadge = document.createElement('div');
+                indexBadge.className = 'playlist-index';
+                indexBadge.textContent = `#${String(index + 1).padStart(2, '0')}`;
+
+                const body = document.createElement('div');
+                body.className = 'playlist-body';
+
+                const titleBtn = document.createElement('button');
+                titleBtn.type = 'button';
+                titleBtn.className = 'playlist-title-btn playlist-title';
+                titleBtn.textContent = item.title;
+                titleBtn.addEventListener('click', (event) => {
+                    event.stopPropagation();
+                    handlePlaylistSelection(index, { userInitiated: true });
+                });
+                body.appendChild(titleBtn);
+
+                const meta = document.createElement('div');
+                meta.className = 'playlist-item-meta';
+                if (item.module) {
+                    meta.appendChild(createMetaSpan('bi-grid-1x2', item.module));
+                }
+                if (item.duration) {
+                    meta.appendChild(createMetaSpan('bi-clock', item.duration));
+                }
+                if (meta.children.length > 0) {
+                    body.appendChild(meta);
+                }
+
+                if (item.note) {
+                    const noteEl = document.createElement('div');
+                    noteEl.className = 'playlist-note';
+                    noteEl.textContent = item.note;
+                    body.appendChild(noteEl);
+                }
+
+                const quickLink = document.createElement('a');
+                quickLink.href = item.url;
+                quickLink.target = '_blank';
+                quickLink.rel = 'noopener';
+                quickLink.className = 'playlist-quicklink';
+                quickLink.setAttribute('aria-label', `Mở ${item.title} trên YouTube`);
+                quickLink.innerHTML = '<i class="bi bi-box-arrow-up-right"></i>';
+                quickLink.addEventListener('click', (event) => event.stopPropagation());
+
+                li.appendChild(indexBadge);
+                li.appendChild(body);
+                li.appendChild(quickLink);
+
+                li.addEventListener('click', () => handlePlaylistSelection(index, { userInitiated: true }));
+
+                fragment.appendChild(li);
+                playlistElements.push(li);
+            });
+
+            playlistList.appendChild(fragment);
+
+            if (activeIndex < 0 || activeIndex >= videos.length) {
+                activeIndex = 0;
+            }
+
+            setActiveItem(activeIndex, { reason: 'ready', scroll: false, instant: true });
+            updatePlaybackStatus(playbackStatus || 'Chọn clip để bắt đầu học.');
+
+            updatePlayerPlaylist();
+            applySearchFilter();
+        }
+
+        function updatePlayerPlaylist() {
+            const playable = playlistData
+                .map((item, index) => (item.videoId ? { videoId: item.videoId, listIndex: index } : null))
+                .filter(Boolean);
+
+            playerIndexToListIndex = playable.map(entry => entry.listIndex);
+            listIndexToPlayerIndex = {};
+            playable.forEach((entry, playerIdx) => {
+                listIndexToPlayerIndex[entry.listIndex] = playerIdx;
+            });
+
+            const videoIds = playable.map(entry => entry.videoId);
+            pendingVideoIds = videoIds.length ? videoIds : null;
+
+            if (!mainPlayer || !isPlayerReady || !pendingVideoIds) {
+                return;
+            }
+
+            const desiredListIndex = typeof pendingSelection === 'number' ? pendingSelection : activeIndex;
+            const desiredPlayerIndex = typeof desiredListIndex === 'number' && desiredListIndex >= 0
+                ? (listIndexToPlayerIndex[desiredListIndex] ?? 0)
+                : 0;
+
+            const wasPlaying = typeof mainPlayer.getPlayerState === 'function' &&
+                mainPlayer.getPlayerState() === YT.PlayerState.PLAYING;
+
+            mainPlayer.cuePlaylist(pendingVideoIds, desiredPlayerIndex, 0);
+
+            if (wasPlaying) {
+                mainPlayer.playVideo();
+            }
+        }
+
+        function applySearchFilter() {
+            if (!playlistElements.length) return;
+
+            const keywordRaw = searchInput ? searchInput.value : '';
+            const keyword = normalizeSearchText(keywordRaw);
+            const hasKeyword = keyword.length > 0;
+            let matchCount = 0;
+            let activeHidden = false;
+
+            playlistElements.forEach((element, index) => {
+                const item = playlistData[index];
+                if (!item || !element) return;
+
+                const matches = !hasKeyword || item.searchText.includes(keyword);
+                const shouldShow = matches || index === activeIndex;
+
+                element.style.display = shouldShow ? '' : 'none';
+
+                if (matches) {
+                    matchCount += 1;
+                } else if (index === activeIndex && hasKeyword) {
+                    activeHidden = true;
+                }
+            });
+
+            if (searchClearBtn) {
+                searchClearBtn.classList.toggle('d-none', !hasKeyword);
+            }
+
+            if (searchFeedback) {
+                if (!hasKeyword) {
+                    searchFeedback.classList.add('d-none');
+                    searchFeedback.textContent = '';
+                } else {
+                    const baseMessage = matchCount
+                        ? `Tìm thấy ${matchCount.toLocaleString('vi-VN')} clip phù hợp.`
+                        : 'Không tìm thấy clip phù hợp.';
+                    const suffix = activeHidden ? ' (Vẫn giữ clip đang phát để bạn tiện theo dõi.)' : '';
+                    searchFeedback.textContent = baseMessage + suffix;
+                    searchFeedback.classList.remove('d-none');
+                }
+            }
+        }
+
+        function clearSearch() {
+            if (!searchInput) return;
+            searchInput.value = '';
+            applySearchFilter();
+            searchInput.focus();
+        }
+
+        async function fetchPlaylistFromSheet() {
+            try {
+                updatePlaybackStatus('Đang tải tiêu đề video từ Google Sheet...');
+
+                const response = await fetch(PLAYLIST_URL);
+                if (!response.ok) throw new Error(`HTTP ${response.status}`);
+
+                const data = await response.json();
+                const videos = Array.isArray(data) ? preparePlaylist(data) : [];
+                renderPlaylist(videos);
+            } catch (error) {
+                console.error('Lỗi Fetch Playlist:', error);
+                updatePlaybackStatus('Không thể tải danh sách video. Kiểm tra quyền chia sẻ tab "Playlist".');
+            }
+        }
+
+        function synchronizeActiveFromPlayer(options = {}) {
+            if (!mainPlayer || typeof mainPlayer.getPlaylistIndex !== 'function') return;
+            const playerIndex = mainPlayer.getPlaylistIndex();
+            const listIndex = playerIndexToListIndex[playerIndex];
+            if (typeof listIndex === 'number') {
+                setActiveItem(listIndex, Object.assign({ reason: 'playing' }, options));
+            }
+        }
+
+        function handlePlayerReady() {
+            isPlayerReady = true;
+            if (pendingVideoIds) {
+                updatePlayerPlaylist();
+                if (typeof pendingSelection === 'number') {
+                    handlePlaylistSelection(pendingSelection);
+                }
+            } else {
+                synchronizeActiveFromPlayer({ scroll: false, instant: true, reason: 'ready' });
+            }
+        }
+
+        function handlePlayerStateChange(event) {
+            if (!playlistData.length) return;
+
+            if (event.data === YT.PlayerState.PLAYING) {
+                synchronizeActiveFromPlayer({ scroll: true, reason: 'playing' });
+            } else if (event.data === YT.PlayerState.PAUSED || event.data === YT.PlayerState.CUED) {
+                synchronizeActiveFromPlayer({ scroll: false, instant: true, reason: 'ready' });
+            }
+        }
+
+        function handlePlayerError(event) {
+            console.warn('YouTube Player error:', event.data);
+            updatePlaybackStatus('Không thể phát video trong trình duyệt này. Vui lòng mở trực tiếp trên YouTube.');
+        }
+
+        function onYouTubeIframeAPIReady() {
+            try {
+                mainPlayer = new YT.Player('playlist-player', {
+                    width: '100%',
+                    height: '100%',
+                    playerVars: {
+                        listType: 'playlist',
+                        list: PLAYLIST_ID,
+                        modestbranding: 1,
+                        rel: 0,
+                        color: 'white'
+                    },
+                    events: {
+                        onReady: handlePlayerReady,
+                        onStateChange: handlePlayerStateChange,
+                        onError: handlePlayerError
+                    }
+                });
+            } catch (error) {
+                console.error('Không thể khởi tạo YouTube Player:', error);
+                const playerDiv = document.getElementById('playlist-player');
+                if (playerDiv) {
+                    playerDiv.innerHTML = '<p class="text-danger">Không thể tải trình phát video. Vui lòng kiểm tra kết nối hoặc cài đặt trình duyệt.</p>';
+                }
+            }
+        }
+
+        if (searchInput) {
+            searchInput.addEventListener('input', applySearchFilter);
+            searchInput.addEventListener('keydown', (event) => {
+                if (event.key === 'Escape') {
+                    clearSearch();
+                }
+            });
+        }
+
+        if (searchClearBtn) {
+            searchClearBtn.addEventListener('click', clearSearch);
+        }
+
+        document.addEventListener('DOMContentLoaded', fetchPlaylistFromSheet);
+        window.onYouTubeIframeAPIReady = onYouTubeIframeAPIReady;
+    </script>
 
 </body>
 </html>
